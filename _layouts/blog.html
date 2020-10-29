@@ -1,0 +1,47 @@
+---
+layout: default
+---
+<article class="post left">
+  <header class="post-header">
+    <h1 class="post-title">
+      {%- if page.list_title == nil -%}
+        {{ page.title | escape }}
+      {%- else -%}
+        {{ page.list_title | escape}}
+      {%- endif -%}
+    </h1>
+  </header>
+
+  <div class="post-content">
+      {%- if site.posts.size > 0 -%}
+      <ul class="post-list">
+          {%- for post in site.posts -%}
+          {%- assign has_category = false -%}
+          {%- assign has_tag = false -%}
+
+          {%- if page.categories.size > 0 and post.categories contains page.categories -%}
+          {%- assign has_category = true -%}
+          {%- endif -%}
+
+          {%- if page.tags.size > 0 and post.tags contains page.tags -%}
+          {%- assign has_tag = true -%}
+          {%- endif -%}
+
+          {%- if page.title == "Blog" or has_category == true or has_tag == true -%}
+          <li>
+              {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+              <span class="post-meta">{{ post.date | date: date_format }}</span>
+              <h3><a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+              {%- if site.show_excerpts -%}
+              {{ post.excerpt }}
+              {%- endif %}
+          </li>
+          {% endif %}
+          {%- endfor %}
+      </ul>
+      {%- else -%}
+      <p>This blog has no posts yet.</p>
+      {%- endif %}
+  </div>
+</article>
+{% include sidebar.html %}

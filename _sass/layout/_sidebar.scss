@@ -1,0 +1,43 @@
+$sidebar-margin: 10px;
+$sidebar-content-margin: 5px;
+$sidebar-width: 200px;
+
+.sidebar {
+  float: left;
+  width: $sidebar-width;
+  font-size: 13px;
+
+  ul {
+    list-style: none;
+    margin-bottom: $sidebar-content-margin;
+    margin-left: $sidebar-margin;
+  }
+
+  li {
+    margin-bottom: $sidebar-content-margin;
+  }
+
+  .sidebar-section {
+    margin-bottom: $spacing-unit / 2;
+
+    > details {
+      margin-bottom: $sidebar-content-margin;
+    }
+
+    > p {
+      margin-left: $sidebar-margin;
+    }
+  }
+
+  details {
+    margin-left: $sidebar-margin;
+
+    summary {
+      cursor: pointer;
+    }
+
+    ul {
+      margin-left: $sidebar-margin * 2;
+    }
+  }
+}

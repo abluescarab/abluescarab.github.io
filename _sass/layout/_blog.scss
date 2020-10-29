@@ -1,0 +1,23 @@
+.blog {
+  float: left;
+  width: $content-width - $sidebar-width - ($spacing-unit * 2) - $blog-margin-right;
+  margin-right: $blog-margin-right;
+
+  // $content-width:    800px !default;
+  // $on-palm:          600px !default;
+  // $on-laptop:        800px !default;
+}
+
+.left {
+  float: left;
+  width: $content-width - $sidebar-width - ($spacing-unit * 2) - $blog-margin-right;
+  margin-right: $blog-margin-right;
+
+  // $content-width:    800px !default;
+  // $on-palm:          600px !default;
+  // $on-laptop:        800px !default;
+}
+
+.post-meta {
+  margin-bottom: 0;
+}

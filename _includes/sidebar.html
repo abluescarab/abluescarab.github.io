@@ -1,0 +1,42 @@
+<aside class="sidebar">
+    <div class="sidebar-section">
+        <h3>Archive</h3>
+        {%- if site.posts.size > 0 -%}
+        {%- assign years = site.posts | group_by_exp: "post", "post.date | date: '%Y'" -%}
+        {%- assign current_year = page.date | date: "%Y" -%}
+        {%- assign current_month = page.date | date: "%B" -%}
+        {%- for year in years %}
+        <details {%- if current_year == year.name %} open{%- endif -%}>
+            <summary>{{ year.name }} ({{ year.items | size }})</summary>
+            {%- assign months = year.items | group_by_exp: "post", "post.date | date: '%B'" -%}
+            {%- for month in months %}
+            <details {%- if current_year == year.name and current_month == month.name %} open{% endif %}>
+                <summary>{{ month.name }} ({{ month.items | size }})</summary>
+                <ul>
+                    {%- for post in month.items %}
+                    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+                    {%- endfor %}
+                </ul>
+            </details>
+            {%- endfor %}
+        </details>
+        {%- endfor %}
+        {%- else -%}
+            <p>No posts.</p>
+        {%- endif -%}
+    </div>
+
+    <div class="sidebar-section">
+        <h3>Categories</h3>
+        {%- if site.categories.size > 0 -%}
+        <ul>
+            {%- assign sorted_categories = site.categories | sort -%}
+            {%- for category in sorted_categories %}
+            <li><a href="/blog/category/{{ category[0] | url_escape }}">{{ category[0] }}</a> ({{ category[1] | size }})</li>
+            {%- endfor %}
+        </ul>
+        {%- else -%}
+        <p>No categories.</p>
+        {%- endif -%}
+    </div>
+</aside>
