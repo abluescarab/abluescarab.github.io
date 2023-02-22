@@ -1,0 +1,16 @@
+.header-container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    padding: var(--quad-padding);
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.content {
+    background-color: var(--medium-background-color);
+    margin: var(--quad-padding);
+    padding: var(--quad-padding);
+}

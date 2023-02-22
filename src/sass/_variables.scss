@@ -1,0 +1,28 @@
+:root {
+    --xsm-font-size: calc(var(--md-font-size) - 4pt);
+    --sm-font-size: calc(var(--md-font-size) - 2pt);
+    --md-font-size: 12pt;
+    --lg-font-size: calc(var(--md-font-size) + 2pt);
+    --xl-font-size: calc(var(--md-font-size) + 4pt);
+
+    --base-padding: 10px;
+    --half-padding: calc(var(--base-padding) / 2);
+    --quarter-padding: calc(var(--base-padding) / 4);
+    --double-padding: calc(var(--base-padding) * 2);
+    --quad-padding: calc(var(--base-padding) * 4);
+
+    // colors
+    --dark-teal: #015077;
+    --aqua: #46798e;
+    --light-yellow: #ffd157;
+    --light-gray: #eee;
+    --dark-gray: #111;
+    --medium-gray: #333;
+
+    // theme colors
+    --text-color: var(--light-gray);
+    --dark-background-color: var(--dark-gray);
+    --medium-background-color: var(--medium-gray);
+    --navigation-link-color: var(--light-gray);
+    --navigation-current-link-color: var(--light-yellow);
+}

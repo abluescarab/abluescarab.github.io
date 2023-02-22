@@ -1,0 +1,94 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans");
+header {
+  grid-column: 1;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+nav {
+  grid-column: 3;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+nav .nav-link {
+  margin-left: var(--quad-padding);
+}
+nav a {
+  color: var(--navigation-link-color);
+}
+nav .current {
+  color: var(--navigation-current-link-color);
+}
+nav .current:before {
+  content: "‹ ";
+  font-size: var(--xl-font-size);
+}
+nav .current:after {
+  content: " ›";
+  font-size: var(--xl-font-size);
+}
+
+* {
+  font-family: "Noto Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--dark-background-color);
+  color: var(--text-color);
+  font-size: var(--md-font-size);
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+:root {
+  --xsm-font-size: calc(var(--md-font-size) - 4pt);
+  --sm-font-size: calc(var(--md-font-size) - 2pt);
+  --md-font-size: 12pt;
+  --lg-font-size: calc(var(--md-font-size) + 2pt);
+  --xl-font-size: calc(var(--md-font-size) + 4pt);
+  --base-padding: 10px;
+  --half-padding: calc(var(--base-padding) / 2);
+  --quarter-padding: calc(var(--base-padding) / 4);
+  --double-padding: calc(var(--base-padding) * 2);
+  --quad-padding: calc(var(--base-padding) * 4);
+  --dark-teal: #015077;
+  --aqua: #46798e;
+  --light-yellow: #ffd157;
+  --light-gray: #eee;
+  --dark-gray: #111;
+  --medium-gray: #333;
+  --text-color: var(--light-gray);
+  --dark-background-color: var(--dark-gray);
+  --medium-background-color: var(--medium-gray);
+  --navigation-link-color: var(--light-gray);
+  --navigation-current-link-color: var(--light-yellow);
+}
+
+.header-container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  padding: var(--quad-padding);
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content {
+  background-color: var(--medium-background-color);
+  margin: var(--quad-padding);
+  padding: var(--quad-padding);
+}
