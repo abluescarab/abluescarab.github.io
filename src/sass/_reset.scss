@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono');
 
 * {
-    font-family: "Noto Sans", sans-serif;
+    font-family: "Noto Sans Mono", monospace;
     margin: 0;
     padding: 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
+    html {
+        scroll-behavior: smooth;
+    }
 }
 
 body {
