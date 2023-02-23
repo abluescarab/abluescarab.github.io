@@ -18,4 +18,8 @@ main {
     padding: var(--quad-padding);
     min-height: 75vh;
     scroll-margin-top: 110px;
+
+    h2 {
+        padding-bottom: var(--quad-padding);
+    }
 }

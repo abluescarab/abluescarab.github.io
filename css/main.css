@@ -118,3 +118,6 @@ main {
   min-height: 75vh;
   scroll-margin-top: 110px;
 }
+.content h2 {
+  padding-bottom: var(--quad-padding);
+}
