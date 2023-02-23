@@ -81,6 +81,9 @@ a, a:visited {
   display: grid;
   grid-template-columns: auto 1fr auto;
   padding: var(--quad-padding);
+  position: sticky;
+  top: 0;
+  background-color: var(--dark-background-color);
 }
 
 main {
