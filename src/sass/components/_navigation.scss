@@ -17,12 +17,12 @@ nav {
 
         &:before {
             content: "\2039\00A0";
-            font-size: var(--xl-font-size);
+            font-size: var(--lg-font-size);
         }
 
         &:after {
             content: "\00A0\203A";
-            font-size: var(--xl-font-size);
+            font-size: var(--lg-font-size);
         }
     }
 }

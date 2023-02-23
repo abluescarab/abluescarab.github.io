@@ -25,11 +25,11 @@ nav .current {
 }
 nav .current:before {
   content: "‹ ";
-  font-size: var(--xl-font-size);
+  font-size: var(--lg-font-size);
 }
 nav .current:after {
   content: " ›";
-  font-size: var(--xl-font-size);
+  font-size: var(--lg-font-size);
 }
 
 * {
