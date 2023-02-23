@@ -21,7 +21,7 @@ a, a:visited {
   text-decoration: none;
 }
 
-.xs {
+.xs-text {
   font-size: var(--xs-font-size);
 }
 
@@ -57,7 +57,7 @@ a, a:visited {
   margin-right: var(--xs-padding);
 }
 
-.sm {
+.sm-text {
   font-size: var(--sm-font-size);
 }
 
@@ -93,7 +93,7 @@ a, a:visited {
   margin-right: var(--sm-padding);
 }
 
-.md {
+.md-text {
   font-size: var(--md-font-size);
 }
 
@@ -129,7 +129,7 @@ a, a:visited {
   margin-right: var(--md-padding);
 }
 
-.lg {
+.lg-text {
   font-size: var(--lg-font-size);
 }
 
@@ -165,7 +165,7 @@ a, a:visited {
   margin-right: var(--lg-padding);
 }
 
-.xl {
+.xl-text {
   font-size: var(--xl-font-size);
 }
 
