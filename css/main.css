@@ -54,7 +54,7 @@ a, a:visited {
 }
 
 :root {
-  --xsm-font-size: calc(var(--md-font-size) - 4pt);
+  --xs-font-size: calc(var(--md-font-size) - 4pt);
   --sm-font-size: calc(var(--md-font-size) - 2pt);
   --md-font-size: 12pt;
   --lg-font-size: calc(var(--md-font-size) + 2pt);
