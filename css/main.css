@@ -275,8 +275,7 @@ nav .current:after {
 section {
   padding: var(--xl-padding);
   min-height: calc(100vh - var(--header-height) - var(--xl-padding) * 2);
-  scroll-margin-top: 125px;
-  margin-bottom: 10px;
+  scroll-margin-top: 120px;
 }
 
 #intro {
