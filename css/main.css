@@ -38,10 +38,11 @@ nav .current:after {
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
-
 body {
   background-color: var(--dark-background-color);
   color: var(--text-color);
