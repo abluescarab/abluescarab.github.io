@@ -1,7 +1,7 @@
 .header-container {
     display: grid;
     grid-template-columns: auto 1fr auto;
-    padding: var(--quad-padding);
+    padding: var(--xl-padding);
     position: sticky;
     top: 0;
     background-color: var(--dark-background-color);
@@ -14,12 +14,12 @@ main {
 
 .content {
     background-color: var(--medium-background-color);
-    margin: var(--quad-padding);
-    padding: var(--quad-padding);
+    margin: var(--xl-padding);
+    padding: var(--xl-padding);
     min-height: 75vh;
     scroll-margin-top: 110px;
 
     h2 {
-        padding-bottom: var(--quad-padding);
+        padding-bottom: var(--xl-padding);
     }
 }

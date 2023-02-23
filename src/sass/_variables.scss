@@ -5,11 +5,11 @@
     --lg-font-size: calc(var(--md-font-size) + 2pt);
     --xl-font-size: calc(var(--md-font-size) + 4pt);
 
-    --base-padding: 10px;
-    --half-padding: calc(var(--base-padding) / 2);
-    --quarter-padding: calc(var(--base-padding) / 4);
-    --double-padding: calc(var(--base-padding) * 2);
-    --quad-padding: calc(var(--base-padding) * 4);
+    --xs-padding: calc(var(--md-padding) / 4);
+    --sm-padding: calc(var(--md-padding) / 2);
+    --md-padding: 10px;
+    --lg-padding: calc(var(--md-padding) * 2);
+    --xl-padding: calc(var(--md-padding) * 4);
 
     // colors
     --dark-teal: #015077;

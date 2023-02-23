@@ -15,7 +15,7 @@ nav {
   align-items: center;
 }
 nav .nav-link {
-  margin-left: var(--quad-padding);
+  margin-left: var(--xl-padding);
 }
 nav a {
   color: var(--navigation-link-color);
@@ -79,11 +79,11 @@ a, a:visited {
   --md-font-size: 12pt;
   --lg-font-size: calc(var(--md-font-size) + 2pt);
   --xl-font-size: calc(var(--md-font-size) + 4pt);
-  --base-padding: 10px;
-  --half-padding: calc(var(--base-padding) / 2);
-  --quarter-padding: calc(var(--base-padding) / 4);
-  --double-padding: calc(var(--base-padding) * 2);
-  --quad-padding: calc(var(--base-padding) * 4);
+  --xs-padding: calc(var(--md-padding) / 4);
+  --sm-padding: calc(var(--md-padding) / 2);
+  --md-padding: 10px;
+  --lg-padding: calc(var(--md-padding) * 2);
+  --xl-padding: calc(var(--md-padding) * 4);
   --dark-teal: #015077;
   --aqua: #46798e;
   --light-yellow: #ffd157;
@@ -100,7 +100,7 @@ a, a:visited {
 .header-container {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  padding: var(--quad-padding);
+  padding: var(--xl-padding);
   position: sticky;
   top: 0;
   background-color: var(--dark-background-color);
@@ -113,11 +113,11 @@ main {
 
 .content {
   background-color: var(--medium-background-color);
-  margin: var(--quad-padding);
-  padding: var(--quad-padding);
+  margin: var(--xl-padding);
+  padding: var(--xl-padding);
   min-height: 75vh;
   scroll-margin-top: 110px;
 }
 .content h2 {
-  padding-bottom: var(--quad-padding);
+  padding-bottom: var(--xl-padding);
 }
