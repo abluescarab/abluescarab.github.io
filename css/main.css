@@ -1,5 +1,31 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono");
+:root {
+  --xs-font-size: calc(var(--md-font-size) - 4pt);
+  --sm-font-size: calc(var(--md-font-size) - 2pt);
+  --md-font-size: 12pt;
+  --lg-font-size: calc(var(--md-font-size) + 2pt);
+  --xl-font-size: calc(var(--md-font-size) + 4pt);
+  --xxl-font-size: calc(var(--md-font-size) + 6pt);
+  --xxxl-font-size: calc(var(--md-font-size) + 8pt);
+  --xs-padding: calc(var(--md-padding) / 4);
+  --sm-padding: calc(var(--md-padding) / 2);
+  --md-padding: 10px;
+  --lg-padding: calc(var(--md-padding) * 2);
+  --xl-padding: calc(var(--md-padding) * 4);
+  --dark-teal: #015077;
+  --aqua: #46798e;
+  --light-yellow: #ffd157;
+  --light-gray: #eee;
+  --dark-gray: #111;
+  --medium-gray: #222;
+  --text-color: var(--light-gray);
+  --dark-background-color: var(--dark-gray);
+  --medium-background-color: var(--medium-gray);
+  --navigation-link-color: var(--light-gray);
+  --navigation-current-link-color: var(--light-yellow);
+}
+
 * {
   font-family: "Noto Sans Mono", monospace;
   margin: 0;
@@ -201,6 +227,32 @@ a, a:visited {
   margin-right: var(--xl-padding);
 }
 
+:root {
+  --header-height: 125px;
+}
+
+.header-container {
+  align-items: center;
+  background-color: var(--dark-background-color);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  height: calc(var(--header-height) - var(--xl-padding) * 2);
+  padding: var(--xl-padding);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+#menu-icon {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  display: none;
+  font-size: 30pt;
+  grid-column: 3;
+}
+
 header {
   grid-column: 1;
 }
@@ -209,11 +261,17 @@ h1 {
   font-size: var(--xxxl-font-size);
 }
 
+@media screen and (max-width: 860px) {
+  #menu-icon {
+    display: block;
+  }
+}
 nav {
   grid-column: 3;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
+  font-size: var(--lg-font-size);
 }
 nav .nav-link {
   margin-left: var(--xl-padding);
@@ -233,45 +291,23 @@ nav .current:after {
   font-size: var(--lg-font-size);
 }
 
-:root {
-  --header-height: 125px;
-  --xs-font-size: calc(var(--md-font-size) - 4pt);
-  --sm-font-size: calc(var(--md-font-size) - 2pt);
-  --md-font-size: 12pt;
-  --lg-font-size: calc(var(--md-font-size) + 2pt);
-  --xl-font-size: calc(var(--md-font-size) + 4pt);
-  --xxl-font-size: calc(var(--md-font-size) + 6pt);
-  --xxxl-font-size: calc(var(--md-font-size) + 8pt);
-  --xs-padding: calc(var(--md-padding) / 4);
-  --sm-padding: calc(var(--md-padding) / 2);
-  --md-padding: 10px;
-  --lg-padding: calc(var(--md-padding) * 2);
-  --xl-padding: calc(var(--md-padding) * 4);
-  --dark-teal: #015077;
-  --aqua: #46798e;
-  --light-yellow: #ffd157;
-  --light-gray: #eee;
-  --dark-gray: #111;
-  --medium-gray: #222;
-  --text-color: var(--light-gray);
-  --dark-background-color: var(--dark-gray);
-  --medium-background-color: var(--medium-gray);
-  --navigation-link-color: var(--light-gray);
-  --navigation-current-link-color: var(--light-yellow);
+@media screen and (max-width: 860px) {
+  nav {
+    align-items: start;
+    background-color: var(--medium-gray);
+    bottom: 0;
+    flex-flow: column nowrap;
+    padding: var(--xl-padding);
+    width: 250px;
+    position: fixed;
+    right: -250px;
+    top: var(--header-height);
+  }
+  nav .nav-link {
+    margin-left: 0;
+    margin-bottom: var(--xl-padding);
+  }
 }
-
-.header-container {
-  align-items: center;
-  background-color: var(--dark-background-color);
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  height: calc(var(--header-height) - var(--xl-padding) * 2);
-  padding: var(--xl-padding);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
 section {
   padding: var(--xl-padding);
   min-height: calc(100vh - var(--header-height) - var(--xl-padding) * 2);

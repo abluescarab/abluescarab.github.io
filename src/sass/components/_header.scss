@@ -1,7 +1,40 @@
+// media queries
+$nav-collapse: 860px; // css variables can't be used in media queries
+
+:root {
+    --header-height: 125px;
+}
+
+.header-container {
+    align-items: center;
+    background-color: var(--dark-background-color);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    height: calc(var(--header-height) - (var(--xl-padding) * 2));
+    padding: var(--xl-padding);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+#menu-icon {
+    user-select: none;
+    cursor: pointer;
+    display: none;
+    font-size: 30pt;
+    grid-column: 3;
+}
+
 header {
     grid-column: 1;
 }
 
 h1 {
     font-size: var(--xxxl-font-size);
+}
+
+@media screen and (max-width: $nav-collapse) {
+    #menu-icon {
+        display: block;
+    }
 }

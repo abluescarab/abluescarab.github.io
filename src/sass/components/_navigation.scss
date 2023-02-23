@@ -3,6 +3,7 @@ nav {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
+    font-size: var(--lg-font-size);
 
     .nav-link {
         margin-left: var(--xl-padding);
@@ -23,6 +24,26 @@ nav {
         &:after {
             content: "\00A0\203A";
             font-size: var(--lg-font-size);
+        }
+    }
+}
+
+@media screen and (max-width: $nav-collapse) {
+    nav {
+        align-items: start;
+        background-color: var(--medium-gray);
+        bottom: 0;
+        flex-flow: column nowrap;
+        padding: var(--xl-padding);
+        width: 250px;
+        position: fixed;
+        right: -250px;
+        top: var(--header-height);
+        // display: none;
+
+        .nav-link {
+            margin-left: 0;
+            margin-bottom: var(--xl-padding);
         }
     }
 }
