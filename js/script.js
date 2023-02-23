@@ -1,4 +1,11 @@
 "use strict";
+window.addEventListener("load", (e) => {
+    const exp = document.querySelector("#experience");
+    if (exp) {
+        const currentYear = new Date().getFullYear();
+        exp.innerText = (currentYear - 2007).toLocaleString();
+    }
+});
 window.addEventListener("scroll", (e) => {
     var _a, _b;
     const sections = document.querySelectorAll("section");

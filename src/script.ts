@@ -1,3 +1,12 @@
+window.addEventListener("load", (e) => {
+    const exp: HTMLSpanElement | null = document.querySelector("#experience");
+
+    if(exp) {
+        const currentYear = new Date().getFullYear();
+        exp.innerText = (currentYear - 2007).toLocaleString();
+    }
+});
+
 window.addEventListener("scroll", (e) => {
     const sections = document.querySelectorAll("section");
     const header = document.querySelector(".header-container");
