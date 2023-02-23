@@ -1,4 +1,7 @@
 :root {
+    // sizes
+    --header-height: 125px;
+
     --xs-font-size: calc(var(--md-font-size) - 4pt);
     --sm-font-size: calc(var(--md-font-size) - 2pt);
     --md-font-size: 12pt;
