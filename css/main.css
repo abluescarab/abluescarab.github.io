@@ -272,6 +272,7 @@ nav {
   flex-flow: row wrap;
   align-items: center;
   font-size: var(--lg-font-size);
+  transition: left 250ms;
 }
 nav .nav-link {
   margin-left: var(--xl-padding);
@@ -294,14 +295,17 @@ nav .current:after {
 @media screen and (max-width: 860px) {
   nav {
     align-items: start;
-    background-color: var(--medium-gray);
-    bottom: 0;
+    background-color: var(--dark-gray);
     flex-flow: column nowrap;
     padding: var(--xl-padding);
-    width: 250px;
     position: fixed;
-    right: -250px;
+    bottom: 0;
     top: var(--header-height);
+    left: 200vw;
+    right: 0;
+  }
+  nav.open {
+    left: 0;
   }
   nav .nav-link {
     margin-left: 0;
