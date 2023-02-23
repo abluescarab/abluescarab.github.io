@@ -12,12 +12,17 @@ main {
     margin: 0 auto;
 }
 
-.content {
-    background-color: var(--medium-background-color);
+section {
     margin: var(--xl-padding);
     padding: var(--xl-padding);
     min-height: 75vh;
     scroll-margin-top: 110px;
+}
+
+.content {
+    background-color: var(--medium-background-color);
+    display: flex;
+    flex-flow: row wrap;
 
     h2 {
         padding-bottom: var(--xl-padding);
