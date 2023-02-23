@@ -1,5 +1,206 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono");
+* {
+  font-family: "Noto Sans Mono", monospace;
+  margin: 0;
+  padding: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+body {
+  background-color: var(--dark-background-color);
+  color: var(--text-color);
+  font-size: var(--md-font-size);
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+.xs {
+  font-size: var(--xs-font-size);
+}
+
+.xs-padding-top {
+  padding-top: var(--xs-padding);
+}
+
+.xs-padding-left {
+  padding-left: var(--xs-padding);
+}
+
+.xs-padding-bottom {
+  padding-bottom: var(--xs-padding);
+}
+
+.xs-padding-right {
+  padding-right: var(--xs-padding);
+}
+
+.xs-margin-top {
+  margin-top: var(--xs-padding);
+}
+
+.xs-margin-left {
+  margin-left: var(--xs-padding);
+}
+
+.xs-margin-bottom {
+  margin-bottom: var(--xs-padding);
+}
+
+.xs-margin-right {
+  margin-right: var(--xs-padding);
+}
+
+.sm {
+  font-size: var(--sm-font-size);
+}
+
+.sm-padding-top {
+  padding-top: var(--sm-padding);
+}
+
+.sm-padding-left {
+  padding-left: var(--sm-padding);
+}
+
+.sm-padding-bottom {
+  padding-bottom: var(--sm-padding);
+}
+
+.sm-padding-right {
+  padding-right: var(--sm-padding);
+}
+
+.sm-margin-top {
+  margin-top: var(--sm-padding);
+}
+
+.sm-margin-left {
+  margin-left: var(--sm-padding);
+}
+
+.sm-margin-bottom {
+  margin-bottom: var(--sm-padding);
+}
+
+.sm-margin-right {
+  margin-right: var(--sm-padding);
+}
+
+.md {
+  font-size: var(--md-font-size);
+}
+
+.md-padding-top {
+  padding-top: var(--md-padding);
+}
+
+.md-padding-left {
+  padding-left: var(--md-padding);
+}
+
+.md-padding-bottom {
+  padding-bottom: var(--md-padding);
+}
+
+.md-padding-right {
+  padding-right: var(--md-padding);
+}
+
+.md-margin-top {
+  margin-top: var(--md-padding);
+}
+
+.md-margin-left {
+  margin-left: var(--md-padding);
+}
+
+.md-margin-bottom {
+  margin-bottom: var(--md-padding);
+}
+
+.md-margin-right {
+  margin-right: var(--md-padding);
+}
+
+.lg {
+  font-size: var(--lg-font-size);
+}
+
+.lg-padding-top {
+  padding-top: var(--lg-padding);
+}
+
+.lg-padding-left {
+  padding-left: var(--lg-padding);
+}
+
+.lg-padding-bottom {
+  padding-bottom: var(--lg-padding);
+}
+
+.lg-padding-right {
+  padding-right: var(--lg-padding);
+}
+
+.lg-margin-top {
+  margin-top: var(--lg-padding);
+}
+
+.lg-margin-left {
+  margin-left: var(--lg-padding);
+}
+
+.lg-margin-bottom {
+  margin-bottom: var(--lg-padding);
+}
+
+.lg-margin-right {
+  margin-right: var(--lg-padding);
+}
+
+.xl {
+  font-size: var(--xl-font-size);
+}
+
+.xl-padding-top {
+  padding-top: var(--xl-padding);
+}
+
+.xl-padding-left {
+  padding-left: var(--xl-padding);
+}
+
+.xl-padding-bottom {
+  padding-bottom: var(--xl-padding);
+}
+
+.xl-padding-right {
+  padding-right: var(--xl-padding);
+}
+
+.xl-margin-top {
+  margin-top: var(--xl-padding);
+}
+
+.xl-margin-left {
+  margin-left: var(--xl-padding);
+}
+
+.xl-margin-bottom {
+  margin-bottom: var(--xl-padding);
+}
+
+.xl-margin-right {
+  margin-right: var(--xl-padding);
+}
+
 header {
   grid-column: 1;
 }
@@ -30,47 +231,6 @@ nav .current:before {
 nav .current:after {
   content: " ›";
   font-size: var(--lg-font-size);
-}
-
-* {
-  font-family: "Noto Sans Mono", monospace;
-  margin: 0;
-  padding: 0;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
-}
-body {
-  background-color: var(--dark-background-color);
-  color: var(--text-color);
-  font-size: var(--md-font-size);
-}
-
-a, a:visited {
-  text-decoration: none;
-}
-
-.xs {
-  font-size: var(--xs-font-size);
-}
-
-.sm {
-  font-size: var(--sm-font-size);
-}
-
-.md {
-  font-size: var(--md-font-size);
-}
-
-.lg {
-  font-size: var(--lg-font-size);
-}
-
-.xl {
-  font-size: var(--xl-font-size);
 }
 
 :root {
