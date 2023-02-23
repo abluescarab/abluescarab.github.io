@@ -16,4 +16,6 @@ main {
     background-color: var(--medium-background-color);
     margin: var(--quad-padding);
     padding: var(--quad-padding);
+    min-height: 75vh;
+    scroll-margin-top: 110px;
 }
