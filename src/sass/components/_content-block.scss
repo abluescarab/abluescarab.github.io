@@ -1,3 +1,10 @@
+.block-container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: end;
+}
+
+// TODO: fix small window reflow
 .content-block {
     align-items: center;
     background-color: var(--dark-gray);

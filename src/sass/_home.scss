@@ -37,10 +37,12 @@ section {
 .content {
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
 
     .col {
         flex: 1 0 calc(50% - calc(var(--xl-padding) * 2));
         padding-right: var(--xl-padding);
+        max-width: calc(var(--page-width) / 2);
 
         &:last-child {
             padding-right: 0;
