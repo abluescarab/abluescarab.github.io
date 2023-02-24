@@ -427,6 +427,7 @@ section {
 }
 .content h2 {
   padding-bottom: var(--xl-padding);
+  color: var(--light-yellow);
 }
 .content p {
   padding-bottom: var(--lg-padding);
