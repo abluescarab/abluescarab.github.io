@@ -1,13 +1,13 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono");
 :root {
+  --xxs-font-size: calc(var(--md-font-size) - 6pt);
   --xs-font-size: calc(var(--md-font-size) - 4pt);
   --sm-font-size: calc(var(--md-font-size) - 2pt);
-  --md-font-size: 12pt;
+  --md-font-size: 16pt;
   --lg-font-size: calc(var(--md-font-size) + 2pt);
   --xl-font-size: calc(var(--md-font-size) + 4pt);
-  --xxl-font-size: calc(var(--md-font-size) + 6pt);
-  --xxxl-font-size: calc(var(--md-font-size) + 8pt);
+  --xxl-font-size: calc(var(--md-font-size) + 8pt);
   --xs-padding: calc(var(--md-padding) / 4);
   --sm-padding: calc(var(--md-padding) / 2);
   --md-padding: 10px;
@@ -41,11 +41,15 @@
 body {
   background-color: var(--dark-background-color);
   color: var(--text-color);
-  font-size: var(--md-font-size);
+  font-size: var(--sm-font-size);
 }
 
 a, a:visited {
   text-decoration: none;
+}
+
+.xxs-text {
+  font-size: var(--xxs-font-size);
 }
 
 .xs-text {
@@ -228,6 +232,42 @@ a, a:visited {
   margin-right: var(--xl-padding);
 }
 
+.xxl-text {
+  font-size: var(--xxl-font-size);
+}
+
+.xxl-padding-top {
+  padding-top: var(--xxl-padding);
+}
+
+.xxl-padding-left {
+  padding-left: var(--xxl-padding);
+}
+
+.xxl-padding-bottom {
+  padding-bottom: var(--xxl-padding);
+}
+
+.xxl-padding-right {
+  padding-right: var(--xxl-padding);
+}
+
+.xxl-margin-top {
+  margin-top: var(--xxl-padding);
+}
+
+.xxl-margin-left {
+  margin-left: var(--xxl-padding);
+}
+
+.xxl-margin-bottom {
+  margin-bottom: var(--xxl-padding);
+}
+
+.xxl-margin-right {
+  margin-right: var(--xxl-padding);
+}
+
 :root {
   --header-height: 125px;
 }
@@ -259,7 +299,7 @@ header {
 }
 
 h1 {
-  font-size: var(--xxxl-font-size);
+  font-size: var(--lg-font-size);
 }
 
 @media screen and (max-width: 860px) {
@@ -272,7 +312,7 @@ nav {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  font-size: var(--lg-font-size);
+  font-size: var(--sm-font-size);
   transition: left 250ms;
 }
 nav .nav-link {

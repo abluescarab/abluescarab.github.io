@@ -1,11 +1,11 @@
 :root {
+    --xxs-font-size: calc(var(--md-font-size) - 6pt);
     --xs-font-size: calc(var(--md-font-size) - 4pt);
     --sm-font-size: calc(var(--md-font-size) - 2pt);
-    --md-font-size: 12pt;
+    --md-font-size: 16pt;
     --lg-font-size: calc(var(--md-font-size) + 2pt);
     --xl-font-size: calc(var(--md-font-size) + 4pt);
-    --xxl-font-size: calc(var(--md-font-size) + 6pt);
-    --xxxl-font-size: calc(var(--md-font-size) + 8pt);
+    --xxl-font-size: calc(var(--md-font-size) + 8pt);
 
     --xs-padding: calc(var(--md-padding) / 4);
     --sm-padding: calc(var(--md-padding) / 2);
