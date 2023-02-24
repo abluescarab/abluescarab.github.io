@@ -21,3 +21,11 @@ body {
 a, a:visited {
     text-decoration: none;
 }
+
+.flex {
+    display: flex;
+}
+
+.emphasis {
+    color: var(--light-yellow);
+}

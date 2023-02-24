@@ -48,6 +48,14 @@ a, a:visited {
   text-decoration: none;
 }
 
+.flex {
+  display: flex;
+}
+
+.emphasis {
+  color: var(--light-yellow);
+}
+
 .xxs-text {
   font-size: var(--xxs-font-size);
 }
@@ -351,6 +359,30 @@ nav .current:after {
   nav .nav-link {
     margin-left: 0;
     margin-bottom: var(--xl-padding);
+  }
+}
+.typing span {
+  overflow: hidden;
+  border-right: 0.15em solid var(--light-yellow);
+  white-space: nowrap;
+  letter-spacing: 0.15em;
+  animation: typing 1s steps(20, end), blink-caret 1s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--light-yellow);
   }
 }
 section {
