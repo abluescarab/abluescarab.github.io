@@ -372,7 +372,7 @@ h1 {
   font-size: var(--lg-font-size);
 }
 
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 800px) {
   #menu-icon {
     display: block;
   }
@@ -400,7 +400,7 @@ nav .current:after {
   font-size: var(--md-font-size);
 }
 
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 800px) {
   nav {
     align-items: start;
     background-color: var(--dark-gray);
