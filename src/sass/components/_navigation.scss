@@ -10,12 +10,8 @@ nav {
         margin-left: var(--xl-padding);
     }
 
-    a {
-        color: var(--navigation-link-color);
-    }
-
     .current {
-        color: var(--navigation-current-link-color);
+        color: var(--light-yellow);
 
         &:before {
             content: "\2039\00A0";

@@ -1,0 +1,19 @@
+.content-block {
+    align-items: center;
+    background-color: var(--dark-gray);
+    border-radius: 7px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    height: calc(150px - (var(--xl-padding) * 2));
+    margin: var(--sm-padding);
+    padding: var(--xl-padding);
+    transition: background-color 250ms;
+
+    img {
+        width: 50px;
+    }
+
+    &:hover {
+        background-color: var(--medium-gray);
+    }
+}

@@ -21,7 +21,7 @@ section {
         background-size: cover;
         background-repeat: no-repeat;
         filter: saturate(0);
-        opacity: 10%;
+        opacity: 15%;
     }
 
     .intro-content {
@@ -39,15 +39,16 @@ section {
     flex-flow: row wrap;
 
     .col {
-        flex: 1 0 calc(50% - var(--md-padding));
+        flex: 1 0 calc(50% - calc(var(--xl-padding) * 2));
+        padding-right: var(--xl-padding);
+
+        &:last-child {
+            padding-right: 0;
+        }
     }
 
     h2 {
         padding-bottom: var(--xl-padding);
-        color: var(--light-yellow);
-    }
-
-    p {
-        padding-bottom: var(--lg-padding);
+        color: var(--link-color);
     }
 }

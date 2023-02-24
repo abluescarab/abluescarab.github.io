@@ -20,6 +20,7 @@ body {
 
 a, a:visited {
     text-decoration: none;
+    color: var(--text-color);
 }
 
 .flex {
@@ -27,5 +28,5 @@ a, a:visited {
 }
 
 .emphasis {
-    color: var(--light-yellow);
+    color: var(--link-color);
 }
