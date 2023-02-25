@@ -35,7 +35,8 @@
 .flex-row,
 .flex-col,
 .flex-wrap,
-.flex-nowrap {
+.flex-nowrap,
+.flex-2 {
   display: flex !important;
   min-width: 0 !important;
   min-height: 0 !important;
@@ -645,25 +646,14 @@ section {
 }
 
 .content {
-  display: flex;
-  flex-flow: row wrap;
   justify-content: center;
   max-width: var(--page-width);
   margin: 0 auto;
   gap: var(--section-padding);
 }
-.content .col {
-  flex: 1 0 calc(50% - var(--section-padding) * 2);
-}
-.content .col > p {
+.content p {
   margin-bottom: var(--lg-padding);
 }
 .content h2 {
   padding-bottom: var(--section-padding);
-}
-
-@media screen and (max-width: 850px) {
-  .content .col {
-    flex-basis: 100%;
-  }
 }

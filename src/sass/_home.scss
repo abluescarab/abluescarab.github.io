@@ -9,28 +9,16 @@ section {
 }
 
 .content {
-    display: flex;
-    flex-flow: row wrap;
     justify-content: center;
     max-width: var(--page-width);
     margin: 0 auto;
     gap: var(--section-padding);
 
-    .col {
-        flex: 1 0 calc(50% - calc(var(--section-padding) * 2));
-
-        & > p {
-            margin-bottom: var(--lg-padding);
-        }
+    p {
+        margin-bottom: var(--lg-padding);
     }
 
     h2 {
         padding-bottom: var(--section-padding);
-    }
-}
-
-@media screen and (max-width: $nav-collapse) {
-    .content .col {
-        flex-basis: 100%;
     }
 }

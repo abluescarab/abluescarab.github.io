@@ -36,18 +36,18 @@
                 </div>
             </div>
         </section>
-        <section class="content" id="about">
-            <div class="col button-container flex-col flex-2">
+        <section class="content flex-2 flex-row" id="about">
+            <div class="button-container flex-col flex-2">
                 <a class="button xl-padding" target="_blank" href="https://github.com/abluescarab">
-                    <p>Explore my GitHub.</p>
+                    <span>Explore my GitHub.</span>
                     <img src="img/github.svg" />
                 </a>
                 <a class="button xl-padding" target="_blank" href="https://www.linkedin.com/in/alanagilston/">
-                    <p>Visit my LinkedIn.</p>
+                    <span>Visit my LinkedIn.</span>
                     <img src="img/linkedin.svg" />
                 </a>
             </div>
-            <div class="col">
+            <div>
                 <h2>Thanks for visiting!</h2>
                 <p>My name is Alana Gilston (she/her). I'm currently pursuing a Bachelor of Science from Portland State University and I'll get my degree in June 2023.</p>
                 <p>When I was 13, I learned my first programming language from one of my dad's old college textbooks (Visual Basic 6!). After a few months I was hooked, and I decided to learn a more modern language with Visual Basic .NET. From there, I moved on to C#, web development, Python, Java, and even some C++.</p>
@@ -61,44 +61,41 @@
                 <p class="lg-margin-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, ratione velit! Et maxime eaque nulla, nesciunt aperiam ut minus illo iste unde sint dolor molestias inventore odio facilis provident doloremque?</p>
                 <p class="lg-margin-bottom">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro architecto error asperiores eveniet laborum debitis nulla quis, deleniti repudiandae id eligendi tenetur rem harum corporis eius neque molestias, perferendis quaerat?</p>
             </div>
-            <div class="col">
 
             </div>
         </section>
         <section class="content" id="projects">
-            <div class="col">
+            <div>
 
             </div>
-            <div class="col">
+            <div>
                 <h2>Projects</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, distinctio! Enim rerum, vitae, exercitationem dignissimos consectetur provident ipsum at placeat itaque fugiat est iure quam in consequuntur modi asperiores sapiente?</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error illo odit veritatis eligendi libero porro numquam molestiae sed debitis incidunt, fugiat iste, non architecto culpa ea mollitia cumque? Beatae, praesentium.</p>
             </div>
         </section>
         <section class="content" id="contact">
-            <div class="col">
-                <h2>Contact</h2>
-                <form action="https://formspree.io/f/xrgvqwkz" method="POST">
-                    <div class="form-line md-margin-bottom">
-                        <label for="name-input">Name:</label>
-                        <input type="text" id="name-input" name="name" />
+            <h2>Contact</h2>
+            <form action="https://formspree.io/f/xrgvqwkz" method="POST">
+                <div class="form-line md-margin-bottom">
+                    <label for="name-input">Name:</label>
+                    <input type="text" id="name-input" name="name" />
+                </div>
+                <div class="form-line md-margin-bottom">
+                    <label for="email-input">Email:</label>
+                    <input type="email" id="email-input" name="email" />
+                </div>
+                <div class="form-line md-margin-bottom">
+                    <label for="message-input">Message:</label>
+                    <textarea id="message-input" name="message" rows="10"></textarea>
+                </div>
+                <div class="form-line">
+                    <div class="button-container flex-row flex-2">
+                        <button class="lg-padding" type="submit">Submit</button>
+                        <button class="lg-padding" type="reset">Reset</button>
                     </div>
-                    <div class="form-line md-margin-bottom">
-                        <label for="email-input">Email:</label>
-                        <input type="email" id="email-input" name="email" />
-                    </div>
-                    <div class="form-line md-margin-bottom">
-                        <label for="message-input">Message:</label>
-                        <textarea id="message-input" name="message" rows="10"></textarea>
-                    </div>
-                    <div class="form-line">
-                        <div class="button-container flex-row flex-2">
-                            <button class="lg-padding" type="submit">Submit</button>
-                            <button class="lg-padding" type="reset">Reset</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </section>
     </main>
     <footer class="xs-text">
