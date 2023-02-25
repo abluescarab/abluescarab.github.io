@@ -499,14 +499,6 @@ button:hover, button:focus, .button:hover, .button:focus {
   animation: blink-caret 1000ms step-end infinite;
 }
 
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
 @keyframes blink-caret {
   from, to {
     color: transparent;
