@@ -2,6 +2,10 @@
     font-size: var(--xl-font-size);
 }
 
+.xl-padding {
+    padding: var(--xl-padding);
+}
+
 .xl-padding-top {
     padding-top: var(--xl-padding);
 }
@@ -16,6 +20,10 @@
 
 .xl-padding-right {
     padding-right: var(--xl-padding);
+}
+
+.xl-margin {
+    margin: var(--xl-padding);
 }
 
 .xl-margin-top {

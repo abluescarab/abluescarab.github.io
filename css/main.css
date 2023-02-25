@@ -99,8 +99,52 @@ input, textarea, button {
   font-size: var(--xxs-font-size);
 }
 
+.xxs-padding {
+  padding: var(--xxs-padding);
+}
+
+.xxs-padding-top {
+  padding-top: var(--xxs-padding);
+}
+
+.xxs-padding-left {
+  padding-left: var(--xxs-padding);
+}
+
+.xxs-padding-bottom {
+  padding-bottom: var(--xxs-padding);
+}
+
+.xxs-padding-right {
+  padding-right: var(--xxs-padding);
+}
+
+.xxs-margin {
+  margin: var(--xxs-padding);
+}
+
+.xxs-margin-top {
+  margin-top: var(--xxs-padding);
+}
+
+.xxs-margin-left {
+  margin-left: var(--xxs-padding);
+}
+
+.xxs-margin-bottom {
+  margin-bottom: var(--xxs-padding);
+}
+
+.xxs-margin-right {
+  margin-right: var(--xxs-padding);
+}
+
 .xs-text {
   font-size: var(--xs-font-size);
+}
+
+.xs-padding {
+  padding: var(--xs-padding);
 }
 
 .xs-padding-top {
@@ -117,6 +161,10 @@ input, textarea, button {
 
 .xs-padding-right {
   padding-right: var(--xs-padding);
+}
+
+.xs-margin {
+  margin: var(--xs-padding);
 }
 
 .xs-margin-top {
@@ -139,6 +187,10 @@ input, textarea, button {
   font-size: var(--sm-font-size);
 }
 
+.sm-padding {
+  padding: var(--sm-padding);
+}
+
 .sm-padding-top {
   padding-top: var(--sm-padding);
 }
@@ -153,6 +205,10 @@ input, textarea, button {
 
 .sm-padding-right {
   padding-right: var(--sm-padding);
+}
+
+.sm-margin {
+  margin: var(--sm-padding);
 }
 
 .sm-margin-top {
@@ -175,6 +231,10 @@ input, textarea, button {
   font-size: var(--md-font-size);
 }
 
+.md-padding {
+  padding: var(--md-padding);
+}
+
 .md-padding-top {
   padding-top: var(--md-padding);
 }
@@ -189,6 +249,10 @@ input, textarea, button {
 
 .md-padding-right {
   padding-right: var(--md-padding);
+}
+
+.md-margin {
+  margin: var(--md-padding);
 }
 
 .md-margin-top {
@@ -211,6 +275,10 @@ input, textarea, button {
   font-size: var(--lg-font-size);
 }
 
+.lg-padding {
+  padding: var(--lg-padding);
+}
+
 .lg-padding-top {
   padding-top: var(--lg-padding);
 }
@@ -225,6 +293,10 @@ input, textarea, button {
 
 .lg-padding-right {
   padding-right: var(--lg-padding);
+}
+
+.lg-margin {
+  margin: var(--lg-padding);
 }
 
 .lg-margin-top {
@@ -247,6 +319,10 @@ input, textarea, button {
   font-size: var(--xl-font-size);
 }
 
+.xl-padding {
+  padding: var(--xl-padding);
+}
+
 .xl-padding-top {
   padding-top: var(--xl-padding);
 }
@@ -261,6 +337,10 @@ input, textarea, button {
 
 .xl-padding-right {
   padding-right: var(--xl-padding);
+}
+
+.xl-margin {
+  margin: var(--xl-padding);
 }
 
 .xl-margin-top {
@@ -283,6 +363,10 @@ input, textarea, button {
   font-size: var(--xxl-font-size);
 }
 
+.xxl-padding {
+  padding: var(--xxl-padding);
+}
+
 .xxl-padding-top {
   padding-top: var(--xxl-padding);
 }
@@ -297,6 +381,10 @@ input, textarea, button {
 
 .xxl-padding-right {
   padding-right: var(--xxl-padding);
+}
+
+.xxl-margin {
+  margin: var(--xxl-padding);
 }
 
 .xxl-margin-top {

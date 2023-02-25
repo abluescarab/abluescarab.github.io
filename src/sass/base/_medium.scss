@@ -2,6 +2,10 @@
     font-size: var(--md-font-size);
 }
 
+.md-padding {
+    padding: var(--md-padding);
+}
+
 .md-padding-top {
     padding-top: var(--md-padding);
 }
@@ -16,6 +20,10 @@
 
 .md-padding-right {
     padding-right: var(--md-padding);
+}
+
+.md-margin {
+    margin: var(--md-padding);
 }
 
 .md-margin-top {

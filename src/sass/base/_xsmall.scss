@@ -2,6 +2,10 @@
     font-size: var(--xs-font-size);
 }
 
+.xs-padding {
+    padding: var(--xs-padding);
+}
+
 .xs-padding-top {
     padding-top: var(--xs-padding);
 }
@@ -16,6 +20,10 @@
 
 .xs-padding-right {
     padding-right: var(--xs-padding);
+}
+
+.xs-margin {
+    margin: var(--xs-padding);
 }
 
 .xs-margin-top {

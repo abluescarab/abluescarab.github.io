@@ -1,3 +1,43 @@
 .xxs-text {
     font-size: var(--xxs-font-size);
 }
+
+.xxs-padding {
+    padding: var(--xxs-padding);
+}
+
+.xxs-padding-top {
+    padding-top: var(--xxs-padding);
+}
+
+.xxs-padding-left {
+    padding-left: var(--xxs-padding);
+}
+
+.xxs-padding-bottom {
+    padding-bottom: var(--xxs-padding);
+}
+
+.xxs-padding-right {
+    padding-right: var(--xxs-padding);
+}
+
+.xxs-margin {
+    margin: var(--xxs-padding);
+}
+
+.xxs-margin-top {
+    margin-top: var(--xxs-padding);
+}
+
+.xxs-margin-left {
+    margin-left: var(--xxs-padding);
+}
+
+.xxs-margin-bottom {
+    margin-bottom: var(--xxs-padding);
+}
+
+.xxs-margin-right {
+    margin-right: var(--xxs-padding);
+}

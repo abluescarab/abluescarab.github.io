@@ -2,6 +2,10 @@
     font-size: var(--lg-font-size);
 }
 
+.lg-padding {
+    padding: var(--lg-padding);
+}
+
 .lg-padding-top {
     padding-top: var(--lg-padding);
 }
@@ -16,6 +20,10 @@
 
 .lg-padding-right {
     padding-right: var(--lg-padding);
+}
+
+.lg-margin {
+    margin: var(--lg-padding);
 }
 
 .lg-margin-top {

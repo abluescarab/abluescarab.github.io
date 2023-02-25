@@ -2,6 +2,10 @@
     font-size: var(--sm-font-size);
 }
 
+.sm-padding {
+    padding: var(--sm-padding);
+}
+
 .sm-padding-top {
     padding-top: var(--sm-padding);
 }
@@ -16,6 +20,10 @@
 
 .sm-padding-right {
     padding-right: var(--sm-padding);
+}
+
+.sm-margin {
+    margin: var(--sm-padding);
 }
 
 .sm-margin-top {
