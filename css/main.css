@@ -596,13 +596,14 @@ h1 {
   }
 }
 nav {
-  grid-column: 3;
+  align-items: center;
   display: flex;
   flex-flow: row nowrap;
-  align-items: center;
   font-size: var(--xs-font-size);
-  transition: left 250ms;
   gap: var(--section-padding);
+  grid-column: 3;
+  transition: left 250ms;
+  visibility: hidden;
 }
 nav .current {
   color: var(--light-yellow);
@@ -630,6 +631,7 @@ nav .current:after {
   }
   nav.open {
     left: 0;
+    visibility: visible;
   }
 }
 .attn {

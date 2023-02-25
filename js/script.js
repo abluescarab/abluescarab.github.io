@@ -34,11 +34,7 @@ function type(elem, text, length, blinkDelay) {
 (_a = document.querySelector("#menu-icon")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", (e) => {
     const nav = document.querySelector("nav");
     if (nav) {
-        const links = nav === null || nav === void 0 ? void 0 : nav.children;
-        const open = toggleClass(nav, "open");
-        for (const child of links) {
-            child.setAttribute("tabindex", open ? "" : "-1");
-        }
+        toggleClass(nav, "open");
     }
 });
 document.querySelectorAll("nav a").forEach((a) => a.addEventListener("click", () => setClass(document.querySelector("nav"), "open", false)));
@@ -64,10 +60,6 @@ window.addEventListener("load", (e) => {
         const delay = (typing.dataset.blinkDelay ? parseInt(typing.dataset.blinkDelay) : 250);
         typing.innerText = "";
         type(typing, text, animation, delay);
-    }
-    if (typing && typing.dataset.animation) {
-        const text = typing.innerText;
-        typing.innerText = "";
     }
 });
 window.addEventListener("scroll", (e) => {

@@ -39,12 +39,7 @@ document.querySelector("#menu-icon")?.addEventListener("click", (e) => {
     const nav = document.querySelector("nav");
 
     if(nav) {
-        const links = nav?.children;
-        const open = toggleClass(nav, "open");
-
-        for(const child of links) {
-            child.setAttribute("tabindex", open ? "" : "-1");
-        }
+        toggleClass(nav, "open");
     }
 });
 
@@ -80,11 +75,6 @@ window.addEventListener("load", (e) => {
 
         typing.innerText = "";
         type(typing, text, animation, delay);
-    }
-
-    if(typing && typing.dataset.animation) {
-        const text = typing.innerText;
-        typing.innerText = "";
     }
 });
 
