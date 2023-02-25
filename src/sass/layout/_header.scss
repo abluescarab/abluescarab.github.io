@@ -16,6 +16,10 @@
     display: none;
     grid-column: 3;
     background-color: transparent;
+
+    &:hover, &:focus {
+        background-color: transparent;
+    }
 }
 
 header {

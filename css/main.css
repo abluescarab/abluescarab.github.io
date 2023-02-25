@@ -570,6 +570,9 @@ form .button-container {
   grid-column: 3;
   background-color: transparent;
 }
+#menu-icon:hover, #menu-icon:focus {
+  background-color: transparent;
+}
 
 header {
   grid-column: 1;
