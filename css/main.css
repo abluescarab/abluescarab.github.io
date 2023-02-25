@@ -433,32 +433,6 @@ button:hover, button:focus, .button:hover, .button:focus {
   color: var(--link-color);
 }
 
-.block-container {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: flex-end;
-  gap: var(--md-padding);
-}
-
-.content-block {
-  align-items: center;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  height: calc(150px - var(--xl-padding) * 2);
-  padding: var(--xl-padding);
-}
-.content-block img {
-  width: 50px;
-}
-
-@media screen and (max-width: 850px) {
-  .block-container {
-    align-items: center;
-  }
-  .block-container .content-block {
-    width: calc(100% - var(--xl-padding) * 2);
-  }
-}
 #intro {
   position: relative;
   display: flex;
