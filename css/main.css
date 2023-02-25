@@ -567,8 +567,8 @@ form .button-container {
           user-select: none;
   cursor: pointer;
   display: none;
-  font-size: 30pt;
   grid-column: 3;
+  background-color: transparent;
 }
 
 header {
