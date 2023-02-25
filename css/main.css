@@ -583,6 +583,7 @@ header {
 }
 header img {
   height: calc(var(--header-height) - var(--section-padding) * 2);
+  pointer-events: none;
 }
 
 h1 {
