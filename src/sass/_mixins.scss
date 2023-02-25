@@ -1,0 +1,8 @@
+@mixin interactive {
+    transition: background-color 250ms;
+
+    &:hover,
+    &:focus {
+        background-color: var(--medium-background-color);
+    }
+}

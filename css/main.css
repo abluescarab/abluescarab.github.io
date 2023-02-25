@@ -17,6 +17,7 @@
   --page-width: 1200px;
   --header-height: 125px;
   --section-padding: var(--xl-padding);
+  --border-radius: 7px;
   --dark-teal: #015077;
   --aqua: #46798e;
   --light-yellow: #ffd157;
@@ -60,10 +61,6 @@
   flex: 1 1 50%;
 }
 
-.flex-3 > * {
-  flex: 1 1 33.33%;
-}
-
 @media screen and (max-width: 850px) {
   .flex-row {
     flex-direction: column;
@@ -86,12 +83,15 @@ body {
   font-size: var(--xs-font-size);
 }
 
-a, a:visited {
+a,
+a:visited {
   text-decoration: none;
   color: var(--text-color);
 }
 
-input, textarea, button {
+input,
+textarea,
+button {
   outline: none;
 }
 
@@ -410,10 +410,12 @@ input, textarea, button {
   height: 100%;
 }
 
-button, .button {
+button,
+.button {
+  transition: background-color 250ms;
   align-items: center;
   background-color: var(--dark-background-color);
-  border-radius: 7px;
+  border-radius: var(--border-radius);
   border: 0;
   color: var(--text-color);
   cursor: pointer;
@@ -423,13 +425,19 @@ button, .button {
   gap: var(--lg-padding);
   justify-content: center;
   outline: 0;
-  transition: background-color 250ms;
 }
-button img, .button img {
+button:hover, button:focus,
+.button:hover,
+.button:focus {
+  background-color: var(--medium-background-color);
+}
+button img,
+.button img {
   width: 50px;
 }
-button:hover, button:focus, .button:hover, .button:focus {
-  background-color: var(--medium-background-color);
+button:hover, button:focus,
+.button:hover,
+.button:focus {
   color: var(--link-color);
 }
 
@@ -485,7 +493,8 @@ footer {
   padding: var(--section-padding);
   background-color: var(--dark-background-color);
 }
-footer a, footer a:visited {
+footer a,
+footer a:visited {
   color: var(--link-color);
 }
 
@@ -503,12 +512,20 @@ form .form-line {
 form label {
   min-width: 150px;
 }
-form input, form textarea {
+form input,
+form textarea {
+  transition: background-color 250ms;
   width: 100%;
   border: 0;
   background-color: var(--dark-background-color);
   color: var(--text-color);
   padding: var(--md-padding);
+  border-radius: var(--border-radius);
+}
+form input:hover, form input:focus,
+form textarea:hover,
+form textarea:focus {
+  background-color: var(--medium-background-color);
 }
 form textarea {
   resize: none;
@@ -524,7 +541,8 @@ form .button-container {
   .form-line label {
     margin-bottom: var(--md-padding);
   }
-  .form-line input, .form-line textarea {
+  .form-line input,
+  .form-line textarea {
     width: calc(100% - var(--md-padding) * 2);
   }
   .form-line .button-container {
@@ -610,21 +628,8 @@ nav .current:after {
     left: 0;
   }
 }
-.attn, .attn-hover:hover, .attn-focus:focus {
+.attn {
   color: var(--link-color);
-}
-
-.interactive, .interactive-focus {
-  background-color: var(--dark-background-color);
-  border-radius: 7px;
-  transition: background-color 250ms, color 250ms;
-}
-.interactive:hover, .interactive-focus:hover {
-  background-color: var(--medium-background-color);
-}
-
-.interactive-focus:focus {
-  background-color: var(--medium-gray);
 }
 
 section {

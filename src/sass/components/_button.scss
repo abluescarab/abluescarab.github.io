@@ -5,14 +5,17 @@
     height: 100%;
 }
 
-button, .button {
+button,
+.button {
+    @include interactive;
+
     img {
         width: 50px;
     }
 
     align-items: center;
     background-color: var(--dark-background-color);
-    border-radius: 7px;
+    border-radius: var(--border-radius);
     border: 0;
     color: var(--text-color);
     cursor: pointer;
@@ -22,11 +25,8 @@ button, .button {
     gap: var(--lg-padding);
     justify-content: center;
     outline: 0;
-    // padding: var(--xl-padding);
-    transition: background-color 250ms;
 
     &:hover, &:focus {
-        background-color: var(--medium-background-color);
         color: var(--link-color);
     }
 }

@@ -1,19 +1,5 @@
-.attn, .attn-hover:hover, .attn-focus:focus {
+.attn {
     color: var(--link-color);
-}
-
-.interactive, .interactive-focus {
-    background-color: var(--dark-background-color);
-    border-radius: 7px;
-    transition: background-color 250ms, color 250ms;
-
-    &:hover {
-        background-color: var(--medium-background-color);
-    }
-}
-
-.interactive-focus:focus {
-    background-color: var(--medium-gray);
 }
 
 section {

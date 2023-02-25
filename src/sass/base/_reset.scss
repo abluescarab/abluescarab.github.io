@@ -18,11 +18,14 @@ body {
     font-size: var(--xs-font-size);
 }
 
-a, a:visited {
+a,
+a:visited {
     text-decoration: none;
     color: var(--text-color);
 }
 
-input, textarea, button {
+input,
+textarea,
+button {
     outline: none;
 }
