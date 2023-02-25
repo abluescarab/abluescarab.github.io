@@ -441,14 +441,18 @@ nav .current:after {
   color: var(--link-color);
 }
 
-.interactive {
+.interactive, .interactive-color {
   background-color: var(--dark-gray);
   border-radius: 7px;
-  transition: background-color 250ms;
+  transition: background-color 250ms, color 250ms;
 }
-.interactive:hover, .interactive:focus {
+.interactive:hover, .interactive:focus, .interactive-color:hover, .interactive-color:focus {
   background-color: var(--medium-gray);
   outline: 0;
+}
+
+.interactive-color:hover, .interactive-color:focus {
+  color: var(--link-color);
 }
 
 section {
