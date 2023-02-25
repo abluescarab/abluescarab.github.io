@@ -18,6 +18,10 @@ section {
 
     .col {
         flex: 1 0 calc(50% - calc(var(--section-padding) * 2));
+
+        & > p {
+            margin-bottom: var(--lg-padding);
+        }
     }
 
     h2 {
