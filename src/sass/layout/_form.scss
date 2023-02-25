@@ -1,0 +1,67 @@
+$label-width: 150px;
+
+form {
+    max-width: calc(var(--page-width) / 2);
+    margin: 0 auto;
+
+    .form-line {
+        display: flex;
+        flex: row wrap;
+        width: 100%;
+        align-items: baseline;
+        justify-content: center;
+    }
+
+    label {
+        min-width: $label-width;
+    }
+
+    input, textarea {
+        width: 100%;
+        border: 0;
+        background-color: var(--dark-gray);
+        color: var(--text-color);
+        padding: var(--md-padding);
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    .button-line {
+        display: flex;
+        gap: var(--md-padding);
+        flex-flow: row wrap;
+        margin-left: $label-width;
+        width: 100%;
+    }
+
+    button {
+        cursor: pointer;
+        flex: 1 1 calc(50% - var(--md-padding));
+        padding: var(--lg-padding);
+        background-color: var(--dark-gray);
+        color: var(--text-color);
+        border: 0;
+        font-size: var(--xs-font-size);
+    }
+}
+
+@media screen and (max-width: $nav-collapse) {
+    .form-line {
+        flex-direction: column;
+
+        label {
+            margin-bottom: var(--md-padding);
+        }
+
+        input, textarea {
+            width: calc(100% - (var(--md-padding) * 2));
+        }
+
+        .button-line {
+            margin-left: 0;
+            flex-direction: column;
+        }
+    }
+}

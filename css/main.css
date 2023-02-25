@@ -358,10 +358,62 @@ footer a, footer a:visited {
   color: var(--link-color);
 }
 
-:root {
-  --header-height: 125px;
+form {
+  max-width: calc(var(--page-width) / 2);
+  margin: 0 auto;
+}
+form .form-line {
+  display: flex;
+  flex: row wrap;
+  width: 100%;
+  align-items: baseline;
+  justify-content: center;
+}
+form label {
+  min-width: 150px;
+}
+form input, form textarea {
+  width: 100%;
+  border: 0;
+  background-color: var(--dark-gray);
+  color: var(--text-color);
+  padding: var(--md-padding);
+}
+form textarea {
+  resize: none;
+}
+form .button-line {
+  display: flex;
+  gap: var(--md-padding);
+  flex-flow: row wrap;
+  margin-left: 150px;
+  width: 100%;
+}
+form button {
+  cursor: pointer;
+  flex: 1 1 calc(50% - var(--md-padding));
+  padding: var(--lg-padding);
+  background-color: var(--dark-gray);
+  color: var(--text-color);
+  border: 0;
+  font-size: var(--xs-font-size);
 }
 
+@media screen and (max-width: 850px) {
+  .form-line {
+    flex-direction: column;
+  }
+  .form-line label {
+    margin-bottom: var(--md-padding);
+  }
+  .form-line input, .form-line textarea {
+    width: calc(100% - var(--md-padding) * 2);
+  }
+  .form-line .button-line {
+    margin-left: 0;
+    flex-direction: column;
+  }
+}
 .header-container {
   align-items: center;
   background-color: var(--dark-background-color);

@@ -76,8 +76,26 @@
         <section class="content" id="contact">
             <div class="col">
                 <h2>Contact</h2>
-                <p class="lg-margin-bottom">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo ipsa neque officia! Dignissimos cum nam laboriosam perferendis sint enim consectetur, praesentium, eveniet earum odit labore, optio consequatur molestias aperiam alias?</p>
-                <p class="lg-margin-bottom">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda, excepturi quisquam dolor iste quod sapiente voluptas magnam placeat repellendus tenetur voluptatum perferendis? Totam repudiandae nostrum necessitatibus illo ea qui sunt?</p>
+                <form action="https://formspree.io/f/xrgvqwkz" method="POST">
+                    <div class="form-line md-margin-bottom">
+                        <label for="name-input">Name:</label>
+                        <input class="interactive" type="text" id="name-input" name="name" />
+                    </div>
+                    <div class="form-line md-margin-bottom">
+                        <label for="email-input">Email:</label>
+                        <input class="interactive" type="email" id="email-input" name="email" />
+                    </div>
+                    <div class="form-line md-margin-bottom">
+                        <label for="message-input">Message:</label>
+                        <textarea class="interactive" id="message-input" name="message" rows="10"></textarea>
+                    </div>
+                    <div class="form-line">
+                        <div class="button-line">
+                            <button class="interactive-color" type="submit">Submit</button>
+                            <button class="interactive-color" type="reset">Reset</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </section>
     </main>
