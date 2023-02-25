@@ -1,7 +1,8 @@
 .block-container {
     display: flex;
     flex-flow: column nowrap;
-    align-items: end;
+    align-items: flex-end;
+    margin-bottom: var(--xl-padding);
 }
 
 // TODO: fix small window reflow
@@ -22,5 +23,15 @@
 
     &:hover {
         background-color: var(--medium-gray);
+    }
+}
+
+@media screen and (max-width: $nav-collapse) {
+    .block-container {
+        align-items: center;
+
+        .content-block {
+            width: calc(100% - var(--xl-padding) * 2);
+        }
     }
 }
