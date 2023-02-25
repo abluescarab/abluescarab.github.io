@@ -5,7 +5,7 @@ nav {
     align-items: center;
     font-size: var(--xs-font-size);
     transition: left 250ms;
-    gap: var(--xl-padding);
+    gap: var(--section-padding);
 
     .current {
         color: var(--light-yellow);
@@ -27,7 +27,7 @@ nav {
         align-items: start;
         background-color: var(--dark-gray);
         flex-direction: column;
-        padding: var(--xl-padding);
+        padding: var(--section-padding);
         position: fixed;
         bottom: 0;
         top: var(--header-height);

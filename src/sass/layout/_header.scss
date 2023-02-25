@@ -3,8 +3,8 @@
     background-color: var(--dark-background-color);
     display: grid;
     grid-template-columns: auto 1fr auto;
-    height: calc(var(--header-height) - (var(--xl-padding) * 2));
-    padding: var(--xl-padding);
+    height: calc(var(--header-height) - (var(--section-padding) * 2));
+    padding: var(--section-padding);
     position: sticky;
     top: 0;
     z-index: 100;

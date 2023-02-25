@@ -16,6 +16,7 @@
   --xxl-padding: calc(var(--md-padding) * 8);
   --page-width: 1200px;
   --header-height: 125px;
+  --section-padding: var(--xl-padding);
   --dark-teal: #015077;
   --aqua: #46798e;
   --light-yellow: #ffd157;
@@ -319,7 +320,7 @@ a, a:visited {
 }
 #intro .intro-content {
   position: relative;
-  top: calc(var(--header-height) * -0.25);
+  top: calc(var(--section-padding) * -1);
   max-width: var(--page-width);
 }
 #intro .intro-content p {
@@ -351,7 +352,7 @@ a, a:visited {
   }
 }
 footer {
-  padding: var(--xl-padding);
+  padding: var(--section-padding);
   background-color: var(--dark-gray);
 }
 footer a, footer a:visited {
@@ -419,8 +420,8 @@ form button {
   background-color: var(--dark-background-color);
   display: grid;
   grid-template-columns: auto 1fr auto;
-  height: calc(var(--header-height) - var(--xl-padding) * 2);
-  padding: var(--xl-padding);
+  height: calc(var(--header-height) - var(--section-padding) * 2);
+  padding: var(--section-padding);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -456,7 +457,7 @@ nav {
   align-items: center;
   font-size: var(--xs-font-size);
   transition: left 250ms;
-  gap: var(--xl-padding);
+  gap: var(--section-padding);
 }
 nav .current {
   color: var(--light-yellow);
@@ -475,7 +476,7 @@ nav .current:after {
     align-items: start;
     background-color: var(--dark-gray);
     flex-direction: column;
-    padding: var(--xl-padding);
+    padding: var(--section-padding);
     position: fixed;
     bottom: 0;
     top: var(--header-height);
@@ -509,8 +510,8 @@ nav .current:after {
 }
 
 section {
-  padding: var(--xxl-padding);
-  min-height: calc(100vh - var(--header-height) - var(--xxl-padding) * 2);
+  padding: var(--section-padding);
+  min-height: calc(100vh - var(--header-height) - var(--section-padding) * 2);
   scroll-margin-top: 120px;
 }
 
@@ -520,13 +521,13 @@ section {
   justify-content: center;
   max-width: var(--page-width);
   margin: 0 auto;
-  gap: var(--xl-padding);
+  gap: var(--section-padding);
 }
 .content .col {
-  flex: 1 0 calc(50% - var(--xl-padding) * 2);
+  flex: 1 0 calc(50% - var(--section-padding) * 2);
 }
 .content h2 {
-  padding-bottom: var(--xl-padding);
+  padding-bottom: var(--section-padding);
 }
 
 @media screen and (max-width: 850px) {
