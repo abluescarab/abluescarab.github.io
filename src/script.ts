@@ -1,3 +1,4 @@
+// #region Utilities
 function toggleClass(element: Element, className: string) {
     if(element.classList.contains(className)) {
         element.classList.remove(className);
@@ -34,7 +35,9 @@ function type(elem: HTMLElement, text: string, length: number, blinkDelay: numbe
         }
     }, length / text.length);
 }
-
+// #endregion
+// =============================================================================
+// #region Menu Events
 document.querySelector("#menu-icon")?.addEventListener("click", (e) => {
     const nav = document.querySelector("nav");
 
@@ -45,8 +48,11 @@ document.querySelector("#menu-icon")?.addEventListener("click", (e) => {
 
 document.querySelectorAll("nav a").forEach(
     (a) => a.addEventListener("click",
-        () => setClass(document.querySelector("nav"), "open", false)));
-
+        () => setClass(document.querySelector("nav"), "open", false))
+);
+// #endregion
+// =============================================================================
+// #region Window Events
 window.addEventListener("load", (e) => {
     const exp: HTMLSpanElement | null = document.querySelector("#experience");
 
@@ -97,3 +103,4 @@ window.addEventListener("scroll", (e) => {
         }
     }
 });
+// #endregion

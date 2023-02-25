@@ -1,5 +1,6 @@
 "use strict";
 var _a;
+// #region Utilities
 function toggleClass(element, className) {
     if (element.classList.contains(className)) {
         element.classList.remove(className);
@@ -31,6 +32,9 @@ function type(elem, text, length, blinkDelay) {
         }
     }, length / text.length);
 }
+// #endregion
+// =============================================================================
+// #region Menu Events
 (_a = document.querySelector("#menu-icon")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", (e) => {
     const nav = document.querySelector("nav");
     if (nav) {
@@ -38,6 +42,9 @@ function type(elem, text, length, blinkDelay) {
     }
 });
 document.querySelectorAll("nav a").forEach((a) => a.addEventListener("click", () => setClass(document.querySelector("nav"), "open", false)));
+// #endregion
+// =============================================================================
+// #region Window Events
 window.addEventListener("load", (e) => {
     const exp = document.querySelector("#experience");
     if (exp) {
@@ -79,4 +86,5 @@ window.addEventListener("scroll", (e) => {
         }
     }
 });
+// #endregion
 //# sourceMappingURL=script.js.map
