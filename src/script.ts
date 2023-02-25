@@ -80,13 +80,10 @@ window.addEventListener("load", (e) => {
 });
 
 window.addEventListener("scroll", (e) => {
-    const nav = document.querySelector("nav");
     const sections = document.querySelectorAll("section");
     const header = document.querySelector(".header-container");
 
-    if(nav?.classList.contains("open")) {
-        nav.classList.remove("open");
-    }
+    closeDrawer();
 
     for(const section of sections) {
         // includes the header height plus a little extra so current changes

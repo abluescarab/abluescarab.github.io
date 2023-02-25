@@ -64,12 +64,9 @@ window.addEventListener("load", (e) => {
 });
 window.addEventListener("scroll", (e) => {
     var _a, _b;
-    const nav = document.querySelector("nav");
     const sections = document.querySelectorAll("section");
     const header = document.querySelector(".header-container");
-    if (nav === null || nav === void 0 ? void 0 : nav.classList.contains("open")) {
-        nav.classList.remove("open");
-    }
+    closeDrawer();
     for (const section of sections) {
         // includes the header height plus a little extra so current changes
         // partway through the previous section
