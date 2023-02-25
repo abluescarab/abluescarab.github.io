@@ -21,11 +21,12 @@
   --aqua: #46798e;
   --light-yellow: #ffd157;
   --light-gray: #eee;
-  --dark-gray: #111;
   --medium-gray: #222;
+  --dark-gray: #111;
   --text-color: var(--light-gray);
   --link-color: var(--light-yellow);
-  --dark-background-color:black;
+  --background-color: black;
+  --dark-background-color: var(--dark-gray);
   --medium-background-color: var(--medium-gray);
 }
 
@@ -41,7 +42,7 @@
   }
 }
 body {
-  background-color: var(--dark-background-color);
+  background-color: var(--background-color);
   color: var(--text-color);
   font-size: var(--xs-font-size);
 }
@@ -359,7 +360,7 @@ input, textarea, button {
 }
 footer {
   padding: var(--section-padding);
-  background-color: var(--dark-gray);
+  background-color: var(--dark-background-color);
 }
 footer a, footer a:visited {
   color: var(--link-color);
@@ -382,7 +383,7 @@ form label {
 form input, form textarea {
   width: 100%;
   border: 0;
-  background-color: var(--dark-gray);
+  background-color: var(--dark-background-color);
   color: var(--text-color);
   padding: var(--md-padding);
 }
@@ -423,7 +424,7 @@ form button {
 }
 .header-container {
   align-items: center;
-  background-color: var(--dark-background-color);
+  background-color: var(--background-color);
   display: grid;
   grid-template-columns: auto 1fr auto;
   height: calc(var(--header-height) - var(--section-padding) * 2);
@@ -487,7 +488,7 @@ nav .current:after {
 @media screen and (max-width: 850px) {
   nav {
     align-items: start;
-    background-color: var(--dark-gray);
+    background-color: var(--dark-background-color);
     flex-direction: column;
     padding: var(--section-padding);
     position: fixed;
@@ -511,12 +512,12 @@ nav .current:after {
 }
 
 .interactive, .interactive-focus {
-  background-color: var(--dark-gray);
+  background-color: var(--dark-background-color);
   border-radius: 7px;
   transition: background-color 250ms, color 250ms;
 }
 .interactive:hover, .interactive-focus:hover {
-  background-color: var(--medium-gray);
+  background-color: var(--medium-background-color);
 }
 
 .interactive-focus:focus {

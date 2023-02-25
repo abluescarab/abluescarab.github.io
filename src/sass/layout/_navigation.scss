@@ -25,7 +25,7 @@ nav {
 @media screen and (max-width: $nav-collapse) {
     nav {
         align-items: start;
-        background-color: var(--dark-gray);
+        background-color: var(--dark-background-color);
         flex-direction: column;
         padding: var(--section-padding);
         position: fixed;
