@@ -1,7 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono");
 :root {
-  --page-width: 1200px;
   --xxs-font-size: calc(var(--md-font-size) - 6pt);
   --xs-font-size: calc(var(--md-font-size) - 4pt);
   --sm-font-size: calc(var(--md-font-size) - 2pt);
@@ -15,6 +14,8 @@
   --lg-padding: calc(var(--md-padding) * 2);
   --xl-padding: calc(var(--md-padding) * 4);
   --xxl-padding: calc(var(--md-padding) * 8);
+  --page-width: 1200px;
+  --header-height: 125px;
   --dark-teal: #015077;
   --aqua: #46798e;
   --light-yellow: #ffd157;
@@ -47,14 +48,6 @@ body {
 a, a:visited {
   text-decoration: none;
   color: var(--text-color);
-}
-
-.flex {
-  display: flex;
-}
-
-.emphasis {
-  color: var(--link-color);
 }
 
 .xxs-text {
@@ -281,25 +274,18 @@ a, a:visited {
   display: flex;
   flex-flow: column nowrap;
   align-items: flex-end;
-  margin-bottom: var(--xl-padding);
+  gap: var(--md-padding);
 }
 
 .content-block {
   align-items: center;
-  background-color: var(--dark-gray);
-  border-radius: 7px;
   display: grid;
   grid-template-columns: 1fr auto;
   height: calc(150px - var(--xl-padding) * 2);
-  margin: var(--sm-padding);
   padding: var(--xl-padding);
-  transition: background-color 250ms;
 }
 .content-block img {
   width: 50px;
-}
-.content-block:hover {
-  background-color: var(--medium-gray);
 }
 
 @media screen and (max-width: 815px) {
@@ -339,6 +325,30 @@ a, a:visited {
   text-shadow: 0px 0px 5px black;
 }
 
+.typing span {
+  overflow: hidden;
+  border-right: 0.15em solid var(--link-color);
+  white-space: nowrap;
+  letter-spacing: 0.15em;
+  animation: typing 1s steps(20, end), blink-caret 1s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--link-color);
+  }
+}
 footer {
   padding: var(--xl-padding);
   background-color: var(--dark-gray);
@@ -393,9 +403,7 @@ nav {
   align-items: center;
   font-size: var(--xs-font-size);
   transition: left 250ms;
-}
-nav .nav-link {
-  margin-left: var(--xl-padding);
+  gap: var(--xl-padding);
 }
 nav .current {
   color: var(--light-yellow);
@@ -413,7 +421,7 @@ nav .current:after {
   nav {
     align-items: start;
     background-color: var(--dark-gray);
-    flex-flow: column nowrap;
+    flex-direction: column;
     padding: var(--xl-padding);
     position: fixed;
     bottom: 0;
@@ -424,35 +432,25 @@ nav .current:after {
   nav.open {
     left: 0;
   }
-  nav .nav-link {
-    margin-left: 0;
-    margin-bottom: var(--xl-padding);
-  }
 }
-.typing span {
-  overflow: hidden;
-  border-right: 0.15em solid var(--link-color);
-  white-space: nowrap;
-  letter-spacing: 0.15em;
-  animation: typing 1s steps(20, end), blink-caret 1s step-end infinite;
+.flex {
+  display: flex;
 }
 
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+.emphasis {
+  color: var(--link-color);
 }
-@keyframes blink-caret {
-  from, to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: var(--link-color);
-  }
+
+.interactive {
+  background-color: var(--dark-gray);
+  border-radius: 7px;
+  transition: background-color 250ms;
 }
+.interactive:hover, .interactive:focus {
+  background-color: var(--medium-gray);
+  outline: 0;
+}
+
 section {
   padding: var(--xxl-padding);
   min-height: calc(100vh - var(--header-height) - var(--xxl-padding) * 2);
@@ -465,13 +463,10 @@ section {
   justify-content: center;
   max-width: var(--page-width);
   margin: 0 auto;
+  gap: var(--xl-padding);
 }
 .content .col {
   flex: 1 0 calc(50% - var(--xl-padding) * 2);
-  padding-right: var(--xl-padding);
-}
-.content .col:last-child {
-  padding-right: 0;
 }
 .content h2 {
   padding-bottom: var(--xl-padding);
@@ -480,6 +475,5 @@ section {
 @media screen and (max-width: 815px) {
   .content .col {
     flex-basis: 100%;
-    padding-right: 0;
   }
 }

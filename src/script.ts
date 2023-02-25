@@ -23,7 +23,7 @@ document.querySelector("#menu-icon")?.addEventListener("click", (e) => {
     }
 });
 
-document.querySelectorAll(".nav-link a").forEach(
+document.querySelectorAll("nav a").forEach(
     (a) => a.addEventListener("click", closeDrawer));
 
 window.addEventListener("load", (e) => {

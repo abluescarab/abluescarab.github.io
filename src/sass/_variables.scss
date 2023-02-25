@@ -1,8 +1,6 @@
 $nav-collapse: 815px; // when to collapse navigation bar
 
 :root {
-    --page-width: 1200px;
-
     --xxs-font-size: calc(var(--md-font-size) - 6pt);
     --xs-font-size: calc(var(--md-font-size) - 4pt);
     --sm-font-size: calc(var(--md-font-size) - 2pt);
@@ -17,6 +15,9 @@ $nav-collapse: 815px; // when to collapse navigation bar
     --lg-padding: calc(var(--md-padding) * 2);
     --xl-padding: calc(var(--md-padding) * 4);
     --xxl-padding: calc(var(--md-padding) * 8);
+
+    --page-width: 1200px;
+    --header-height: 125px;
 
     // colors
     --dark-teal: #015077;

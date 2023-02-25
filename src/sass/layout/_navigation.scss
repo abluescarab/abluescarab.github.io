@@ -5,10 +5,7 @@ nav {
     align-items: center;
     font-size: var(--xs-font-size);
     transition: left 250ms;
-
-    .nav-link {
-        margin-left: var(--xl-padding);
-    }
+    gap: var(--xl-padding);
 
     .current {
         color: var(--light-yellow);
@@ -29,7 +26,7 @@ nav {
     nav {
         align-items: start;
         background-color: var(--dark-gray);
-        flex-flow: column nowrap;
+        flex-direction: column;
         padding: var(--xl-padding);
         position: fixed;
         bottom: 0;
@@ -39,11 +36,6 @@ nav {
 
         &.open {
             left: 0;
-        }
-
-        .nav-link {
-            margin-left: 0;
-            margin-bottom: var(--xl-padding);
         }
     }
 }
