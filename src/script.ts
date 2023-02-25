@@ -1,17 +1,20 @@
 function toggleClass(element: Element, className: string) {
     if(element.classList.contains(className)) {
         element.classList.remove(className);
+        return false;
     }
     else {
         element.classList.add(className);
+        return true;
     }
 }
 
-function closeDrawer() {
-    const nav = document.querySelector("nav");
-
-    if(nav?.classList.contains("open")) {
-        nav.classList.remove("open");
+function setClass(element: Element | null, clss: string, value: boolean) {
+    if(value) {
+        element?.classList.add(clss);
+    }
+    else {
+        element?.classList.remove(clss);
     }
 }
 
@@ -36,12 +39,18 @@ document.querySelector("#menu-icon")?.addEventListener("click", (e) => {
     const nav = document.querySelector("nav");
 
     if(nav) {
-        toggleClass(nav, "open");
+        const links = nav?.children;
+        const open = toggleClass(nav, "open");
+
+        for(const child of links) {
+            child.setAttribute("tabindex", open ? "" : "-1");
+        }
     }
 });
 
 document.querySelectorAll("nav a").forEach(
-    (a) => a.addEventListener("click", closeDrawer));
+    (a) => a.addEventListener("click",
+        () => setClass(document.querySelector("nav"), "open", false)));
 
 window.addEventListener("load", (e) => {
     const exp: HTMLSpanElement | null = document.querySelector("#experience");
@@ -83,7 +92,7 @@ window.addEventListener("scroll", (e) => {
     const sections = document.querySelectorAll("section");
     const header = document.querySelector(".header-container");
 
-    closeDrawer();
+    setClass(document.querySelector("nav"), "open", false);
 
     for(const section of sections) {
         // includes the header height plus a little extra so current changes

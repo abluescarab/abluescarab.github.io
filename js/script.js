@@ -3,15 +3,19 @@ var _a;
 function toggleClass(element, className) {
     if (element.classList.contains(className)) {
         element.classList.remove(className);
+        return false;
     }
     else {
         element.classList.add(className);
+        return true;
     }
 }
-function closeDrawer() {
-    const nav = document.querySelector("nav");
-    if (nav === null || nav === void 0 ? void 0 : nav.classList.contains("open")) {
-        nav.classList.remove("open");
+function setClass(element, clss, value) {
+    if (value) {
+        element === null || element === void 0 ? void 0 : element.classList.add(clss);
+    }
+    else {
+        element === null || element === void 0 ? void 0 : element.classList.remove(clss);
     }
 }
 function type(elem, text, length, blinkDelay) {
@@ -30,10 +34,14 @@ function type(elem, text, length, blinkDelay) {
 (_a = document.querySelector("#menu-icon")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", (e) => {
     const nav = document.querySelector("nav");
     if (nav) {
-        toggleClass(nav, "open");
+        const links = nav === null || nav === void 0 ? void 0 : nav.children;
+        const open = toggleClass(nav, "open");
+        for (const child of links) {
+            child.setAttribute("tabindex", open ? "" : "-1");
+        }
     }
 });
-document.querySelectorAll("nav a").forEach((a) => a.addEventListener("click", closeDrawer));
+document.querySelectorAll("nav a").forEach((a) => a.addEventListener("click", () => setClass(document.querySelector("nav"), "open", false)));
 window.addEventListener("load", (e) => {
     const exp = document.querySelector("#experience");
     if (exp) {
@@ -66,7 +74,7 @@ window.addEventListener("scroll", (e) => {
     var _a, _b;
     const sections = document.querySelectorAll("section");
     const header = document.querySelector(".header-container");
-    closeDrawer();
+    setClass(document.querySelector("nav"), "open", false);
     for (const section of sections) {
         // includes the header height plus a little extra so current changes
         // partway through the previous section
