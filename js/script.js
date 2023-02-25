@@ -20,12 +20,21 @@ function closeDrawer() {
         toggleClass(nav, "open");
     }
 });
-document.querySelectorAll(".nav-link a").forEach((a) => a.addEventListener("click", closeDrawer));
+document.querySelectorAll("nav a").forEach((a) => a.addEventListener("click", closeDrawer));
 window.addEventListener("load", (e) => {
     const exp = document.querySelector("#experience");
     if (exp) {
         const currentYear = new Date().getFullYear();
         exp.innerText = (currentYear - 2007).toLocaleString();
+    }
+    const repos = document.querySelector("#repos");
+    if (repos) {
+        fetch("https://api.github.com/users/abluescarab/repos?type=sources&per_page=1000")
+            .then((r) => r.json())
+            .then((d) => {
+            repos.innerText = d.length;
+        })
+            .catch((e) => console.log(e));
     }
 });
 window.addEventListener("scroll", (e) => {

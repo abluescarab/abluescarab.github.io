@@ -33,6 +33,17 @@ window.addEventListener("load", (e) => {
         const currentYear = new Date().getFullYear();
         exp.innerText = (currentYear - 2007).toLocaleString();
     }
+
+    const repos: HTMLSpanElement | null = document.querySelector("#repos");
+
+    if(repos) {
+        fetch("https://api.github.com/users/abluescarab/repos?type=sources&per_page=1000")
+            .then((r) => r.json())
+            .then((d) => {
+                repos.innerText = d.length;
+            })
+            .catch((e) => console.log(e));
+    }
 });
 
 window.addEventListener("scroll", (e) => {
