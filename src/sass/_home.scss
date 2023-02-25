@@ -4,24 +4,22 @@
     min-height: 0;
 }
 
-.emphasis {
+.emphasis, .emphasis-hover:hover, .emphasis-focus:focus {
     color: var(--link-color);
 }
 
-.interactive, .interactive-color {
+.interactive, .interactive-focus {
     background-color: var(--dark-gray);
     border-radius: 7px;
     transition: background-color 250ms, color 250ms;
 
-    &:hover, &:focus {
+    &:hover {
         background-color: var(--medium-gray);
     }
 }
 
-.interactive-color {
-    &:hover, &:focus {
-        color: var(--link-color);
-    }
+.interactive-focus:focus {
+    background-color: var(--medium-gray);
 }
 
 section {

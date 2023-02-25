@@ -506,21 +506,21 @@ nav .current:after {
   min-height: 0;
 }
 
-.emphasis {
+.emphasis, .emphasis-hover:hover, .emphasis-focus:focus {
   color: var(--link-color);
 }
 
-.interactive, .interactive-color {
+.interactive, .interactive-focus {
   background-color: var(--dark-gray);
   border-radius: 7px;
   transition: background-color 250ms, color 250ms;
 }
-.interactive:hover, .interactive:focus, .interactive-color:hover, .interactive-color:focus {
+.interactive:hover, .interactive-focus:hover {
   background-color: var(--medium-gray);
 }
 
-.interactive-color:hover, .interactive-color:focus {
-  color: var(--link-color);
+.interactive-focus:focus {
+  background-color: var(--medium-gray);
 }
 
 section {
