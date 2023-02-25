@@ -288,7 +288,7 @@ a, a:visited {
   width: 50px;
 }
 
-@media screen and (max-width: 815px) {
+@media screen and (max-width: 850px) {
   .block-container {
     align-items: center;
   }
@@ -391,7 +391,7 @@ h1 {
   font-size: var(--lg-font-size);
 }
 
-@media screen and (max-width: 815px) {
+@media screen and (max-width: 850px) {
   #menu-icon {
     display: block;
   }
@@ -417,7 +417,7 @@ nav .current:after {
   font-size: var(--md-font-size);
 }
 
-@media screen and (max-width: 815px) {
+@media screen and (max-width: 850px) {
   nav {
     align-items: start;
     background-color: var(--dark-gray);
@@ -476,7 +476,7 @@ section {
   padding-bottom: var(--xl-padding);
 }
 
-@media screen and (max-width: 815px) {
+@media screen and (max-width: 850px) {
   .content .col {
     flex-basis: 100%;
   }
