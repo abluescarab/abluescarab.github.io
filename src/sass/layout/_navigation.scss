@@ -6,7 +6,6 @@ nav {
     gap: var(--section-padding);
     grid-column: 3;
     transition: left 250ms;
-    visibility: hidden;
 
     .current {
         color: var(--light-yellow);
@@ -34,6 +33,7 @@ nav {
         top: var(--header-height);
         left: 200vw;
         right: 0;
+        visibility: hidden;
 
         &.open {
             left: 0;

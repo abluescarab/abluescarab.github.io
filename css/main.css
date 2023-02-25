@@ -603,7 +603,6 @@ nav {
   gap: var(--section-padding);
   grid-column: 3;
   transition: left 250ms;
-  visibility: hidden;
 }
 nav .current {
   color: var(--light-yellow);
@@ -628,6 +627,7 @@ nav .current:after {
     top: var(--header-height);
     left: 200vw;
     right: 0;
+    visibility: hidden;
   }
   nav.open {
     left: 0;
