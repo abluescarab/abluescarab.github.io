@@ -507,7 +507,7 @@ nav .current:after {
   min-height: 0;
 }
 
-.emphasis, .emphasis-hover:hover, .emphasis-focus:focus {
+.attn, .attn-hover:hover, .attn-focus:focus {
   color: var(--link-color);
 }
 
