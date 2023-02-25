@@ -315,6 +315,7 @@ a, a:visited {
   background-repeat: no-repeat;
   filter: saturate(0);
   opacity: 30%;
+  z-index: -100;
 }
 #intro .intro-content {
   position: relative;
