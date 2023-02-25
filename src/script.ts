@@ -15,6 +15,23 @@ function closeDrawer() {
     }
 }
 
+function type(elem: HTMLElement, text: string, length: number, blinkDelay: number) {
+    let index = 0;
+
+    const typeInterval = setInterval(() => {
+        elem.textContent += text[index];
+        index++;
+
+        if(index == text.length) {
+            clearInterval(typeInterval);
+
+            setTimeout(() => {
+                elem.classList.add("blink");
+            }, blinkDelay);
+        }
+    }, length / text.length);
+}
+
 document.querySelector("#menu-icon")?.addEventListener("click", (e) => {
     const nav = document.querySelector("nav");
 
@@ -43,6 +60,22 @@ window.addEventListener("load", (e) => {
                 repos.innerText = d.length;
             })
             .catch((e) => console.log(e));
+    }
+
+    const typing = document.querySelector(".typing") as HTMLElement;
+
+    if(typing) {
+        const text = typing.innerText;
+        const animation = (typing.dataset.animation ? parseInt(typing.dataset.animation) : 1000);
+        const delay = (typing.dataset.blinkDelay ? parseInt(typing.dataset.blinkDelay) : 250);
+
+        typing.innerText = "";
+        type(typing, text, animation, delay);
+    }
+
+    if(typing && typing.dataset.animation) {
+        const text = typing.innerText;
+        typing.innerText = "";
     }
 });
 

@@ -14,6 +14,19 @@ function closeDrawer() {
         nav.classList.remove("open");
     }
 }
+function type(elem, text, length, blinkDelay) {
+    let index = 0;
+    const typeInterval = setInterval(() => {
+        elem.textContent += text[index];
+        index++;
+        if (index == text.length) {
+            clearInterval(typeInterval);
+            setTimeout(() => {
+                elem.classList.add("blink");
+            }, blinkDelay);
+        }
+    }, length / text.length);
+}
 (_a = document.querySelector("#menu-icon")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", (e) => {
     const nav = document.querySelector("nav");
     if (nav) {
@@ -35,6 +48,18 @@ window.addEventListener("load", (e) => {
             repos.innerText = d.length;
         })
             .catch((e) => console.log(e));
+    }
+    const typing = document.querySelector(".typing");
+    if (typing) {
+        const text = typing.innerText;
+        const animation = (typing.dataset.animation ? parseInt(typing.dataset.animation) : 1000);
+        const delay = (typing.dataset.blinkDelay ? parseInt(typing.dataset.blinkDelay) : 250);
+        typing.innerText = "";
+        type(typing, text, animation, delay);
+    }
+    if (typing && typing.dataset.animation) {
+        const text = typing.innerText;
+        typing.innerText = "";
     }
 });
 window.addEventListener("scroll", (e) => {

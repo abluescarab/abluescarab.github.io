@@ -329,12 +329,12 @@ a, a:visited {
   text-shadow: 0px 0px 5px black;
 }
 
-.typing span {
-  overflow: hidden;
-  border-right: 0.15em solid var(--link-color);
-  white-space: nowrap;
-  letter-spacing: 0.15em;
-  animation: typing 1s steps(20, end), blink-caret 1s step-end infinite;
+.typing::after {
+  content: "█";
+}
+
+.blink::after {
+  animation: blink-caret 1000ms step-end infinite;
 }
 
 @keyframes typing {
@@ -347,10 +347,10 @@ a, a:visited {
 }
 @keyframes blink-caret {
   from, to {
-    border-color: transparent;
+    color: transparent;
   }
   50% {
-    border-color: var(--link-color);
+    color: var(--link-color);
   }
 }
 footer {
