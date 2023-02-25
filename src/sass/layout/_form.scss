@@ -28,22 +28,8 @@ form {
         resize: none;
     }
 
-    .button-line {
-        display: flex;
-        gap: var(--md-padding);
-        flex-flow: row wrap;
+    .button-container {
         margin-left: $label-width;
-        width: 100%;
-    }
-
-    button {
-        cursor: pointer;
-        flex: 1 1 calc(50% - var(--md-padding));
-        padding: var(--lg-padding);
-        background-color: var(--dark-gray);
-        color: var(--text-color);
-        border: 0;
-        font-size: var(--xs-font-size);
     }
 }
 
@@ -59,9 +45,8 @@ form {
             width: calc(100% - (var(--md-padding) * 2));
         }
 
-        .button-line {
+        .button-container {
             margin-left: 0;
-            flex-direction: column;
         }
     }
 }

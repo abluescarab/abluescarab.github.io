@@ -1,0 +1,39 @@
+.flex,
+.flex-row,
+.flex-col,
+.flex-wrap,
+.flex-nowrap {
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+
+.flex-2 > * {
+    flex: 1 1 50%;
+}
+
+.flex-3 > * {
+    flex: 1 1 33.33%;
+}
+
+@media screen and (max-width: $nav-collapse) {
+    .flex-row {
+        flex-direction: column;
+    }
+}
