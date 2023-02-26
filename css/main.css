@@ -703,3 +703,24 @@ section {
 .content h2 {
   padding-bottom: var(--section-padding);
 }
+
+#skills #programming-languages {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--lg-padding);
+}
+#skills #programming-languages > div {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--md-padding);
+  min-width: 100px;
+  min-height: 100px;
+}
+#skills img {
+  max-height: 50px;
+  max-width: 50px;
+}
