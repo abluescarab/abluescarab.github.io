@@ -160,9 +160,15 @@ window.addEventListener("load", () => {
     const repos = document.querySelector("#repos");
     if (repos) {
         fetch("https://api.github.com/users/abluescarab/repos?type=sources&per_page=1000")
-            .then((r) => r.json())
+            .then((r) => {
+            if (r.ok) {
+                return r.json();
+            }
+        })
             .then((d) => {
-            repos.innerText = d.length;
+            if (d) {
+                repos.innerText = d.length;
+            }
         })
             .catch((e) => console.log(e));
     }
