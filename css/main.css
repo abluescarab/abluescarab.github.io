@@ -484,7 +484,12 @@ button:hover, button:focus,
 }
 
 details > div {
-  margin: var(--md-padding);
+  border-radius: var(--border-radius);
+  margin-top: calc(var(--lg-padding) * -1);
+  padding: var(--xl-padding);
+  background-color: var(--dark-background-color);
+  position: relative;
+  z-index: -1;
 }
 
 #intro {
