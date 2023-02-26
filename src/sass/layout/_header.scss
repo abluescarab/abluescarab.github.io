@@ -27,7 +27,6 @@ header {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    gap: var(--lg-padding);
 
     img {
         height: calc(var(--header-height) - (var(--section-padding) * 2));

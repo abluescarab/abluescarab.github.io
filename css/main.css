@@ -100,6 +100,10 @@ button {
   font-size: var(--xxs-font-size) !important;
 }
 
+.xxs-gap {
+  gap: var(--xxs-padding) !important;
+}
+
 .xxs-padding {
   padding: var(--xxs-padding) !important;
 }
@@ -142,6 +146,10 @@ button {
 
 .xs-text {
   font-size: var(--xs-font-size) !important;
+}
+
+.xs-gap {
+  gap: var(--xs-padding) !important;
 }
 
 .xs-padding {
@@ -188,6 +196,10 @@ button {
   font-size: var(--sm-font-size) !important;
 }
 
+.sm-gap {
+  gap: var(--sm-padding) !important;
+}
+
 .sm-padding {
   padding: var(--sm-padding) !important;
 }
@@ -230,6 +242,10 @@ button {
 
 .md-text {
   font-size: var(--md-font-size) !important;
+}
+
+.md-gap {
+  gap: var(--md-padding) !important;
 }
 
 .md-padding {
@@ -276,6 +292,10 @@ button {
   font-size: var(--lg-font-size) !important;
 }
 
+.lg-gap {
+  gap: var(--lg-padding) !important;
+}
+
 .lg-padding {
   padding: var(--lg-padding) !important;
 }
@@ -320,6 +340,10 @@ button {
   font-size: var(--xl-font-size) !important;
 }
 
+.xl-gap {
+  gap: var(--xl-padding) !important;
+}
+
 .xl-padding {
   padding: var(--xl-padding) !important;
 }
@@ -362,6 +386,10 @@ button {
 
 .xxl-text {
   font-size: var(--xxl-font-size) !important;
+}
+
+.xxl-gap {
+  gap: var(--xxl-padding) !important;
 }
 
 .xxl-padding {
@@ -580,7 +608,6 @@ header {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  gap: var(--lg-padding);
 }
 header img {
   height: calc(var(--header-height) - var(--section-padding) * 2);
