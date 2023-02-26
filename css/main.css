@@ -99,8 +99,10 @@ a:visited {
 
 input,
 textarea,
-button {
+button,
+.button {
   outline: none;
+  font-size: var(--xs-font-size);
 }
 
 .xxs-text {
@@ -460,7 +462,6 @@ button,
   cursor: pointer;
   display: flex;
   flex-flow: row nowrap;
-  font-size: var(--xs-font-size);
   gap: var(--lg-padding);
   justify-content: center;
   outline: 0;

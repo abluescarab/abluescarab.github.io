@@ -30,6 +30,8 @@ a:visited {
 
 input,
 textarea,
-button {
+button,
+.button {
     outline: none;
+    font-size: var(--xs-font-size);
 }
