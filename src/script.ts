@@ -38,7 +38,7 @@ function type(elem: HTMLElement, text: string, length: number, blinkDelay: numbe
 // #endregion
 // =============================================================================
 // #region Menu Events
-document.querySelector("#menu-icon")?.addEventListener("click", (e) => {
+document.querySelector("#menu-icon")?.addEventListener("click", () => {
     const nav = document.querySelector("nav");
 
     if(nav) {
@@ -53,7 +53,7 @@ document.querySelectorAll("nav a").forEach(
 // #endregion
 // =============================================================================
 // #region Window Events
-window.addEventListener("load", (e) => {
+window.addEventListener("load", () => {
     const exp: HTMLSpanElement | null = document.querySelector("#experience");
 
     if(exp) {
@@ -84,7 +84,7 @@ window.addEventListener("load", (e) => {
     }
 });
 
-window.addEventListener("scroll", (e) => {
+window.addEventListener("scroll", () => {
     const sections = document.querySelectorAll("section");
     const header = document.querySelector(".header-container");
 

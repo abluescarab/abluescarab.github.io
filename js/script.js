@@ -35,7 +35,7 @@ function type(elem, text, length, blinkDelay) {
 // #endregion
 // =============================================================================
 // #region Menu Events
-(_a = document.querySelector("#menu-icon")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", (e) => {
+(_a = document.querySelector("#menu-icon")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
     const nav = document.querySelector("nav");
     if (nav) {
         toggleClass(nav, "open");
@@ -45,7 +45,7 @@ document.querySelectorAll("nav a").forEach((a) => a.addEventListener("click", ()
 // #endregion
 // =============================================================================
 // #region Window Events
-window.addEventListener("load", (e) => {
+window.addEventListener("load", () => {
     const exp = document.querySelector("#experience");
     if (exp) {
         const currentYear = new Date().getFullYear();
@@ -69,7 +69,7 @@ window.addEventListener("load", (e) => {
         type(typing, text, animation, delay);
     }
 });
-window.addEventListener("scroll", (e) => {
+window.addEventListener("scroll", () => {
     var _a, _b;
     const sections = document.querySelectorAll("section");
     const header = document.querySelector(".header-container");

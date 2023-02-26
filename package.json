@@ -1,0 +1,16 @@
+{
+  "name": "abluescarab.github.io",
+  "version": "1.0.0",
+  "description": "This is the repository containing my portfolio website. The current portfolio was designed for the final project in Portland State University's Intro to Web Dev class.",
+  "main": "js/script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alana Gilston",
+  "license": "GPL-3.0-only",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
+    "eslint": "^8.34.0"
+  }
+}
