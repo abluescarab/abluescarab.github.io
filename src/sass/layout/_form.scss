@@ -1,6 +1,5 @@
-$label-width: 150px;
-
 form {
+    --label-width: 150px;
     max-width: var(--page-width);
     margin: 0 auto;
 
@@ -13,7 +12,7 @@ form {
     }
 
     label {
-        min-width: $label-width;
+        min-width: var(--label-width);
     }
 
     input,
@@ -33,7 +32,7 @@ form {
     }
 
     .button-container {
-        margin-left: $label-width;
+        margin-left: var(--label-width);
     }
 }
 

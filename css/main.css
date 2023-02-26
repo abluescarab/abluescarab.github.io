@@ -580,6 +580,7 @@ footer a:visited {
 }
 
 form {
+  --label-width: 150px;
   max-width: var(--page-width);
   margin: 0 auto;
 }
@@ -591,7 +592,7 @@ form .form-line {
   justify-content: center;
 }
 form label {
-  min-width: 150px;
+  min-width: var(--label-width);
 }
 form input,
 form textarea {
@@ -612,7 +613,7 @@ form textarea {
   resize: none;
 }
 form .button-container {
-  margin-left: 150px;
+  margin-left: var(--label-width);
 }
 
 @media screen and (max-width: 850px) {
