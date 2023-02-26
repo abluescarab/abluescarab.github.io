@@ -18,6 +18,10 @@ body {
     font-size: var(--xs-font-size);
 }
 
+p:not(:last-child) {
+    margin-bottom: var(--lg-padding);
+}
+
 a,
 a:visited {
     text-decoration: none;
