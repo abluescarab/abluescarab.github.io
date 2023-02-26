@@ -1,12 +1,15 @@
-.flex,
-.flex-row,
-.flex-col,
-.flex-wrap,
-.flex-nowrap,
-.flex-2 {
+.flex {
     display: flex !important;
     min-width: 0 !important;
     min-height: 0 !important;
+
+    @include has-children(2) {
+        flex: 1 0 50% !important;
+    }
+
+    @include has-children(4) {
+        flex: 1 0 25% !important;
+    }
 }
 
 .flex-row {
@@ -23,10 +26,6 @@
 
 .flex-nowrap {
     flex-wrap: nowrap !important;
-}
-
-.flex-2 > * {
-    flex: 1 1 50% !important;
 }
 
 @media screen and (max-width: $nav-collapse) {
