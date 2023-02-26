@@ -689,7 +689,6 @@ nav {
   font-size: var(--xs-font-size);
   gap: var(--section-padding);
   grid-column: 3;
-  transition: left 250ms;
 }
 nav .current {
   color: var(--light-yellow);
@@ -715,6 +714,7 @@ nav .current:after {
     left: 200vw;
     right: 0;
     visibility: hidden;
+    transition: left 250ms, visibility 300ms;
   }
   nav.open {
     left: 0;
