@@ -36,8 +36,14 @@
   min-width: 0 !important;
   min-height: 0 !important;
 }
+.flex:first-child:nth-last-child(1) {
+  flex: 1 0 100% !important;
+}
 .flex:first-child:nth-last-child(2), .flex:first-child:nth-last-child(2) ~ .flex {
   flex: 1 0 50% !important;
+}
+.flex:first-child:nth-last-child(3), .flex:first-child:nth-last-child(3) ~ .flex {
+  flex: 1 0 33.33% !important;
 }
 .flex:first-child:nth-last-child(4), .flex:first-child:nth-last-child(4) ~ .flex {
   flex: 1 0 25% !important;
@@ -688,9 +694,6 @@ section {
   max-width: var(--page-width);
   margin: 0 auto;
   gap: var(--section-padding);
-}
-.content p {
-  margin-bottom: var(--lg-padding);
 }
 .content h2 {
   padding-bottom: var(--section-padding);
