@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+
+<svg
+   width="800px"
+   height="800px"
+   viewBox="0 0 24 24"
+   fill="none"
+   version="1.1"
+   id="svg11"
+   sodipodi:docname="zoom.svg"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs15" />
+<sodipodi:namedview
+   id="namedview13"
+   pagecolor="#ffffff"
+   bordercolor="#999999"
+   borderopacity="1"
+   inkscape:pageshadow="0"
+   inkscape:pageopacity="0"
+   inkscape:pagecheckerboard="true"
+   showgrid="false"
+   inkscape:zoom="0.449375"
+   inkscape:cx="548.53964"
+   inkscape:cy="449.51321"
+   inkscape:window-width="1920"
+   inkscape:window-height="1009"
+   inkscape:window-x="-8"
+   inkscape:window-y="-8"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="svg11" />
+<path
+   id="path1071"
+   style="stroke-width:33.3333;fill:#ffffff;fill-opacity:1"
+   d="M 266.66602 0 C 119.39002 -3.7895613e-14 0 119.39002 0 266.66602 L 0 533.33398 C -3.7895613e-14 680.61065 119.39002 800 266.66602 800 L 533.33398 800 C 680.61065 800 800 680.61065 800 533.33398 L 800 266.66602 C 800 119.39002 680.61065 0 533.33398 0 L 266.66602 0 z M 200 266.66602 L 400 266.66602 C 455.23 266.66602 500 311.43768 500 366.66602 L 500 500 C 500 518.41 485.07602 533.33398 466.66602 533.33398 L 266.66602 533.33398 C 211.43768 533.33398 166.66602 488.56398 166.66602 433.33398 L 166.66602 300 C 166.66602 281.59067 181.59067 266.66602 200 266.66602 z M 607.78711 274.82227 C 620.71588 274.6502 633.33398 284.54187 633.33398 299.87109 L 633.33398 500.13281 C 633.33398 523.21615 604.71953 533.96708 589.51953 516.59375 L 533.16016 452.1875 C 522.52682 440.03417 516.66602 424.43378 516.66602 408.28711 L 516.66602 391.7168 C 516.66602 375.57013 522.52682 359.96974 533.16016 347.81641 L 589.51953 283.4082 C 594.62578 277.57207 601.24667 274.90931 607.78711 274.82227 z "
+   transform="scale(0.03)" />
+<g
+   id="SVGRepo_bgCarrier"
+   stroke-width="0" />
+
+#FFFFFF
+<g
+   id="SVGRepo_tracerCarrier"
+   stroke-linecap="round"
+   stroke-linejoin="round" />
+</svg>

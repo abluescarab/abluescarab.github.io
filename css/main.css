@@ -493,6 +493,34 @@ details > div {
   z-index: -1;
 }
 
+.flex-grid {
+  display: flex;
+  flex-direction: row;
+  gap: var(--md-padding);
+}
+.flex-grid > * {
+  width: 100%;
+}
+.flex-grid .row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--md-padding);
+}
+
+@media screen and (max-width: 850px) {
+  .flex-grid {
+    flex-wrap: wrap;
+  }
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 100px);
+  grid-auto-rows: 1fr;
+  align-items: start;
+  justify-content: center;
+  gap: var(--md-padding);
+}
+
 #intro {
   position: relative;
   display: flex;
@@ -705,23 +733,16 @@ section {
   padding-bottom: var(--section-padding);
 }
 
-#skills #programming-languages {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: center;
-  gap: var(--lg-padding);
-}
-#skills #programming-languages > div {
+#skills .skill {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  width: 100px;
   gap: var(--md-padding);
-  min-width: 100px;
-  min-height: 100px;
+  text-align: center;
 }
 #skills img {
-  max-height: 50px;
-  max-width: 50px;
+  max-height: 40px;
+  max-width: 40px;
 }

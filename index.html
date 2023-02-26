@@ -36,8 +36,8 @@
                 </div>
             </div>
         </section>
-        <section class="content flex flex-row" id="about">
-            <div class="button-container flex flex-col">
+        <section class="content flex-grid" id="about">
+            <div class="button-container row">
                 <a class="button xl-padding" target="_blank" href="https://github.com/abluescarab">
                     <span>Explore my GitHub.</span>
                     <img src="img/github.svg" alt="GitHub" />
@@ -47,7 +47,7 @@
                     <img src="img/linkedin.svg" alt="LinkedIn" />
                 </a>
             </div>
-            <div>
+            <div class="row">
                 <h2>Thanks for visiting!</h2>
                 <p>My name is Alana Gilston (she/her). I'm currently pursuing a Bachelor of Science from Portland State University and I'll get my degree in June 2023.</p>
                 <p>When I was 13, I learned my first programming language from one of my dad's old college textbooks (Visual Basic 6!). After a few months I was hooked, and I decided to learn a more modern language with Visual Basic .NET. From there, I moved on to C#, web development, Python, Java, and even some C++.</p>
@@ -57,38 +57,139 @@
         </section>
         <section class="content" id="skills">
             <h2>Skills</h2>
-            <div class="flex flex-row md-gap">
-                <div class="flex flex-col md-gap">
+            <div class="flex-grid">
+                <div class="row">
                     <details>
                         <summary class="button xl-padding">Programming Languages</summary>
-                        <div id="programming-languages">
-                            <div class="language">
+                        <div class="grid">
+                            <div class="skill">
                                 <img src="img/languages/csharp.svg" alt="C Sharp" />
                                 <p>C#</p>
                             </div>
-                            <div class="language">
+                            <div class="skill">
                                 <img src="img/languages/python.svg" alt="Python"/>
                                 <p>Python</p>
                             </div>
-                            <div class="language">
+                            <div class="skill">
                                 <img src="img/languages/java.svg" alt="Java"/>
                                 <p>Java</p>
                             </div>
-                            <div class="language">
+                            <div class="skill">
                                 <img src="img/languages/cplusplus.svg" alt="C Plus Plus"/>
                                 <p>C++</p>
                             </div>
-                            <div class="language">
+                            <div class="skill">
                                 <img src="img/languages/html5.svg" alt="HTML 5"/>
                                 <p>HTML/HTML5</p>
                             </div>
-                            <div class="language">
+                            <div class="skill">
                                 <img src="img/languages/css3.svg" alt="CSS 3"/>
                                 <p>CSS/CSS3</p>
                             </div>
-                            <div class="language">
+                            <div class="skill">
                                 <img src="img/languages/javascript.svg" alt="JavaScript"/>
                                 <p>JavaScript</p>
+                            </div>
+                        </div>
+                    </details>
+                    <details>
+                        <summary class="button xl-padding">Operating Systems</summary>
+                        <div class="grid">
+                            <div class="skill">
+                                <img src="img/windows.svg" alt="Windows" />
+                                <p>Windows</p>
+                            </div>
+                            <div class="skill">
+                                <img src="img/ubuntu.svg" alt="Ubuntu Linux"/>
+                                <p>Linux (Ubuntu)</p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+                <div class="row">
+                    <details>
+                        <summary class="button xl-padding">Software</summary>
+                        <div class="grid">
+                            <div class="skill">
+                                <img src="img/software/git.svg" alt="Git"/>
+                                <p>Git</p>
+                            </div>
+                            <div class="skill">
+                                <img src="img/software/visualstudio.svg" alt="Visual Studio"/>
+                                <p>Visual Studio</p>
+                            </div>
+                            <div class="skill">
+                                <img src="img/software/vscode.svg" alt="Visual Studio Code"/>
+                                <p>VS Code</p>
+                            </div>
+                            <div class="skill">
+                                <img src="img/software/blender3d.svg" alt="Blender 3D"/>
+                                <p>Blender3D</p>
+                            </div>
+                            <div class="skill">
+                                <img src="img/software/gimp.svg" alt="GNU Image Manipulation Program"/>
+                                <p>GIMP</p>
+                            </div>
+                            <div class="skill">
+                                <img src="img/software/inkscape.svg" alt="Inkscape"/>
+                                <p>Inkscape</p>
+                            </div>
+                            <div class="skill">
+                                <img src="img/software/discord.svg" alt="Discord"/>
+                                <p>Discord</p>
+                            </div>
+                            <div class="skill">
+                                <img src="img/software/android.svg" alt="Android Studio"/>
+                                <p>Android Studio</p>
+                            </div>
+                            <div class="skill">
+                                <img src="img/software/jetbrains.svg" alt="JetBrains"/>
+                                <p>IntelliJ IDEA</p>
+                            </div>
+                            <div class="skill">
+                                <img src="img/software/word.svg" alt="Microsoft Word"/>
+                                <p>Word</p>
+                            </div>
+                            <div class="skill">
+                                <img src="img/software/powerpoint.svg" alt="Microsoft PowerPoint"/>
+                                <p>PowerPoint</p>
+                            </div>
+                            <div class="skill">
+                                <img src="img/software/zoom.svg" alt="Zoom"/>
+                                <p>Zoom</p>
+                            </div>
+                            <div class="skill">
+                                <img src="img/software/slack.svg" alt="Slack"/>
+                                <p>Slack</p>
+                            </div>
+                        </div>
+                    </details>
+                    <details>
+                        <summary class="button xl-padding">Other</summary>
+                        <div class="grid">
+                            <div class="skill">
+                                <img src="img/other/facebook.svg" alt="Facebook"/>
+                                <p>Facebook</p>
+                            </div>
+                            <div class="skill">
+                                <img src="img/other/google.svg" alt="Google Workspace"/>
+                                <p>Google Workspace</p>
+                            </div>
+                            <div class="skill">
+                                <img src="img/other/ionic.svg" alt="Ionic Framework"/>
+                                <p>Ionic Framework</p>
+                            </div>
+                            <div class="skill">
+                                <img src="img/other/latex.svg" alt="Latex"/>
+                                <p>LaTeX</p>
+                            </div>
+                            <div class="skill">
+                                <img src="img/other/reddit.svg" alt="Reddit"/>
+                                <p>Reddit</p>
+                            </div>
+                            <div class="skill">
+                                <img src="img/other/youtube.svg" alt="YouTube"/>
+                                <p>YouTube</p>
                             </div>
                         </div>
                     </details>
@@ -131,7 +232,19 @@
     </main>
     <footer class="xxs-text">
         <p>Vectors and icons via <a href="https://www.svgrepo.com/" target="_blank">SVG Repo</a>.</p>
-        <p>Creators: <a href="https://www.primefaces.org/diamond/icons.xhtml?ref=svgrepo.com" target="_blank">Primefaces</a> (GitHub, LinkedIn), <a href="https://icooon-mono.com/?ref=svgrepo.com" target="_blank">Icooon Mono</a> (C#), <a href="https://github.com/blivesta/flexicon?ref=svgrepo.com" target="_blank">Blivesta</a> (HTML5), <a href="https://github.com/jtblabs/jtb-icons?ref=svgrepo.com" target="_blank">Jtblabs</a> (CSS3, Python, JavaScript), <a href="https://github.com/UXAspects/UXAspects?ref=svgrepo.com" target="_blank">Uxaspects</a> (Java), <a href="https://github.com/atisawd/boxicons?ref=svgrepo.com" target="_blank">Boxicons</a> (C++).</p>
+        <p>Creators:
+            <a href="https://github.com/atisawd/boxicons?ref=svgrepo.com" target="_blank">Boxicons</a> (C++),
+            <a href="https://github.com/blivesta/flexicon?ref=svgrepo.com" target="_blank">Blivesta</a> (HTML5),
+            <a href="https://github.com/coreui/coreui-icons/?ref=svgrepo.com" target="_blank">Coreui</a> (Visual Studio, VS Code, JetBrains, Ionic, LaTeX),
+            <a href="https://github.com/DiemenDesign/LibreICONS?ref=svgrepo.com" target="_blank">Diemen Design</a> (Microsoft Word, Microsoft PowerPoint),
+            <a href="https://github.com/etn-ccis/blui-icons?ref=svgrepo.com" target="_blank">Etn Ccis</a> (PowerPoint),
+            <a href="https://github.com/grommet/grommet-icons?ref=svgrepo.com" target="_blank">Grommet</a> (Zoom),
+            <a href="https://icooon-mono.com/?ref=svgrepo.com" target="_blank">Icooon Mono</a> (C#),
+            <a href="https://github.com/instructure/instructure-ui?ref=svgrepo.com" target="_blank">Instructure Ui</a> (Windows),
+            <a href="https://github.com/jtblabs/jtb-icons?ref=svgrepo.com" target="_blank">Jtblabs</a> (CSS3, Python, JavaScript, GIMP, Inkscape, Blender, Git, Ubuntu),
+            <a href="https://www.primefaces.org/diamond/icons.xhtml?ref=svgrepo.com" target="_blank">Primefaces</a> (GitHub, LinkedIn, Discord, Slack, YouTube, Google, Facebook, reddit),
+            <a href="https://github.com/UXAspects/UXAspects?ref=svgrepo.com" target="_blank">Uxaspects</a> (Java).
+        </p>
     </footer>
 
     <script type="text/javascript" src="./js/script.js"></script>
