@@ -454,6 +454,9 @@ button,
   gap: var(--lg-padding);
   justify-content: center;
   outline: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 button:hover, button:focus,
 .button:hover,
@@ -468,6 +471,15 @@ button:hover, button:focus,
 .button:hover,
 .button:focus {
   color: var(--link-color);
+}
+
+details {
+  height: var(--collapsed);
+  overflow: hidden;
+  transition: height 250ms ease-in-out;
+}
+details[open] {
+  height: var(--expanded);
 }
 
 #intro {

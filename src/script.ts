@@ -46,14 +46,136 @@ document.querySelector("#menu-icon")?.addEventListener("click", () => {
     }
 });
 
-document.querySelectorAll("nav a").forEach(
-    (a) => a.addEventListener("click",
-        () => setClass(document.querySelector("nav"), "open", false))
-);
+document.querySelectorAll("nav a").forEach((a) => {
+    a.addEventListener("click", () => setClass(document.querySelector("nav"), "open", false));
+});
+// #endregion
+// =============================================================================
+// #region Details Events
+// modified from https://css-tricks.com/how-to-animate-the-details-element-using-waapi/
+class Accordion {
+    el: HTMLElement;
+    summary: HTMLElement | null;
+    content: HTMLElement | null;
+    animation: Animation | null = null;
+    isClosing = false;
+    isExpanding = false;
+    animationLength = 250;
+
+    constructor(el: HTMLElement) {
+        // Store the <details> element
+        this.el = el;
+        // Store the <summary> element
+        this.summary = el.querySelector("summary");
+        // Store the <div> element
+        this.content = el.querySelector("div");
+
+        // Detect user clicks on the summary element
+        if(this.summary) {
+            this.summary.addEventListener("click", (e) => this.onClick(e));
+        }
+    }
+
+    onClick(e: MouseEvent) {
+        // Stop default behaviour from the browser
+        e.preventDefault();
+        // Add an overflow on the <details> to avoid content overflowing
+        this.el.style.overflow = "hidden";
+        // Check if the element is being closed or is already closed
+        if (this.isClosing || !this.el.hasAttribute("open")) {
+            this.open();
+        }
+        // Check if the element is being openned or is already open
+        else if (this.isExpanding || this.el.hasAttribute("open")) {
+            this.shrink();
+        }
+    }
+
+    shrinkOrExpand(expand: boolean) {
+        if(!this.summary || !this.content) {
+            return;
+        }
+
+        // Store the current height of the element
+        const startHeight = `${this.el.offsetHeight}px`;
+        // Calculate the height of the summary
+        const endHeight = `${this.summary.offsetHeight
+            + (expand ? this.content.offsetHeight : 0)}px`;
+
+        // If there is already an animation running
+        if (this.animation) {
+            // Cancel the current animation
+            this.animation.cancel();
+        }
+
+        // Start a WAAPI animation
+        this.animation = this.el.animate({
+            // Set the keyframes from the startHeight to endHeight
+            height: [startHeight, endHeight]
+        }, {
+            duration: this.animationLength,
+            easing: "ease-out"
+        });
+
+        // When the animation is complete, call onAnimationFinish()
+        this.animation.onfinish = () => this.onAnimationFinish(expand);
+    }
+
+    shrink() {
+        // Set the element as "being closed"
+        this.isClosing = true;
+        this.shrinkOrExpand(false);
+
+        if(this.animation) {
+            this.animation.oncancel = () => this.isClosing = false;
+        }
+    }
+
+    open() {
+        // Apply a fixed height on the element
+        this.el.style.height = `${this.el.offsetHeight}px`;
+        // Force the [open] attribute on the details element
+        this.el.setAttribute("open", "");
+        // Wait for the next frame to call the expand function
+        window.requestAnimationFrame(() => this.expand());
+    }
+
+    expand() {
+        // Set the element as "being expanded"
+        this.isExpanding = true;
+        this.shrinkOrExpand(true);
+
+        if(this.animation) {
+            this.animation.oncancel = () => this.isExpanding = false;
+        }
+    }
+
+    onAnimationFinish(open: boolean) {
+        // Set the open attribute based on the parameter
+        if(open) {
+            this.el.setAttribute("open", "");
+        }
+        else {
+            this.el.removeAttribute("open");
+        }
+
+        // Clear the stored animation
+        this.animation = null;
+        // Reset isClosing & isExpanding
+        this.isClosing = false;
+        this.isExpanding = false;
+        // Remove the overflow hidden and the fixed height
+        this.el.style.height = this.el.style.overflow = "";
+    }
+}
 // #endregion
 // =============================================================================
 // #region Window Events
 window.addEventListener("load", () => {
+    document.querySelectorAll("details").forEach((e) => {
+        new Accordion(e);
+    });
+
     const exp: HTMLSpanElement | null = document.querySelector("#experience");
 
     if(exp) {

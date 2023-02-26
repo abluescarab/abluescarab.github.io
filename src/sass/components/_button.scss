@@ -29,6 +29,7 @@ button,
     gap: var(--lg-padding);
     justify-content: center;
     outline: 0;
+    user-select: none;
 
     &:hover, &:focus {
         color: var(--link-color);
