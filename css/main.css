@@ -87,6 +87,16 @@ body {
   font-size: var(--xs-font-size);
 }
 
+h1 {
+  font-size: var(--lg-font-size);
+}
+
+h2 {
+  font-weight: normal;
+  font-size: var(--lg-font-size);
+  margin-bottom: var(--lg-padding);
+}
+
 p:not(:last-child) {
   margin-bottom: var(--lg-padding);
 }
@@ -665,10 +675,6 @@ header {
 header img {
   height: calc(var(--header-height) - var(--section-padding) * 2);
   pointer-events: none;
-}
-
-h1 {
-  font-size: var(--lg-font-size);
 }
 
 @media screen and (max-width: 850px) {
