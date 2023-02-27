@@ -528,7 +528,7 @@ details > div {
   grid-auto-rows: 1fr;
   align-items: start;
   justify-content: center;
-  gap: var(--md-padding);
+  gap: var(--lg-padding);
 }
 
 #intro {
