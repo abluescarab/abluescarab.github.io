@@ -564,6 +564,49 @@ details > div {
   text-shadow: 0px 0px 5px black;
 }
 
+.slideshow-container {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.slideshow-container::before, .slideshow-container::after {
+  align-items: center;
+  background-color: var(--dark-background-color);
+  border-radius: var(--border-radius);
+  display: flex;
+  font-family: "Material Symbols Outlined";
+  font-size: var(--xxl-font-size);
+  padding: var(--lg-padding);
+  position: relative;
+  z-index: -1;
+}
+.slideshow-container::before {
+  content: "chevron_left";
+  right: -5px;
+}
+.slideshow-container::after {
+  content: "chevron_right";
+  left: -5px;
+}
+
+.slideshow {
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark-background-color);
+}
+
+.slide {
+  display: grid;
+  grid-template-rows: 0.5fr 1fr;
+  flex: 1 0 50%;
+}
+.slide .slide-image {
+  max-width: 100%;
+  border-radius: var(--border-radius);
+}
+
 .typing::after {
   content: "█";
 }

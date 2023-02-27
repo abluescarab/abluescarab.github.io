@@ -1,0 +1,63 @@
+.slideshow-container {
+    display: flex;
+    flex-flow: row nowrap;
+
+    &::before, &::after {
+        align-items: center;
+        background-color: var(--dark-background-color);
+        border-radius: var(--border-radius);
+        display: flex;
+        font-family: "Material Symbols Outlined";
+        font-size: var(--xxl-font-size);
+        padding: var(--lg-padding);
+        position: relative;
+        z-index: -1;
+    }
+
+    &::before {
+        content: "chevron_left";
+        right: -5px;
+    }
+
+    &::after {
+        content: "chevron_right";
+        left: -5px;
+    }
+}
+
+.slideshow {
+    display: flex;
+    flex-flow: row nowrap;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    // padding: var(--xxl-padding) 0;
+    background-color: var(--dark-background-color);
+    // gap: var(--xl-padding);
+}
+
+.slide {
+    display: grid;
+    grid-template-rows: 0.5fr 1fr;
+    flex: 1 0 50%;
+
+    &:not(.current) {
+        // display: none;
+    }
+
+    &.current {
+
+    }
+
+    .slide-image {
+        max-width: 100%;
+        border-radius: var(--border-radius);
+    }
+}
+
+.slideshow {
+    // padding: var(--section-padding);
+    // background-color: var(--dark-background-color);
+    // gap: var(--section-padding);
+    // height: 400px;
+}
