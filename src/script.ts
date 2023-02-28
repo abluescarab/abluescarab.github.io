@@ -1,4 +1,13 @@
 // #region Utilities
+function getIndex(index: number, length: number, nextIndex: boolean) {
+    if(nextIndex) {
+        return (index === length - 1 ? 0 : index + 1);
+    }
+    else {
+        return (index === 0 ? length - 1 : index - 1);
+    }
+}
+
 function toggleClass(element: Element, className: string) {
     if(element.classList.contains(className)) {
         element.classList.remove(className);
@@ -168,6 +177,64 @@ class Accordion {
         this.el.style.height = this.el.style.overflow = "";
     }
 }
+// #endregion
+// =============================================================================
+// #region Slideshow Events
+function getSlideTitle(slides: NodeListOf<Element>, index: number) {
+    const slide = slides[index] as HTMLElement;
+
+    return (slide.dataset.title ? slide.dataset.title : "");
+}
+
+function changeSlide(e: Event) {
+    const target = e.target as HTMLElement;
+    const leftTitle: HTMLElement | null = document.querySelector("#left-title");
+    const currentTitle: HTMLElement | null = document.querySelector("#current-title");
+    const rightTitle: HTMLElement | null = document.querySelector("#right-title");
+    const slides = document.querySelectorAll(".slide");
+    let previousSlide = -1;
+    let index = 0;
+    let nextSlide = -1;
+
+    if(!leftTitle || !currentTitle || !rightTitle) {
+        return;
+    }
+
+    for(const [idx, slide] of slides.entries()) {
+        if(slide.classList.contains("current")) {
+            index = idx;
+            break;
+        }
+    }
+
+    previousSlide = getIndex(index, slides.length, false);
+    nextSlide = getIndex(index, slides.length, true);
+
+    setClass(slides[index], "current", false);
+
+    if(target.id === "slideshow-left") {
+        setClass(slides[previousSlide], "current", true);
+
+        nextSlide = index;
+        index = previousSlide;
+        previousSlide = getIndex(previousSlide, slides.length, false);
+    }
+    else if(target.id === "slideshow-right") {
+        setClass(slides[nextSlide], "current", true);
+
+        previousSlide = index;
+        index = nextSlide;
+        nextSlide = getIndex(nextSlide, slides.length, true);
+    }
+
+    leftTitle.innerText = getSlideTitle(slides, previousSlide);
+    currentTitle.innerText = getSlideTitle(slides, index);
+    rightTitle.innerText = getSlideTitle(slides, nextSlide);
+}
+
+document.querySelectorAll(".slideshow-button").forEach((e) => {
+    e.addEventListener("click", changeSlide);
+});
 // #endregion
 // =============================================================================
 // #region Window Events

@@ -1,6 +1,14 @@
 "use strict";
 var _a;
 // #region Utilities
+function getIndex(index, length, nextIndex) {
+    if (nextIndex) {
+        return (index === length - 1 ? 0 : index + 1);
+    }
+    else {
+        return (index === 0 ? length - 1 : index - 1);
+    }
+}
 function toggleClass(element, className) {
     if (element.classList.contains(className)) {
         element.classList.remove(className);
@@ -145,6 +153,53 @@ class Accordion {
         this.el.style.height = this.el.style.overflow = "";
     }
 }
+// #endregion
+// =============================================================================
+// #region Slideshow Events
+function getSlideTitle(slides, index) {
+    const slide = slides[index];
+    return (slide.dataset.title ? slide.dataset.title : "");
+}
+function changeSlide(e) {
+    const target = e.target;
+    const leftTitle = document.querySelector("#left-title");
+    const currentTitle = document.querySelector("#current-title");
+    const rightTitle = document.querySelector("#right-title");
+    const slides = document.querySelectorAll(".slide");
+    let previousSlide = -1;
+    let index = 0;
+    let nextSlide = -1;
+    if (!leftTitle || !currentTitle || !rightTitle) {
+        return;
+    }
+    for (const [idx, slide] of slides.entries()) {
+        if (slide.classList.contains("current")) {
+            index = idx;
+            break;
+        }
+    }
+    previousSlide = getIndex(index, slides.length, false);
+    nextSlide = getIndex(index, slides.length, true);
+    setClass(slides[index], "current", false);
+    if (target.id === "slideshow-left") {
+        setClass(slides[previousSlide], "current", true);
+        nextSlide = index;
+        index = previousSlide;
+        previousSlide = getIndex(previousSlide, slides.length, false);
+    }
+    else if (target.id === "slideshow-right") {
+        setClass(slides[nextSlide], "current", true);
+        previousSlide = index;
+        index = nextSlide;
+        nextSlide = getIndex(nextSlide, slides.length, true);
+    }
+    leftTitle.innerText = getSlideTitle(slides, previousSlide);
+    currentTitle.innerText = getSlideTitle(slides, index);
+    rightTitle.innerText = getSlideTitle(slides, nextSlide);
+}
+document.querySelectorAll(".slideshow-button").forEach((e) => {
+    e.addEventListener("click", changeSlide);
+});
 // #endregion
 // =============================================================================
 // #region Window Events
