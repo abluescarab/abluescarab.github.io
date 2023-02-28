@@ -561,45 +561,43 @@ details > div {
 }
 
 .slideshow-container {
+  --slideshow-height: 600px;
   display: flex;
-  flex-flow: row nowrap;
-}
-.slideshow-container::before, .slideshow-container::after {
-  align-items: center;
+  flex-flow: column nowrap;
+  height: var(--slideshow-height);
   background-color: var(--dark-background-color);
   border-radius: var(--border-radius);
-  display: flex;
-  font-family: "Material Symbols Outlined";
-  font-size: var(--xxl-font-size);
-  padding: var(--lg-padding);
-  position: relative;
-  z-index: -1;
+  padding: var(--md-padding);
 }
-.slideshow-container::before {
-  content: "chevron_left";
-  right: -5px;
-}
-.slideshow-container::after {
-  content: "chevron_right";
-  left: -5px;
-}
-
-.slideshow {
-  display: flex;
-  flex-flow: row nowrap;
-  overflow: hidden;
+.slideshow-container .controls {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr auto;
   justify-content: center;
   align-items: center;
-  background-color: var(--dark-background-color);
 }
-
-.slide {
-  display: grid;
-  grid-template-rows: 0.5fr 1fr;
-  flex: 1 0 50%;
+.slideshow-container .controls button {
+  padding: var(--lg-padding);
 }
-.slide .slide-image {
+.slideshow-container .controls p, .slideshow-container .controls h3 {
+  text-align: center;
+}
+.slideshow-container .slideshow {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: var(--lg-padding) var(--xl-padding) var(--xl-padding) var(--xl-padding);
+}
+.slideshow-container .slideshow .slide {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: var(--lg-padding);
+}
+.slideshow-container .slideshow .slide:not(.current) {
+  display: none;
+}
+.slideshow-container .slideshow .slide .slide-image {
   max-width: 100%;
+  height: calc(var(--slideshow-height) / 2);
   border-radius: var(--border-radius);
 }
 
@@ -766,7 +764,8 @@ nav .current:after {
 
 section {
   padding: var(--section-padding);
-  scroll-margin-top: 120px;
+  scroll-margin-top: var(--scroll-margin);
+  min-height: var(--section-height);
 }
 
 .content {
