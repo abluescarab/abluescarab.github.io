@@ -31,6 +31,16 @@
         "shell": {
           "executable": "powershell"
         }
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "label": "Watch Sass",
+      "command": "${command:liveSass.command.watchMySass}",
+      "runOptions": {
+        "runOn": "folderOpen"
       }
     }
   ]
