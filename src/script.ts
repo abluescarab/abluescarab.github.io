@@ -180,61 +180,93 @@ class Accordion {
 // #endregion
 // =============================================================================
 // #region Slideshow Events
-function getSlideTitle(slides: NodeListOf<Element>, index: number) {
-    const slide = slides[index] as HTMLElement;
+class Slideshow {
+    container: HTMLElement | null;
+    slideshow: HTMLElement | null;
+    slides: NodeListOf<HTMLElement> | undefined;
+    leftTitle: HTMLElement | null;
+    currentTitle: HTMLElement | null;
+    rightTitle: HTMLElement | null;
 
-    return (slide.dataset.title ? slide.dataset.title : "");
-}
+    indices = {
+        prev: -1,
+        curr: -1,
+        next: -1
+    };
 
-function changeSlide(e: Event) {
-    const target = e.target as HTMLElement;
-    const leftTitle: HTMLElement | null = document.querySelector("#left-title");
-    const currentTitle: HTMLElement | null = document.querySelector("#current-title");
-    const rightTitle: HTMLElement | null = document.querySelector("#right-title");
-    const slides = document.querySelectorAll(".slide");
-    let previousSlide = -1;
-    let index = 0;
-    let nextSlide = -1;
+    constructor(container: HTMLElement) {
+        this.container = container;
+        this.slideshow = container.querySelector(".slideshow");
+        this.slides = container.querySelectorAll(".slide");
+        this.leftTitle = container.querySelector("#left-title");
+        this.currentTitle = container.querySelector("#current-title");
+        this.rightTitle = container.querySelector("#right-title");
 
-    if(!leftTitle || !currentTitle || !rightTitle) {
-        return;
+        this.leftTitle?.addEventListener("click", (e) => this.clickPrevious(e));
+        this.rightTitle?.addEventListener("click", (e) => this.clickNext(e));
+
+        this.updateCurrentSlide();
     }
 
-    for(const [idx, slide] of slides.entries()) {
-        if(slide.classList.contains("current")) {
-            index = idx;
-            break;
+    updateCurrentSlide() {
+        if(!this.slides) {
+            return;
+        }
+
+        for(const [idx, slide] of this.slides.entries()) {
+            if(slide.classList.contains("current")) {
+                this.indices.curr = idx;
+                break;
+            }
         }
     }
 
-    previousSlide = getIndex(index, slides.length, false);
-    nextSlide = getIndex(index, slides.length, true);
+    updateTitles() {
+        if(!this.slides || !this.leftTitle || !this.currentTitle || !this.rightTitle) {
+            return;
+        }
 
-    setClass(slides[index], "current", false);
+        const left = (this.slides[this.indices.prev] as HTMLElement).dataset.title;
+        const current = (this.slides[this.indices.curr] as HTMLElement).dataset.title;
+        const right = (this.slides[this.indices.next] as HTMLElement).dataset.title;
 
-    if(target.id === "slideshow-left") {
-        setClass(slides[previousSlide], "current", true);
-
-        nextSlide = index;
-        index = previousSlide;
-        previousSlide = getIndex(previousSlide, slides.length, false);
-    }
-    else if(target.id === "slideshow-right") {
-        setClass(slides[nextSlide], "current", true);
-
-        previousSlide = index;
-        index = nextSlide;
-        nextSlide = getIndex(nextSlide, slides.length, true);
+        this.leftTitle.innerText = (left ? left : "Untitled");
+        this.currentTitle.innerText = (current ? current : "Untitled");
+        this.rightTitle.innerText = (right ? right : "Untitled");
     }
 
-    leftTitle.innerText = getSlideTitle(slides, previousSlide);
-    currentTitle.innerText = getSlideTitle(slides, index);
-    rightTitle.innerText = getSlideTitle(slides, nextSlide);
+    clickPrevious(e: MouseEvent) {
+        if(!this.slides) {
+            return;
+        }
+
+        this.indices.prev = getIndex(this.indices.curr, this.slides.length, false);
+        setClass(this.slides[this.indices.prev], "current", true);
+        setClass(this.slides[this.indices.curr], "current", false);
+
+        this.indices.next = this.indices.curr;
+        this.indices.curr = this.indices.prev;
+        this.indices.prev = getIndex(this.indices.prev, this.slides.length, false);
+
+        this.updateTitles();
+    }
+
+    clickNext(e: MouseEvent) {
+        if(!this.slides) {
+            return;
+        }
+
+        this.indices.next = getIndex(this.indices.curr, this.slides.length, true);
+        setClass(this.slides[this.indices.next], "current", true);
+        setClass(this.slides[this.indices.curr], "current", false);
+
+        this.indices.prev = this.indices.curr;
+        this.indices.curr = this.indices.next;
+        this.indices.next = getIndex(this.indices.next, this.slides.length, true);
+
+        this.updateTitles();
+    }
 }
-
-document.querySelectorAll(".slideshow-button").forEach((e) => {
-    e.addEventListener("click", changeSlide);
-});
 // #endregion
 // =============================================================================
 // #region Window Events
@@ -242,6 +274,12 @@ window.addEventListener("load", () => {
     document.querySelectorAll("details").forEach((e) => {
         new Accordion(e);
     });
+
+    const slideshow = document.querySelector(".slideshow-container") as HTMLElement;
+
+    if(slideshow) {
+        new Slideshow(slideshow);
+    }
 
     const exp: HTMLSpanElement | null = document.querySelector("#experience");
 

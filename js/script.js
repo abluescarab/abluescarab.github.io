@@ -156,50 +156,71 @@ class Accordion {
 // #endregion
 // =============================================================================
 // #region Slideshow Events
-function getSlideTitle(slides, index) {
-    const slide = slides[index];
-    return (slide.dataset.title ? slide.dataset.title : "");
-}
-function changeSlide(e) {
-    const target = e.target;
-    const leftTitle = document.querySelector("#left-title");
-    const currentTitle = document.querySelector("#current-title");
-    const rightTitle = document.querySelector("#right-title");
-    const slides = document.querySelectorAll(".slide");
-    let previousSlide = -1;
-    let index = 0;
-    let nextSlide = -1;
-    if (!leftTitle || !currentTitle || !rightTitle) {
-        return;
+class Slideshow {
+    constructor(container) {
+        var _a, _b;
+        this.indices = {
+            prev: -1,
+            curr: -1,
+            next: -1
+        };
+        this.container = container;
+        this.slideshow = container.querySelector(".slideshow");
+        this.slides = container.querySelectorAll(".slide");
+        this.leftTitle = container.querySelector("#left-title");
+        this.currentTitle = container.querySelector("#current-title");
+        this.rightTitle = container.querySelector("#right-title");
+        (_a = this.leftTitle) === null || _a === void 0 ? void 0 : _a.addEventListener("click", (e) => this.clickPrevious(e));
+        (_b = this.rightTitle) === null || _b === void 0 ? void 0 : _b.addEventListener("click", (e) => this.clickNext(e));
+        this.updateCurrentSlide();
     }
-    for (const [idx, slide] of slides.entries()) {
-        if (slide.classList.contains("current")) {
-            index = idx;
-            break;
+    updateCurrentSlide() {
+        if (!this.slides) {
+            return;
+        }
+        for (const [idx, slide] of this.slides.entries()) {
+            if (slide.classList.contains("current")) {
+                this.indices.curr = idx;
+                break;
+            }
         }
     }
-    previousSlide = getIndex(index, slides.length, false);
-    nextSlide = getIndex(index, slides.length, true);
-    setClass(slides[index], "current", false);
-    if (target.id === "slideshow-left") {
-        setClass(slides[previousSlide], "current", true);
-        nextSlide = index;
-        index = previousSlide;
-        previousSlide = getIndex(previousSlide, slides.length, false);
+    updateTitles() {
+        if (!this.slides || !this.leftTitle || !this.currentTitle || !this.rightTitle) {
+            return;
+        }
+        const left = this.slides[this.indices.prev].dataset.title;
+        const current = this.slides[this.indices.curr].dataset.title;
+        const right = this.slides[this.indices.next].dataset.title;
+        this.leftTitle.innerText = (left ? left : "Untitled");
+        this.currentTitle.innerText = (current ? current : "Untitled");
+        this.rightTitle.innerText = (right ? right : "Untitled");
     }
-    else if (target.id === "slideshow-right") {
-        setClass(slides[nextSlide], "current", true);
-        previousSlide = index;
-        index = nextSlide;
-        nextSlide = getIndex(nextSlide, slides.length, true);
+    clickPrevious(e) {
+        if (!this.slides) {
+            return;
+        }
+        this.indices.prev = getIndex(this.indices.curr, this.slides.length, false);
+        setClass(this.slides[this.indices.prev], "current", true);
+        setClass(this.slides[this.indices.curr], "current", false);
+        this.indices.next = this.indices.curr;
+        this.indices.curr = this.indices.prev;
+        this.indices.prev = getIndex(this.indices.prev, this.slides.length, false);
+        this.updateTitles();
     }
-    leftTitle.innerText = getSlideTitle(slides, previousSlide);
-    currentTitle.innerText = getSlideTitle(slides, index);
-    rightTitle.innerText = getSlideTitle(slides, nextSlide);
+    clickNext(e) {
+        if (!this.slides) {
+            return;
+        }
+        this.indices.next = getIndex(this.indices.curr, this.slides.length, true);
+        setClass(this.slides[this.indices.next], "current", true);
+        setClass(this.slides[this.indices.curr], "current", false);
+        this.indices.prev = this.indices.curr;
+        this.indices.curr = this.indices.next;
+        this.indices.next = getIndex(this.indices.next, this.slides.length, true);
+        this.updateTitles();
+    }
 }
-document.querySelectorAll(".slideshow-button").forEach((e) => {
-    e.addEventListener("click", changeSlide);
-});
 // #endregion
 // =============================================================================
 // #region Window Events
@@ -207,6 +228,10 @@ window.addEventListener("load", () => {
     document.querySelectorAll("details").forEach((e) => {
         new Accordion(e);
     });
+    const slideshow = document.querySelector(".slideshow-container");
+    if (slideshow) {
+        new Slideshow(slideshow);
+    }
     const exp = document.querySelector("#experience");
     if (exp) {
         const currentYear = new Date().getFullYear();
