@@ -572,12 +572,31 @@ details > div {
 }
 .slideshow-container .controls {
   display: grid;
-  grid-template-columns: auto 1fr 1fr 1fr auto;
-  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
 }
 .slideshow-container .controls button {
   padding: var(--lg-padding);
+}
+.slideshow-container .controls #left-title {
+  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+.slideshow-container .controls #left-title::before {
+  font-family: "Material Symbols Outlined";
+  font-size: var(--xl-text);
+  content: "chevron_left";
+}
+.slideshow-container .controls #right-title {
+  justify-content: flex-end;
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+.slideshow-container .controls #right-title::after {
+  font-family: "Material Symbols Outlined";
+  font-size: var(--xl-text);
+  content: "chevron_right";
 }
 .slideshow-container .controls p, .slideshow-container .controls h3 {
   text-align: center;

@@ -11,12 +11,36 @@
 
     .controls {
         display: grid;
-        grid-template-columns: auto 1fr 1fr 1fr auto;
-        justify-content: center;
+        grid-template-columns: 1fr 1fr 1fr;
+        // justify-content: center;
         align-items: center;
 
         button {
             padding: var(--lg-padding);
+        }
+
+        #left-title {
+            justify-content: flex-start;
+            display: grid;
+            grid-template-columns: auto 1fr;
+
+            &::before {
+                font-family: "Material Symbols Outlined";
+                font-size: var(--xl-text);
+                content: "chevron_left";
+            }
+        }
+
+        #right-title {
+            justify-content: flex-end;
+            display: grid;
+            grid-template-columns: 1fr auto;
+
+            &::after {
+                font-family: "Material Symbols Outlined";
+                font-size: var(--xl-text);
+                content: "chevron_right";
+            }
         }
 
         p, h3 {
