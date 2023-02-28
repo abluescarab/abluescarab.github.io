@@ -4,7 +4,6 @@
     align-items: center;
     justify-content: center;
     min-width: 0;
-    min-height: calc(100vh - var(--header-height) - var(--section-padding));
 
     &:before {
         content: " ";

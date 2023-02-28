@@ -16,10 +16,15 @@ $nav-collapse: 850px; // when to collapse navigation bar
     --xl-padding: calc(var(--md-padding) * 4);
     --xxl-padding: calc(var(--md-padding) * 8);
 
+    // page sizes
     --page-width: 1200px;
     --header-height: 125px;
-    --section-padding: var(--xl-padding);
     --border-radius: 7px;
+    --scroll-margin: 120px;
+
+    // section sizes
+    --section-padding: var(--xl-padding);
+    --section-height: calc(100vh - var(--header-height) - (var(--section-padding) * 2));
 
     // colors
     --dark-teal: #015077;

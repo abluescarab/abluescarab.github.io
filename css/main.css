@@ -16,8 +16,10 @@
   --xxl-padding: calc(var(--md-padding) * 8);
   --page-width: 1200px;
   --header-height: 125px;
-  --section-padding: var(--xl-padding);
   --border-radius: 7px;
+  --scroll-margin: 120px;
+  --section-padding: var(--xl-padding);
+  --section-height: calc(100vh - var(--header-height) - (var(--section-padding) * 2));
   --dark-teal: #015077;
   --aqua: #46798e;
   --light-yellow: #ffd157;
@@ -532,7 +534,6 @@ details > div {
   align-items: center;
   justify-content: center;
   min-width: 0;
-  min-height: calc(100vh - var(--header-height) - var(--section-padding));
 }
 #intro:before {
   content: " ";

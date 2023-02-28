@@ -4,7 +4,8 @@
 
 section {
     padding: var(--section-padding);
-    scroll-margin-top: 120px;
+    scroll-margin-top: var(--scroll-margin);
+    min-height: var(--section-height);
 }
 
 .content {
