@@ -2,7 +2,7 @@ nav {
     align-items: center;
     display: flex;
     flex-flow: row nowrap;
-    font-size: var(--xs-font-size);
+    font-size: var(--xs-text);
     gap: var(--section-padding);
     grid-column: 3;
 
@@ -11,12 +11,12 @@ nav {
 
         &:before {
             content: "\2039\00A0";
-            font-size: var(--md-font-size);
+            font-size: var(--md-text);
         }
 
         &:after {
             content: "\00A0\203A";
-            font-size: var(--md-font-size);
+            font-size: var(--md-text);
         }
     }
 }
