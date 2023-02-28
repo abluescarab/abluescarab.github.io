@@ -1,13 +1,13 @@
 $nav-collapse: 850px; // when to collapse navigation bar
 
 :root {
-    --xxs-font-size: calc(var(--md-font-size) - 6pt);
-    --xs-font-size: calc(var(--md-font-size) - 4pt);
-    --sm-font-size: calc(var(--md-font-size) - 2pt);
-    --md-font-size: 16pt;
-    --lg-font-size: calc(var(--md-font-size) + 2pt);
-    --xl-font-size: calc(var(--md-font-size) + 4pt);
-    --xxl-font-size: calc(var(--md-font-size) + 8pt);
+    --xxs-text: calc(var(--md-text) - 6pt);
+    --xs-text: calc(var(--md-text) - 4pt);
+    --sm-text: calc(var(--md-text) - 2pt);
+    --md-text: 16pt;
+    --lg-text: calc(var(--md-text) + 2pt);
+    --xl-text: calc(var(--md-text) + 4pt);
+    --xxl-text: calc(var(--md-text) + 8pt);
 
     --xs-padding: calc(var(--md-padding) / 4);
     --sm-padding: calc(var(--md-padding) / 2);

@@ -15,16 +15,16 @@
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    font-size: var(--xs-font-size);
+    font-size: var(--xs-text);
 }
 
 h1 {
-    font-size: var(--lg-font-size);
+    font-size: var(--lg-text);
 }
 
 h2 {
     font-weight: normal;
-    font-size: var(--lg-font-size);
+    font-size: var(--lg-text);
 }
 
 a,
@@ -38,5 +38,5 @@ textarea,
 button,
 .button {
     outline: none;
-    font-size: var(--xs-font-size);
+    font-size: var(--xs-text);
 }

@@ -1,13 +1,13 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono");
 :root {
-  --xxs-font-size: calc(var(--md-font-size) - 6pt);
-  --xs-font-size: calc(var(--md-font-size) - 4pt);
-  --sm-font-size: calc(var(--md-font-size) - 2pt);
-  --md-font-size: 16pt;
-  --lg-font-size: calc(var(--md-font-size) + 2pt);
-  --xl-font-size: calc(var(--md-font-size) + 4pt);
-  --xxl-font-size: calc(var(--md-font-size) + 8pt);
+  --xxs-text: calc(var(--md-text) - 6pt);
+  --xs-text: calc(var(--md-text) - 4pt);
+  --sm-text: calc(var(--md-text) - 2pt);
+  --md-text: 16pt;
+  --lg-text: calc(var(--md-text) + 2pt);
+  --xl-text: calc(var(--md-text) + 4pt);
+  --xxl-text: calc(var(--md-text) + 8pt);
   --xs-padding: calc(var(--md-padding) / 4);
   --sm-padding: calc(var(--md-padding) / 2);
   --md-padding: 10px;
@@ -86,16 +86,16 @@
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-  font-size: var(--xs-font-size);
+  font-size: var(--xs-text);
 }
 
 h1 {
-  font-size: var(--lg-font-size);
+  font-size: var(--lg-text);
 }
 
 h2 {
   font-weight: normal;
-  font-size: var(--lg-font-size);
+  font-size: var(--lg-text);
 }
 
 a,
@@ -109,11 +109,11 @@ textarea,
 button,
 .button {
   outline: none;
-  font-size: var(--xs-font-size);
+  font-size: var(--xs-text);
 }
 
 .xxs-text {
-  font-size: var(--xxs-font-size) !important;
+  font-size: var(--xxs-text) !important;
 }
 
 .xxs-gap {
@@ -161,7 +161,7 @@ button,
 }
 
 .xs-text {
-  font-size: var(--xs-font-size) !important;
+  font-size: var(--xs-text) !important;
 }
 
 .xs-gap {
@@ -209,7 +209,7 @@ button,
 }
 
 .sm-text {
-  font-size: var(--sm-font-size) !important;
+  font-size: var(--sm-text) !important;
 }
 
 .sm-gap {
@@ -257,7 +257,7 @@ button,
 }
 
 .md-text {
-  font-size: var(--md-font-size) !important;
+  font-size: var(--md-text) !important;
 }
 
 .md-gap {
@@ -305,7 +305,7 @@ button,
 }
 
 .lg-text {
-  font-size: var(--lg-font-size) !important;
+  font-size: var(--lg-text) !important;
 }
 
 .lg-gap {
@@ -353,7 +353,7 @@ button,
 }
 
 .xl-text {
-  font-size: var(--xl-font-size) !important;
+  font-size: var(--xl-text) !important;
 }
 
 .xl-gap {
@@ -401,7 +401,7 @@ button,
 }
 
 .xxl-text {
-  font-size: var(--xxl-font-size) !important;
+  font-size: var(--xxl-text) !important;
 }
 
 .xxl-gap {
@@ -723,7 +723,7 @@ nav {
   align-items: center;
   display: flex;
   flex-flow: row nowrap;
-  font-size: var(--xs-font-size);
+  font-size: var(--xs-text);
   gap: var(--section-padding);
   grid-column: 3;
 }
@@ -732,11 +732,11 @@ nav .current {
 }
 nav .current:before {
   content: "‹ ";
-  font-size: var(--md-font-size);
+  font-size: var(--md-text);
 }
 nav .current:after {
   content: " ›";
-  font-size: var(--md-font-size);
+  font-size: var(--md-text);
 }
 
 @media screen and (max-width: 850px) {
