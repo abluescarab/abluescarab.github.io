@@ -94,11 +94,6 @@ h1 {
 h2 {
   font-weight: normal;
   font-size: var(--lg-font-size);
-  margin-bottom: var(--lg-padding);
-}
-
-p:not(:last-child) {
-  margin-bottom: var(--lg-padding);
 }
 
 a,
@@ -779,14 +774,11 @@ section {
   margin: 0 auto;
   gap: var(--section-padding);
 }
-.content h2 {
-  padding-bottom: var(--section-padding);
-}
 
 #skills .skill {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   width: 100px;
   gap: var(--md-padding);

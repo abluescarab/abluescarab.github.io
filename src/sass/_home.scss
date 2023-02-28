@@ -12,17 +12,13 @@ section {
     max-width: var(--page-width);
     margin: 0 auto;
     gap: var(--section-padding);
-
-    h2 {
-        padding-bottom: var(--section-padding);
-    }
 }
 
 #skills {
     .skill {
         display: flex;
         flex-flow: column nowrap;
-        justify-content: start;
+        justify-content: flex-start;
         align-items: center;
         width: 100px;
         gap: var(--md-padding);

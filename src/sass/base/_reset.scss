@@ -25,11 +25,6 @@ h1 {
 h2 {
     font-weight: normal;
     font-size: var(--lg-font-size);
-    margin-bottom: var(--lg-padding);
-}
-
-p:not(:last-child) {
-    margin-bottom: var(--lg-padding);
 }
 
 a,
