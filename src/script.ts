@@ -205,10 +205,11 @@ class Slideshow {
         this.leftTitle?.addEventListener("click", (e) => this.clickPrevious(e));
         this.rightTitle?.addEventListener("click", (e) => this.clickNext(e));
 
-        this.updateCurrentSlide();
+        this.updateSlideIndices();
+        this.updateTitles();
     }
 
-    updateCurrentSlide() {
+    updateSlideIndices() {
         if(!this.slides) {
             return;
         }
@@ -219,6 +220,9 @@ class Slideshow {
                 break;
             }
         }
+
+        this.indices.prev = getIndex(this.indices.curr, this.slides.length, false);
+        this.indices.next = getIndex(this.indices.curr, this.slides.length, true);
     }
 
     updateTitles() {

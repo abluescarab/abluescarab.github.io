@@ -172,9 +172,10 @@ class Slideshow {
         this.rightTitle = container.querySelector("#right-title");
         (_a = this.leftTitle) === null || _a === void 0 ? void 0 : _a.addEventListener("click", (e) => this.clickPrevious(e));
         (_b = this.rightTitle) === null || _b === void 0 ? void 0 : _b.addEventListener("click", (e) => this.clickNext(e));
-        this.updateCurrentSlide();
+        this.updateSlideIndices();
+        this.updateTitles();
     }
-    updateCurrentSlide() {
+    updateSlideIndices() {
         if (!this.slides) {
             return;
         }
@@ -184,6 +185,8 @@ class Slideshow {
                 break;
             }
         }
+        this.indices.prev = getIndex(this.indices.curr, this.slides.length, false);
+        this.indices.next = getIndex(this.indices.curr, this.slides.length, true);
     }
     updateTitles() {
         if (!this.slides || !this.leftTitle || !this.currentTitle || !this.rightTitle) {
