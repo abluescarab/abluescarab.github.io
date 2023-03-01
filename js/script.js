@@ -169,8 +169,28 @@ class Slideshow {
         if (this.slideshow) {
             this.slideshow.style.width = `${this.slides.length * 100}%`;
         }
+        this.createDropdown();
         this.updateSlideIndices();
         this.updateTitles();
+    }
+    createDropdown() {
+        if (!this.container || !this.slides) {
+            return;
+        }
+        const dropdown = this.container.querySelector("#slide-names");
+        for (const [idx, slide] of this.slides.entries()) {
+            const para = document.createElement("p");
+            const name = document.createElement("a");
+            name.innerText = (slide.dataset.title ? slide.dataset.title : "Untitled");
+            name.tabIndex = 0;
+            name.dataset.slide = `${idx}`;
+            name.classList.add("slide-link");
+            name.addEventListener("click", (e) => {
+                this.moveTo(idx);
+            });
+            para.appendChild(name);
+            dropdown === null || dropdown === void 0 ? void 0 : dropdown.appendChild(para);
+        }
     }
     updateSlideIndices() {
         if (!this.slides) {
