@@ -16,6 +16,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: flex-start;
+    gap: var(--md-padding);
 
     a,
     a:visited {

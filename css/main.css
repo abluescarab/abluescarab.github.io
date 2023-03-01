@@ -592,6 +592,7 @@ details > div {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: flex-start;
+  gap: var(--md-padding);
 }
 .controls a:hover, .controls a:focus,
 .controls a:visited:hover,
