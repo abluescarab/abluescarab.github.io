@@ -50,25 +50,22 @@
 
 .slideshow {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row nowrap;
     overflow: hidden;
-    gap: var(--xl-padding);
-    padding: var(--lg-padding) var(--xl-padding) var(--xl-padding) var(--xl-padding);
+    position: relative;
 }
 
 .slide {
     display: flex;
     flex-flow: column nowrap;
-    gap: var(--lg-padding);
+    padding: var(--lg-padding) var(--xl-padding) var(--xl-padding) var(--xl-padding);
+    gap: calc(var(--lg-padding) * 2);
+    width: 100%;
     position: relative;
 
-    &:not(.current) {
-        display: none;
+    img {
+        object-fit: contain;
+        height: calc(var(--slideshow-height) / 2);
+        border-radius: var(--border-radius);
     }
-}
-
-.slide-image {
-    object-fit: contain;
-    height: calc(var(--slideshow-height) / 2);
-    border-radius: var(--border-radius);
 }
