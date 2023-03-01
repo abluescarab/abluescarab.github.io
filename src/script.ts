@@ -366,7 +366,7 @@ window.addEventListener("load", () => {
 
     const typing = document.querySelector(".typing") as HTMLElement;
 
-    if(typing) {
+    if(typing && !reducedMotion) {
         const text = typing.innerText;
         const animation = (typing.dataset.animation ? parseInt(typing.dataset.animation) : 1000);
         const delay = (typing.dataset.blinkDelay ? parseInt(typing.dataset.blinkDelay) : 250);

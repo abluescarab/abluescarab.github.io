@@ -293,7 +293,7 @@ window.addEventListener("load", () => {
             .catch((e) => console.log(e));
     }
     const typing = document.querySelector(".typing");
-    if (typing) {
+    if (typing && !reducedMotion) {
         const text = typing.innerText;
         const animation = (typing.dataset.animation ? parseInt(typing.dataset.animation) : 1000);
         const delay = (typing.dataset.blinkDelay ? parseInt(typing.dataset.blinkDelay) : 250);
