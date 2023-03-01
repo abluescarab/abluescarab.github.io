@@ -503,6 +503,11 @@ details summary {
   position: relative;
   z-index: 1;
 }
+details summary::after {
+  font-family: "Material Symbols Outlined";
+  font-size: var(--xl-text);
+  content: "expand_more";
+}
 details > div {
   border-radius: var(--border-radius);
   margin-top: calc(var(--lg-padding) * -1);
