@@ -19,15 +19,6 @@ function toggleClass(element: Element, className: string) {
     }
 }
 
-function setClass(element: Element | null, clss: string, value: boolean) {
-    if(value) {
-        element?.classList.add(clss);
-    }
-    else {
-        element?.classList.remove(clss);
-    }
-}
-
 function type(elem: HTMLElement, text: string, length: number, blinkDelay: number) {
     let index = 0;
 
@@ -56,7 +47,7 @@ document.querySelector("#menu-icon")?.addEventListener("click", () => {
 });
 
 document.querySelectorAll("nav a").forEach((a) => {
-    a.addEventListener("click", () => setClass(document.querySelector("nav"), "open", false));
+    a.addEventListener("click", () => document.querySelector("nav")?.classList.remove("open"));
 });
 // #endregion
 // =============================================================================
@@ -325,7 +316,7 @@ window.addEventListener("scroll", () => {
     const sections = document.querySelectorAll("section");
     const header = document.querySelector(".header-container");
 
-    setClass(document.querySelector("nav"), "open", false);
+    document.querySelector("nav")?.classList.remove("open");
 
     for(const section of sections) {
         // includes the header height plus a little extra so current changes

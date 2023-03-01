@@ -19,14 +19,6 @@ function toggleClass(element, className) {
         return true;
     }
 }
-function setClass(element, clss, value) {
-    if (value) {
-        element === null || element === void 0 ? void 0 : element.classList.add(clss);
-    }
-    else {
-        element === null || element === void 0 ? void 0 : element.classList.remove(clss);
-    }
-}
 function type(elem, text, length, blinkDelay) {
     let index = 0;
     const typeInterval = setInterval(() => {
@@ -50,7 +42,7 @@ function type(elem, text, length, blinkDelay) {
     }
 });
 document.querySelectorAll("nav a").forEach((a) => {
-    a.addEventListener("click", () => setClass(document.querySelector("nav"), "open", false));
+    a.addEventListener("click", () => { var _a; return (_a = document.querySelector("nav")) === null || _a === void 0 ? void 0 : _a.classList.remove("open"); });
 });
 // #endregion
 // =============================================================================
@@ -265,18 +257,18 @@ window.addEventListener("load", () => {
     }
 });
 window.addEventListener("scroll", () => {
-    var _a, _b;
+    var _a, _b, _c;
     const sections = document.querySelectorAll("section");
     const header = document.querySelector(".header-container");
-    setClass(document.querySelector("nav"), "open", false);
+    (_a = document.querySelector("nav")) === null || _a === void 0 ? void 0 : _a.classList.remove("open");
     for (const section of sections) {
         // includes the header height plus a little extra so current changes
         // partway through the previous section
         const top = section.offsetTop - 125 - (header ? header.scrollHeight : 0);
         const bottom = top + section.scrollHeight;
         if (window.scrollY >= top && window.scrollY <= bottom) {
-            (_a = document.querySelector("a.current")) === null || _a === void 0 ? void 0 : _a.classList.remove("current");
-            (_b = document.querySelector(`a[href='#${section.id}'`)) === null || _b === void 0 ? void 0 : _b.classList.add("current");
+            (_b = document.querySelector("a.current")) === null || _b === void 0 ? void 0 : _b.classList.remove("current");
+            (_c = document.querySelector(`a[href='#${section.id}'`)) === null || _c === void 0 ? void 0 : _c.classList.add("current");
             break;
         }
     }
