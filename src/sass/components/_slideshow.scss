@@ -72,10 +72,14 @@
     gap: var(--lg-padding);
     width: 100%;
     position: relative;
+    align-items: center;
 
     img {
         object-fit: contain;
-        height: calc(var(--slideshow-height) / 2);
+        width: auto;
+        height: auto;
         border-radius: var(--border-radius);
+        max-width: 100%;
+        max-height: calc(var(--slideshow-height) / 2);
     }
 }
