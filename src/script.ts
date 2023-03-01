@@ -180,6 +180,7 @@ class Slideshow {
     leftTitle: HTMLElement | null;
     currentTitle: HTMLElement | null;
     rightTitle: HTMLElement | null;
+    transitionSpeed: number;
 
     indices = {
         prev: -1,
@@ -187,8 +188,9 @@ class Slideshow {
         next: -1
     };
 
-    constructor(container: HTMLElement) {
+    constructor(container: HTMLElement, transitionSpeed: number) {
         this.container = container;
+        this.transitionSpeed = transitionSpeed;
         this.slideshow = container.querySelector(".slideshow");
         this.slides = container.querySelectorAll(".slide");
         this.leftTitle = container.querySelector("#left-title");
@@ -197,6 +199,10 @@ class Slideshow {
 
         this.leftTitle?.addEventListener("click", (e) => this.clickPrevious(e));
         this.rightTitle?.addEventListener("click", (e) => this.clickNext(e));
+
+        if(this.slideshow) {
+            this.slideshow.style.width = `${this.slides.length * 100}%`;
+        }
 
         this.updateSlideIndices();
         this.updateTitles();
@@ -232,14 +238,72 @@ class Slideshow {
         this.rightTitle.innerText = (right ? right : "Untitled");
     }
 
-    clickPrevious(e: MouseEvent) {
+    moveLeft() {
+        if(!this.slides || !this.slideshow) {
+            return;
+        }
+
+        const currSlide = this.slides[this.indices.curr];
+        const prevSlide = this.slides[this.indices.prev];
+
+        if(reducedMotion) {
+            this.slideshow.style.left = `-${this.indices.prev * 100}%`;
+            currSlide.classList.remove("current");
+            prevSlide.classList.add("current");
+        }
+        else {
+            const animation = new Animation(
+                new KeyframeEffect(this.slideshow,
+                    { transform: `translateX(-${this.indices.prev / this.slides.length * 100}%)` },
+                    { duration: this.transitionSpeed, fill: "forwards" })
+            );
+
+            animation.addEventListener("finish", () => {
+                currSlide.classList.remove("current");
+                prevSlide.classList.add("current");
+            });
+
+            animation.play();
+        }
+    }
+
+    moveRight() {
+        if(!this.slides || !this.slideshow) {
+            return;
+        }
+
+        const currSlide = this.slides[this.indices.curr];
+        const nextSlide = this.slides[this.indices.next];
+
+        if(reducedMotion) {
+            this.slideshow.style.left = `-${this.indices.next * 100}%`;
+            currSlide.classList.remove("current");
+            nextSlide.classList.add("current");
+        }
+        else {
+            const animation = new Animation(
+                new KeyframeEffect(this.slideshow,
+                    { transform: `translateX(-${this.indices.next / this.slides.length * 100}%)` },
+                    { duration: this.transitionSpeed, fill: "forwards" })
+            );
+
+            animation.addEventListener("finish", () => {
+                currSlide.classList.remove("current");
+                nextSlide.classList.add("current");
+            });
+
+            animation.play();
+        }
+    }
+
+    clickPrevious() {
         if(!this.slides) {
             return;
         }
 
         this.indices.prev = getIndex(this.indices.curr, this.slides.length, false);
-        setClass(this.slides[this.indices.prev], "current", true);
-        setClass(this.slides[this.indices.curr], "current", false);
+
+        this.moveLeft();
 
         this.indices.next = this.indices.curr;
         this.indices.curr = this.indices.prev;
@@ -248,14 +312,14 @@ class Slideshow {
         this.updateTitles();
     }
 
-    clickNext(e: MouseEvent) {
+    clickNext() {
         if(!this.slides) {
             return;
         }
 
         this.indices.next = getIndex(this.indices.curr, this.slides.length, true);
-        setClass(this.slides[this.indices.next], "current", true);
-        setClass(this.slides[this.indices.curr], "current", false);
+
+        this.moveRight();
 
         this.indices.prev = this.indices.curr;
         this.indices.curr = this.indices.next;
@@ -277,7 +341,7 @@ window.addEventListener("load", () => {
     const slideshow = document.querySelector(".slideshow-container") as HTMLElement;
 
     if(slideshow) {
-        new Slideshow(slideshow);
+        new Slideshow(slideshow, 350);
     }
 
     const exp: HTMLSpanElement | null = document.querySelector("#experience");

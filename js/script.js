@@ -150,7 +150,7 @@ class Accordion {
 // =============================================================================
 // #region Slideshow Events
 class Slideshow {
-    constructor(container) {
+    constructor(container, transitionSpeed) {
         var _a, _b;
         this.indices = {
             prev: -1,
@@ -158,6 +158,7 @@ class Slideshow {
             next: -1
         };
         this.container = container;
+        this.transitionSpeed = transitionSpeed;
         this.slideshow = container.querySelector(".slideshow");
         this.slides = container.querySelectorAll(".slide");
         this.leftTitle = container.querySelector("#left-title");
@@ -165,6 +166,9 @@ class Slideshow {
         this.rightTitle = container.querySelector("#right-title");
         (_a = this.leftTitle) === null || _a === void 0 ? void 0 : _a.addEventListener("click", (e) => this.clickPrevious(e));
         (_b = this.rightTitle) === null || _b === void 0 ? void 0 : _b.addEventListener("click", (e) => this.clickNext(e));
+        if (this.slideshow) {
+            this.slideshow.style.width = `${this.slides.length * 100}%`;
+        }
         this.updateSlideIndices();
         this.updateTitles();
     }
@@ -192,25 +196,63 @@ class Slideshow {
         this.currentTitle.innerText = (current ? current : "Untitled");
         this.rightTitle.innerText = (right ? right : "Untitled");
     }
-    clickPrevious(e) {
+    moveLeft() {
+        if (!this.slides || !this.slideshow) {
+            return;
+        }
+        const currSlide = this.slides[this.indices.curr];
+        const prevSlide = this.slides[this.indices.prev];
+        if (reducedMotion) {
+            this.slideshow.style.left = `-${this.indices.prev * 100}%`;
+            currSlide.classList.remove("current");
+            prevSlide.classList.add("current");
+        }
+        else {
+            const animation = new Animation(new KeyframeEffect(this.slideshow, { transform: `translateX(-${this.indices.prev / this.slides.length * 100}%)` }, { duration: this.transitionSpeed, fill: "forwards" }));
+            animation.addEventListener("finish", () => {
+                currSlide.classList.remove("current");
+                prevSlide.classList.add("current");
+            });
+            animation.play();
+        }
+    }
+    moveRight() {
+        if (!this.slides || !this.slideshow) {
+            return;
+        }
+        const currSlide = this.slides[this.indices.curr];
+        const nextSlide = this.slides[this.indices.next];
+        if (reducedMotion) {
+            this.slideshow.style.left = `-${this.indices.next * 100}%`;
+            currSlide.classList.remove("current");
+            nextSlide.classList.add("current");
+        }
+        else {
+            const animation = new Animation(new KeyframeEffect(this.slideshow, { transform: `translateX(-${this.indices.next / this.slides.length * 100}%)` }, { duration: this.transitionSpeed, fill: "forwards" }));
+            animation.addEventListener("finish", () => {
+                currSlide.classList.remove("current");
+                nextSlide.classList.add("current");
+            });
+            animation.play();
+        }
+    }
+    clickPrevious() {
         if (!this.slides) {
             return;
         }
         this.indices.prev = getIndex(this.indices.curr, this.slides.length, false);
-        setClass(this.slides[this.indices.prev], "current", true);
-        setClass(this.slides[this.indices.curr], "current", false);
+        this.moveLeft();
         this.indices.next = this.indices.curr;
         this.indices.curr = this.indices.prev;
         this.indices.prev = getIndex(this.indices.prev, this.slides.length, false);
         this.updateTitles();
     }
-    clickNext(e) {
+    clickNext() {
         if (!this.slides) {
             return;
         }
         this.indices.next = getIndex(this.indices.curr, this.slides.length, true);
-        setClass(this.slides[this.indices.next], "current", true);
-        setClass(this.slides[this.indices.curr], "current", false);
+        this.moveRight();
         this.indices.prev = this.indices.curr;
         this.indices.curr = this.indices.next;
         this.indices.next = getIndex(this.indices.next, this.slides.length, true);
@@ -228,7 +270,7 @@ window.addEventListener("load", () => {
     }
     const slideshow = document.querySelector(".slideshow-container");
     if (slideshow) {
-        new Slideshow(slideshow);
+        new Slideshow(slideshow, 350);
     }
     const exp = document.querySelector("#experience");
     if (exp) {
