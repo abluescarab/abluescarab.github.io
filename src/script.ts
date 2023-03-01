@@ -197,8 +197,8 @@ class Slideshow {
         this.currentTitle = container.querySelector("#current-title");
         this.rightTitle = container.querySelector("#right-title");
 
-        this.leftTitle?.addEventListener("click", (e) => this.clickPrevious(e));
-        this.rightTitle?.addEventListener("click", (e) => this.clickNext(e));
+        this.leftTitle?.addEventListener("click", () => this.clickPrevious());
+        this.rightTitle?.addEventListener("click", () => this.clickNext());
 
         if(this.slideshow) {
             this.slideshow.style.width = `${this.slides.length * 100}%`;

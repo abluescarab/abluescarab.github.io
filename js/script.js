@@ -164,8 +164,8 @@ class Slideshow {
         this.leftTitle = container.querySelector("#left-title");
         this.currentTitle = container.querySelector("#current-title");
         this.rightTitle = container.querySelector("#right-title");
-        (_a = this.leftTitle) === null || _a === void 0 ? void 0 : _a.addEventListener("click", (e) => this.clickPrevious(e));
-        (_b = this.rightTitle) === null || _b === void 0 ? void 0 : _b.addEventListener("click", (e) => this.clickNext(e));
+        (_a = this.leftTitle) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => this.clickPrevious());
+        (_b = this.rightTitle) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => this.clickNext());
         if (this.slideshow) {
             this.slideshow.style.width = `${this.slides.length * 100}%`;
         }
