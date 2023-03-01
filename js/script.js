@@ -185,8 +185,10 @@ class Slideshow {
             name.tabIndex = 0;
             name.dataset.slide = `${idx}`;
             name.classList.add("slide-link");
-            name.addEventListener("click", (e) => {
+            name.addEventListener("click", () => {
+                var _a;
                 this.moveTo(idx);
+                (_a = dropdown === null || dropdown === void 0 ? void 0 : dropdown.parentElement) === null || _a === void 0 ? void 0 : _a.removeAttribute("open");
             });
             para.appendChild(name);
             dropdown === null || dropdown === void 0 ? void 0 : dropdown.appendChild(para);

@@ -224,8 +224,9 @@ class Slideshow {
             name.tabIndex = 0;
             name.dataset.slide = `${idx}`;
             name.classList.add("slide-link");
-            name.addEventListener("click", (e) => {
+            name.addEventListener("click", () => {
                 this.moveTo(idx);
+                dropdown?.parentElement?.removeAttribute("open");
             });
 
             para.appendChild(name);
