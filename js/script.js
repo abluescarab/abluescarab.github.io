@@ -196,42 +196,22 @@ class Slideshow {
         this.currentTitle.innerText = (current ? current : "Untitled");
         this.rightTitle.innerText = (right ? right : "Untitled");
     }
-    moveLeft() {
+    moveTo(slideIndex) {
         if (!this.slides || !this.slideshow) {
             return;
         }
         const currSlide = this.slides[this.indices.curr];
-        const prevSlide = this.slides[this.indices.prev];
+        const newSlide = this.slides[slideIndex];
         if (reducedMotion) {
-            this.slideshow.style.left = `-${this.indices.prev * 100}%`;
+            this.slideshow.style.left = `-${slideIndex * 100}%`;
             currSlide.classList.remove("current");
-            prevSlide.classList.add("current");
+            newSlide.classList.add("current");
         }
         else {
-            const animation = new Animation(new KeyframeEffect(this.slideshow, { transform: `translateX(-${this.indices.prev / this.slides.length * 100}%)` }, { duration: this.transitionSpeed, fill: "forwards" }));
+            const animation = new Animation(new KeyframeEffect(this.slideshow, { transform: `translateX(-${slideIndex / this.slides.length * 100}%)` }, { duration: this.transitionSpeed, fill: "forwards" }));
             animation.addEventListener("finish", () => {
                 currSlide.classList.remove("current");
-                prevSlide.classList.add("current");
-            });
-            animation.play();
-        }
-    }
-    moveRight() {
-        if (!this.slides || !this.slideshow) {
-            return;
-        }
-        const currSlide = this.slides[this.indices.curr];
-        const nextSlide = this.slides[this.indices.next];
-        if (reducedMotion) {
-            this.slideshow.style.left = `-${this.indices.next * 100}%`;
-            currSlide.classList.remove("current");
-            nextSlide.classList.add("current");
-        }
-        else {
-            const animation = new Animation(new KeyframeEffect(this.slideshow, { transform: `translateX(-${this.indices.next / this.slides.length * 100}%)` }, { duration: this.transitionSpeed, fill: "forwards" }));
-            animation.addEventListener("finish", () => {
-                currSlide.classList.remove("current");
-                nextSlide.classList.add("current");
+                newSlide.classList.add("current");
             });
             animation.play();
         }
@@ -241,7 +221,7 @@ class Slideshow {
             return;
         }
         this.indices.prev = getIndex(this.indices.curr, this.slides.length, false);
-        this.moveLeft();
+        this.moveTo(this.indices.prev);
         this.indices.next = this.indices.curr;
         this.indices.curr = this.indices.prev;
         this.indices.prev = getIndex(this.indices.prev, this.slides.length, false);
@@ -252,7 +232,7 @@ class Slideshow {
             return;
         }
         this.indices.next = getIndex(this.indices.curr, this.slides.length, true);
-        this.moveRight();
+        this.moveTo(this.indices.next);
         this.indices.prev = this.indices.curr;
         this.indices.curr = this.indices.next;
         this.indices.next = getIndex(this.indices.next, this.slides.length, true);
