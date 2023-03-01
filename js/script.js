@@ -1,5 +1,6 @@
 "use strict";
 var _a;
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 // #region Utilities
 function getIndex(index, length, nextIndex) {
     if (nextIndex) {
@@ -220,9 +221,11 @@ class Slideshow {
 // =============================================================================
 // #region Window Events
 window.addEventListener("load", () => {
-    document.querySelectorAll("details").forEach((e) => {
-        new Accordion(e);
-    });
+    if (!reducedMotion) {
+        document.querySelectorAll("details").forEach((e) => {
+            new Accordion(e);
+        });
+    }
     const slideshow = document.querySelector(".slideshow-container");
     if (slideshow) {
         new Slideshow(slideshow);

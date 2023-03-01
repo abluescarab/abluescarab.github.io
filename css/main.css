@@ -78,11 +78,10 @@
   padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
+html {
+  scroll-behavior: smooth;
 }
+
 body {
   background-color: var(--background-color);
   color: var(--text-color);
@@ -112,6 +111,15 @@ button,
   font-size: var(--xs-text);
 }
 
+@media (prefers-reduced-motion) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation: none !important;
+    transition-duration: 0s !important;
+  }
+}
 .xxs-text {
   font-size: var(--xxs-text) !important;
 }
