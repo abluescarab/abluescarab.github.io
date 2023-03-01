@@ -99,6 +99,7 @@ h2 {
 
 a,
 a:visited {
+  cursor: pointer;
   text-decoration: none;
   color: var(--text-color);
 }
