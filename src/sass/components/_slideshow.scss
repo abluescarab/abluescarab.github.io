@@ -3,48 +3,57 @@
 
     display: flex;
     flex-flow: column nowrap;
-    height: var(--slideshow-height);
     background-color: var(--dark-background-color);
     border-radius: var(--border-radius);
     padding: var(--md-padding);
     overflow: hidden;
+}
 
-    .controls {
+.controls {
+    --controls-height: 75px;
+
+    min-height: var(--controls-height);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: flex-start;
+
+    a,
+    a:visited {
+        &:hover, &:focus {
+            color: var(--link-color);
+        }
+    }
+
+    button, summary {
+        min-height: var(--controls-height);
+        padding: 0 var(--lg-padding);
+    }
+
+    #left-title::before, #right-title::after {
+        font-family: "Material Symbols Outlined";
+        font-size: var(--xl-text);
+    }
+
+    #left-title {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        align-items: center;
+        grid-template-columns: auto 1fr;
 
-        button {
-            padding: var(--lg-padding);
+        &::before {
+            content: "chevron_left";
         }
+    }
 
-        #left-title {
-            justify-content: flex-start;
-            display: grid;
-            grid-template-columns: auto 1fr;
+    #right-title {
+        display: grid;
+        grid-template-columns: 1fr auto;
 
-            &::before {
-                font-family: "Material Symbols Outlined";
-                font-size: var(--xl-text);
-                content: "chevron_left";
-            }
+        &::after {
+            content: "chevron_right";
         }
+    }
 
-        #right-title {
-            justify-content: flex-end;
-            display: grid;
-            grid-template-columns: 1fr auto;
-
-            &::after {
-                font-family: "Material Symbols Outlined";
-                font-size: var(--xl-text);
-                content: "chevron_right";
-            }
-        }
-
-        p, h3 {
-            text-align: center;
-        }
+    p, h3 {
+        text-align: center;
     }
 }
 

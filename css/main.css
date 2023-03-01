@@ -580,41 +580,47 @@ details > div {
   --slideshow-height: 600px;
   display: flex;
   flex-flow: column nowrap;
-  height: var(--slideshow-height);
   background-color: var(--dark-background-color);
   border-radius: var(--border-radius);
   padding: var(--md-padding);
   overflow: hidden;
 }
-.slideshow-container .controls {
+
+.controls {
+  --controls-height: 75px;
+  min-height: var(--controls-height);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
+  align-items: flex-start;
 }
-.slideshow-container .controls button {
-  padding: var(--lg-padding);
+.controls a:hover, .controls a:focus,
+.controls a:visited:hover,
+.controls a:visited:focus {
+  color: var(--link-color);
 }
-.slideshow-container .controls #left-title {
-  justify-content: flex-start;
+.controls button, .controls summary {
+  min-height: var(--controls-height);
+  padding: 0 var(--lg-padding);
+}
+.controls #left-title::before, .controls #right-title::after {
+  font-family: "Material Symbols Outlined";
+  font-size: var(--xl-text);
+}
+.controls #left-title {
   display: grid;
   grid-template-columns: auto 1fr;
 }
-.slideshow-container .controls #left-title::before {
-  font-family: "Material Symbols Outlined";
-  font-size: var(--xl-text);
+.controls #left-title::before {
   content: "chevron_left";
 }
-.slideshow-container .controls #right-title {
-  justify-content: flex-end;
+.controls #right-title {
   display: grid;
   grid-template-columns: 1fr auto;
 }
-.slideshow-container .controls #right-title::after {
-  font-family: "Material Symbols Outlined";
-  font-size: var(--xl-text);
+.controls #right-title::after {
   content: "chevron_right";
 }
-.slideshow-container .controls p, .slideshow-container .controls h3 {
+.controls p, .controls h3 {
   text-align: center;
 }
 
