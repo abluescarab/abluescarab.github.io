@@ -651,6 +651,20 @@ details > div {
   max-height: calc(var(--slideshow-height) / 2);
 }
 
+@media screen and (max-width: 850px) {
+  .controls {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+  }
+  .controls #left-title,
+  .controls #right-title {
+    display: block;
+  }
+  .controls #left-title span,
+  .controls #right-title span {
+    display: none;
+  }
+}
 .typing::after {
   content: "█";
 }

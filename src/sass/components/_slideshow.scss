@@ -83,3 +83,19 @@
         max-height: calc(var(--slideshow-height) / 2);
     }
 }
+
+@media screen and (max-width: $nav-collapse) {
+    .controls {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+
+        #left-title,
+        #right-title {
+            display: block;
+
+            span {
+                display: none;
+            }
+        }
+    }
+}
