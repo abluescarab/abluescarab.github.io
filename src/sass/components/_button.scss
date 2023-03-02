@@ -30,7 +30,8 @@ button,
     outline: 0;
     user-select: none;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         color: var(--link-color);
     }
 }

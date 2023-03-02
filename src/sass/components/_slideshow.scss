@@ -20,17 +20,20 @@
 
     a,
     a:visited {
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             color: var(--link-color);
         }
     }
 
-    button, summary {
+    button,
+    summary {
         min-height: var(--controls-height);
         padding: 0 var(--lg-padding);
     }
 
-    #left-title::before, #right-title::after {
+    #left-title::before,
+    #right-title::after {
         font-family: "Material Symbols Outlined";
         font-size: var(--xl-text);
     }
@@ -53,7 +56,8 @@
         }
     }
 
-    p, h3 {
+    p,
+    h3 {
         text-align: center;
     }
 }
@@ -68,7 +72,8 @@
 .slide {
     display: flex;
     flex-flow: column nowrap;
-    padding: var(--lg-padding) var(--xl-padding) var(--xl-padding) var(--xl-padding);
+    padding: var(--lg-padding) var(--xl-padding) var(--xl-padding)
+        var(--xl-padding);
     gap: var(--lg-padding);
     width: 100%;
     position: relative;

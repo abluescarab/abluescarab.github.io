@@ -1,12 +1,14 @@
-const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+).matches;
 
 // #region Utilities
 function getIndex(index: number, length: number, nextIndex: boolean) {
     if(nextIndex) {
-        return (index === length - 1 ? 0 : index + 1);
+        return index === length - 1 ? 0 : index + 1;
     }
     else {
-        return (index === 0 ? length - 1 : index - 1);
+        return index === 0 ? length - 1 : index - 1;
     }
 }
 
@@ -21,7 +23,12 @@ function toggleClass(element: Element, className: string) {
     }
 }
 
-function type(elem: HTMLElement, text: string, length: number, blinkDelay: number) {
+function type(
+    elem: HTMLElement,
+    text: string,
+    length: number,
+    blinkDelay: number
+) {
     let index = 0;
 
     const typeInterval = setInterval(() => {
@@ -49,7 +56,9 @@ document.querySelector("#menu-icon")?.addEventListener("click", () => {
 });
 
 document.querySelectorAll("nav a").forEach((a) => {
-    a.addEventListener("click", () => document.querySelector("nav")?.classList.remove("open"));
+    a.addEventListener("click", () =>
+        document.querySelector("nav")?.classList.remove("open")
+    );
 });
 // #endregion
 // =============================================================================
@@ -84,11 +93,11 @@ class Accordion {
         // Add an overflow on the <details> to avoid content overflowing
         this.el.style.overflow = "hidden";
         // Check if the element is being closed or is already closed
-        if (this.isClosing || !this.el.hasAttribute("open")) {
+        if(this.isClosing || !this.el.hasAttribute("open")) {
             this.open();
         }
         // Check if the element is being openned or is already open
-        else if (this.isExpanding || this.el.hasAttribute("open")) {
+        else if(this.isExpanding || this.el.hasAttribute("open")) {
             this.shrink();
         }
     }
@@ -101,23 +110,27 @@ class Accordion {
         // Store the current height of the element
         const startHeight = `${this.el.offsetHeight}px`;
         // Calculate the height of the summary
-        const endHeight = `${this.summary.offsetHeight
-            + (expand ? this.content.offsetHeight : 0)}px`;
+        const endHeight = `${
+            this.summary.offsetHeight + (expand ? this.content.offsetHeight : 0)
+        }px`;
 
         // If there is already an animation running
-        if (this.animation) {
+        if(this.animation) {
             // Cancel the current animation
             this.animation.cancel();
         }
 
         // Start a WAAPI animation
-        this.animation = this.el.animate({
-            // Set the keyframes from the startHeight to endHeight
-            height: [startHeight, endHeight]
-        }, {
-            duration: this.animationLength,
-            easing: "ease-out"
-        });
+        this.animation = this.el.animate(
+            {
+                // Set the keyframes from the startHeight to endHeight
+                height: [startHeight, endHeight],
+            },
+            {
+                duration: this.animationLength,
+                easing: "ease-out",
+            }
+        );
 
         // When the animation is complete, call onAnimationFinish()
         this.animation.onfinish = () => this.onAnimationFinish(expand);
@@ -129,7 +142,7 @@ class Accordion {
         this.shrinkOrExpand(false);
 
         if(this.animation) {
-            this.animation.oncancel = () => this.isClosing = false;
+            this.animation.oncancel = () => (this.isClosing = false);
         }
     }
 
@@ -148,7 +161,7 @@ class Accordion {
         this.shrinkOrExpand(true);
 
         if(this.animation) {
-            this.animation.oncancel = () => this.isExpanding = false;
+            this.animation.oncancel = () => (this.isExpanding = false);
         }
     }
 
@@ -185,7 +198,7 @@ class Slideshow {
     indices = {
         prev: -1,
         curr: -1,
-        next: -1
+        next: -1,
     };
 
     constructor(container: HTMLElement, transitionSpeed: number) {
@@ -220,7 +233,9 @@ class Slideshow {
             const para = document.createElement("p");
             const name = document.createElement("a");
 
-            name.innerText = (slide.dataset.title ? slide.dataset.title : "Untitled");
+            name.innerText = slide.dataset.title
+                ? slide.dataset.title
+                : "Untitled";
             name.tabIndex = 0;
             name.dataset.slide = `${idx}`;
             name.classList.add("slide-link");
@@ -246,12 +261,26 @@ class Slideshow {
             }
         }
 
-        this.indices.prev = getIndex(this.indices.curr, this.slides.length, false);
-        this.indices.next = getIndex(this.indices.curr, this.slides.length, true);
+        this.indices.prev = getIndex(
+            this.indices.curr,
+            this.slides.length,
+            false
+        );
+
+        this.indices.next = getIndex(
+            this.indices.curr,
+            this.slides.length,
+            true
+        );
     }
 
     updateTitles() {
-        if(!this.slides || !this.leftTitle || !this.currentTitle || !this.rightTitle) {
+        if(
+            !this.slides ||
+            !this.leftTitle ||
+            !this.currentTitle ||
+            !this.rightTitle
+        ) {
             return;
         }
 
@@ -279,9 +308,15 @@ class Slideshow {
         }
         else {
             const animation = new Animation(
-                new KeyframeEffect(this.slideshow,
-                    { transform: `translateX(-${slideIndex / this.slides.length * 100}%)` },
-                    { duration: this.transitionSpeed, fill: "forwards" })
+                new KeyframeEffect(
+                    this.slideshow,
+                    {
+                        transform: `translateX(-${
+                            (slideIndex / this.slides.length) * 100
+                        }%)`,
+                    },
+                    { duration: this.transitionSpeed, fill: "forwards" }
+                )
             );
 
             animation.addEventListener("finish", () => {
@@ -298,13 +333,22 @@ class Slideshow {
             return;
         }
 
-        this.indices.prev = getIndex(this.indices.curr, this.slides.length, false);
+        this.indices.prev = getIndex(
+            this.indices.curr,
+            this.slides.length,
+            false
+        );
 
         this.moveTo(this.indices.prev);
 
         this.indices.next = this.indices.curr;
         this.indices.curr = this.indices.prev;
-        this.indices.prev = getIndex(this.indices.prev, this.slides.length, false);
+
+        this.indices.prev = getIndex(
+            this.indices.prev,
+            this.slides.length,
+            false
+        );
 
         this.updateTitles();
     }
@@ -314,13 +358,22 @@ class Slideshow {
             return;
         }
 
-        this.indices.next = getIndex(this.indices.curr, this.slides.length, true);
+        this.indices.next = getIndex(
+            this.indices.curr,
+            this.slides.length,
+            true
+        );
 
         this.moveTo(this.indices.next);
 
         this.indices.prev = this.indices.curr;
         this.indices.curr = this.indices.next;
-        this.indices.next = getIndex(this.indices.next, this.slides.length, true);
+
+        this.indices.next = getIndex(
+            this.indices.next,
+            this.slides.length,
+            true
+        );
 
         this.updateTitles();
     }
@@ -335,7 +388,9 @@ window.addEventListener("load", () => {
         });
     }
 
-    const slideshow = document.querySelector(".slideshow-container") as HTMLElement;
+    const slideshow = document.querySelector(
+        ".slideshow-container"
+    ) as HTMLElement;
 
     if(slideshow) {
         new Slideshow(slideshow, 350);
@@ -351,7 +406,9 @@ window.addEventListener("load", () => {
     const repos: HTMLSpanElement | null = document.querySelector("#repos");
 
     if(repos) {
-        fetch("https://api.github.com/users/abluescarab/repos?type=sources&per_page=1000")
+        fetch(
+            "https://api.github.com/users/abluescarab/repos?type=sources&per_page=1000"
+        )
             .then((r) => {
                 if(r.ok) {
                     return r.json();
@@ -369,8 +426,12 @@ window.addEventListener("load", () => {
 
     if(typing && !reducedMotion) {
         const text = typing.innerText;
-        const animation = (typing.dataset.animation ? parseInt(typing.dataset.animation) : 1000);
-        const delay = (typing.dataset.blinkDelay ? parseInt(typing.dataset.blinkDelay) : 250);
+        const animation = typing.dataset.animation
+            ? parseInt(typing.dataset.animation)
+            : 1000;
+        const delay = typing.dataset.blinkDelay
+            ? parseInt(typing.dataset.blinkDelay)
+            : 250;
 
         typing.innerText = "";
         type(typing, text, animation, delay);
@@ -386,12 +447,15 @@ window.addEventListener("scroll", () => {
     for(const section of sections) {
         // includes the header height plus a little extra so current changes
         // partway through the previous section
-        const top = section.offsetTop - 125 - (header ? header.scrollHeight : 0);
+        const top =
+            section.offsetTop - 125 - (header ? header.scrollHeight : 0);
         const bottom = top + section.scrollHeight;
 
         if(window.scrollY >= top && window.scrollY <= bottom) {
             document.querySelector("a.current")?.classList.remove("current");
-            document.querySelector(`a[href='#${section.id}'`)?.classList.add("current");
+            document
+                .querySelector(`a[href='#${section.id}'`)
+                ?.classList.add("current");
             break;
         }
     }

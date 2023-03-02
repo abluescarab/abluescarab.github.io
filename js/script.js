@@ -4,10 +4,10 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matc
 // #region Utilities
 function getIndex(index, length, nextIndex) {
     if (nextIndex) {
-        return (index === length - 1 ? 0 : index + 1);
+        return index === length - 1 ? 0 : index + 1;
     }
     else {
-        return (index === 0 ? length - 1 : index - 1);
+        return index === 0 ? length - 1 : index - 1;
     }
 }
 function toggleClass(element, className) {
@@ -87,8 +87,7 @@ class Accordion {
         // Store the current height of the element
         const startHeight = `${this.el.offsetHeight}px`;
         // Calculate the height of the summary
-        const endHeight = `${this.summary.offsetHeight
-            + (expand ? this.content.offsetHeight : 0)}px`;
+        const endHeight = `${this.summary.offsetHeight + (expand ? this.content.offsetHeight : 0)}px`;
         // If there is already an animation running
         if (this.animation) {
             // Cancel the current animation
@@ -97,10 +96,10 @@ class Accordion {
         // Start a WAAPI animation
         this.animation = this.el.animate({
             // Set the keyframes from the startHeight to endHeight
-            height: [startHeight, endHeight]
+            height: [startHeight, endHeight],
         }, {
             duration: this.animationLength,
-            easing: "ease-out"
+            easing: "ease-out",
         });
         // When the animation is complete, call onAnimationFinish()
         this.animation.onfinish = () => this.onAnimationFinish(expand);
@@ -110,7 +109,7 @@ class Accordion {
         this.isClosing = true;
         this.shrinkOrExpand(false);
         if (this.animation) {
-            this.animation.oncancel = () => this.isClosing = false;
+            this.animation.oncancel = () => (this.isClosing = false);
         }
     }
     open() {
@@ -126,7 +125,7 @@ class Accordion {
         this.isExpanding = true;
         this.shrinkOrExpand(true);
         if (this.animation) {
-            this.animation.oncancel = () => this.isExpanding = false;
+            this.animation.oncancel = () => (this.isExpanding = false);
         }
     }
     onAnimationFinish(open) {
@@ -155,7 +154,7 @@ class Slideshow {
         this.indices = {
             prev: -1,
             curr: -1,
-            next: -1
+            next: -1,
         };
         this.container = container;
         this.transitionSpeed = transitionSpeed;
@@ -181,7 +180,9 @@ class Slideshow {
         for (const [idx, slide] of this.slides.entries()) {
             const para = document.createElement("p");
             const name = document.createElement("a");
-            name.innerText = (slide.dataset.title ? slide.dataset.title : "Untitled");
+            name.innerText = slide.dataset.title
+                ? slide.dataset.title
+                : "Untitled";
             name.tabIndex = 0;
             name.dataset.slide = `${idx}`;
             name.classList.add("slide-link");
@@ -208,7 +209,10 @@ class Slideshow {
         this.indices.next = getIndex(this.indices.curr, this.slides.length, true);
     }
     updateTitles() {
-        if (!this.slides || !this.leftTitle || !this.currentTitle || !this.rightTitle) {
+        if (!this.slides ||
+            !this.leftTitle ||
+            !this.currentTitle ||
+            !this.rightTitle) {
             return;
         }
         const left = this.slides[this.indices.prev].dataset.title;
@@ -230,7 +234,9 @@ class Slideshow {
             newSlide.classList.add("current");
         }
         else {
-            const animation = new Animation(new KeyframeEffect(this.slideshow, { transform: `translateX(-${slideIndex / this.slides.length * 100}%)` }, { duration: this.transitionSpeed, fill: "forwards" }));
+            const animation = new Animation(new KeyframeEffect(this.slideshow, {
+                transform: `translateX(-${(slideIndex / this.slides.length) * 100}%)`,
+            }, { duration: this.transitionSpeed, fill: "forwards" }));
             animation.addEventListener("finish", () => {
                 currSlide.classList.remove("current");
                 newSlide.classList.add("current");
@@ -297,8 +303,12 @@ window.addEventListener("load", () => {
     const typing = document.querySelector(".typing");
     if (typing && !reducedMotion) {
         const text = typing.innerText;
-        const animation = (typing.dataset.animation ? parseInt(typing.dataset.animation) : 1000);
-        const delay = (typing.dataset.blinkDelay ? parseInt(typing.dataset.blinkDelay) : 250);
+        const animation = typing.dataset.animation
+            ? parseInt(typing.dataset.animation)
+            : 1000;
+        const delay = typing.dataset.blinkDelay
+            ? parseInt(typing.dataset.blinkDelay)
+            : 250;
         typing.innerText = "";
         type(typing, text, animation, delay);
     }
@@ -315,7 +325,8 @@ window.addEventListener("scroll", () => {
         const bottom = top + section.scrollHeight;
         if (window.scrollY >= top && window.scrollY <= bottom) {
             (_b = document.querySelector("a.current")) === null || _b === void 0 ? void 0 : _b.classList.remove("current");
-            (_c = document.querySelector(`a[href='#${section.id}'`)) === null || _c === void 0 ? void 0 : _c.classList.add("current");
+            (_c = document
+                .querySelector(`a[href='#${section.id}'`)) === null || _c === void 0 ? void 0 : _c.classList.add("current");
             break;
         }
     }

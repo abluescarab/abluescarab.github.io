@@ -1,6 +1,6 @@
 .typing {
     &::after {
-        content: '█';
+        content: "█";
     }
 }
 
@@ -11,7 +11,8 @@
 }
 
 @keyframes blink-caret {
-    from, to {
+    from,
+    to {
         color: transparent;
     }
     50% {

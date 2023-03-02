@@ -19,7 +19,9 @@
   --border-radius: 7px;
   --scroll-margin: 120px;
   --section-padding: var(--xl-padding);
-  --section-height: calc(100vh - var(--header-height) - (var(--section-padding) * 2));
+  --section-height: calc(
+      100vh - var(--header-height) - (var(--section-padding) * 2)
+  );
   --dark-teal: #015077;
   --aqua: #46798e;
   --light-yellow: #ffd157;
@@ -599,11 +601,13 @@ details > div {
 .controls a:visited:focus {
   color: var(--link-color);
 }
-.controls button, .controls summary {
+.controls button,
+.controls summary {
   min-height: var(--controls-height);
   padding: 0 var(--lg-padding);
 }
-.controls #left-title::before, .controls #right-title::after {
+.controls #left-title::before,
+.controls #right-title::after {
   font-family: "Material Symbols Outlined";
   font-size: var(--xl-text);
 }
@@ -621,7 +625,8 @@ details > div {
 .controls #right-title::after {
   content: "chevron_right";
 }
-.controls p, .controls h3 {
+.controls p,
+.controls h3 {
   text-align: center;
 }
 
