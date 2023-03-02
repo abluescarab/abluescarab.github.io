@@ -259,9 +259,9 @@ class Slideshow {
         const current = (this.slides[this.indices.curr] as HTMLElement).dataset.title;
         const right = (this.slides[this.indices.next] as HTMLElement).dataset.title;
 
-        this.leftTitle.innerText = (left ? left : "Untitled");
-        this.currentTitle.innerText = (current ? current : "Untitled");
-        this.rightTitle.innerText = (right ? right : "Untitled");
+        this.leftTitle.innerHTML = `<span>${left ? left : "Untitled"}</span>`;
+        this.currentTitle.innerHTML = `<span>${current ? current : "Untitled"}</span>`;
+        this.rightTitle.innerHTML = `<span>${right ? right : "Untitled"}</span>`;
     }
 
     moveTo(slideIndex: number) {
