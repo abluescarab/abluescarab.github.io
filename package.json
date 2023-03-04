@@ -9,8 +9,9 @@
   "author": "Alana Gilston",
   "license": "GPL-3.0-only",
   "prettier": {
-    "tabWidth": 4,
-    "bracketSameLine": true
+    "htmlWhitespaceSensitivity": "css",
+    "bracketSameLine": true,
+    "editorconfig": true
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.53.0",
