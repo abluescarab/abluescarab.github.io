@@ -239,7 +239,7 @@ class Slideshow {
             name.dataset.slide = `${idx}`;
             name.classList.add("slide-link");
             name.addEventListener("click", () => {
-                this.moveTo(idx);
+                this.moveTo(idx, true);
                 dropdown?.parentElement?.removeAttribute("open");
             });
 
@@ -286,7 +286,7 @@ class Slideshow {
         }</span>`;
     }
 
-    moveTo(slideIndex: number) {
+    moveTo(slideIndex: number, forceUpdate: boolean = false) {
         if (!this.slides || !this.slideshow) {
             return;
         }
@@ -298,6 +298,11 @@ class Slideshow {
             this.slideshow.style.left = `-${slideIndex * 100}%`;
             currSlide.classList.remove("current");
             newSlide.classList.add("current");
+
+            if (forceUpdate) {
+                this.updateSlideIndices();
+                this.updateTitle();
+            }
         } else {
             const animation = new Animation(
                 new KeyframeEffect(
@@ -314,6 +319,11 @@ class Slideshow {
             animation.addEventListener("finish", () => {
                 currSlide.classList.remove("current");
                 newSlide.classList.add("current");
+
+                if (forceUpdate) {
+                    this.updateSlideIndices();
+                    this.updateTitle();
+                }
             });
 
             animation.play();

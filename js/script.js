@@ -204,7 +204,7 @@ class Slideshow {
             name.classList.add("slide-link");
             name.addEventListener("click", () => {
                 var _a;
-                this.moveTo(idx);
+                this.moveTo(idx, true);
                 (_a =
                     dropdown === null || dropdown === void 0
                         ? void 0
@@ -248,7 +248,7 @@ class Slideshow {
             current ? current : "Untitled"
         }</span>`;
     }
-    moveTo(slideIndex) {
+    moveTo(slideIndex, forceUpdate = false) {
         if (!this.slides || !this.slideshow) {
             return;
         }
@@ -258,6 +258,10 @@ class Slideshow {
             this.slideshow.style.left = `-${slideIndex * 100}%`;
             currSlide.classList.remove("current");
             newSlide.classList.add("current");
+            if (forceUpdate) {
+                this.updateSlideIndices();
+                this.updateTitle();
+            }
         } else {
             const animation = new Animation(
                 new KeyframeEffect(
@@ -273,6 +277,10 @@ class Slideshow {
             animation.addEventListener("finish", () => {
                 currSlide.classList.remove("current");
                 newSlide.classList.add("current");
+                if (forceUpdate) {
+                    this.updateSlideIndices();
+                    this.updateTitle();
+                }
             });
             animation.play();
         }
