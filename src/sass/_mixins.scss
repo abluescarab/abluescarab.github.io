@@ -12,8 +12,7 @@
         &:first-child:nth-last-child(1) {
             @content;
         }
-    }
-    @else {
+    } @else {
         &:first-child:nth-last-child(#{$n}),
         &:first-child:nth-last-child(#{$n}) ~ & {
             @content;

@@ -4,20 +4,18 @@ const reducedMotion = window.matchMedia(
 
 // #region Utilities
 function getIndex(index: number, length: number, nextIndex: boolean) {
-    if(nextIndex) {
+    if (nextIndex) {
         return index === length - 1 ? 0 : index + 1;
-    }
-    else {
+    } else {
         return index === 0 ? length - 1 : index - 1;
     }
 }
 
 function toggleClass(element: Element, className: string) {
-    if(element.classList.contains(className)) {
+    if (element.classList.contains(className)) {
         element.classList.remove(className);
         return false;
-    }
-    else {
+    } else {
         element.classList.add(className);
         return true;
     }
@@ -35,7 +33,7 @@ function type(
         elem.textContent += text[index];
         index++;
 
-        if(index == text.length) {
+        if (index == text.length) {
             clearInterval(typeInterval);
 
             setTimeout(() => {
@@ -50,7 +48,7 @@ function type(
 document.querySelector("#menu-icon")?.addEventListener("click", () => {
     const nav = document.querySelector("nav");
 
-    if(nav) {
+    if (nav) {
         toggleClass(nav, "open");
     }
 });
@@ -82,7 +80,7 @@ class Accordion {
         this.content = el.querySelector("div");
 
         // Detect user clicks on the summary element
-        if(this.summary) {
+        if (this.summary) {
             this.summary.addEventListener("click", (e) => this.onClick(e));
         }
     }
@@ -93,17 +91,17 @@ class Accordion {
         // Add an overflow on the <details> to avoid content overflowing
         this.el.style.overflow = "hidden";
         // Check if the element is being closed or is already closed
-        if(this.isClosing || !this.el.hasAttribute("open")) {
+        if (this.isClosing || !this.el.hasAttribute("open")) {
             this.open();
         }
         // Check if the element is being openned or is already open
-        else if(this.isExpanding || this.el.hasAttribute("open")) {
+        else if (this.isExpanding || this.el.hasAttribute("open")) {
             this.shrink();
         }
     }
 
     shrinkOrExpand(expand: boolean) {
-        if(!this.summary || !this.content) {
+        if (!this.summary || !this.content) {
             return;
         }
 
@@ -115,7 +113,7 @@ class Accordion {
         }px`;
 
         // If there is already an animation running
-        if(this.animation) {
+        if (this.animation) {
             // Cancel the current animation
             this.animation.cancel();
         }
@@ -141,7 +139,7 @@ class Accordion {
         this.isClosing = true;
         this.shrinkOrExpand(false);
 
-        if(this.animation) {
+        if (this.animation) {
             this.animation.oncancel = () => (this.isClosing = false);
         }
     }
@@ -160,17 +158,16 @@ class Accordion {
         this.isExpanding = true;
         this.shrinkOrExpand(true);
 
-        if(this.animation) {
+        if (this.animation) {
             this.animation.oncancel = () => (this.isExpanding = false);
         }
     }
 
     onAnimationFinish(open: boolean) {
         // Set the open attribute based on the parameter
-        if(open) {
+        if (open) {
             this.el.setAttribute("open", "");
-        }
-        else {
+        } else {
             this.el.removeAttribute("open");
         }
 
@@ -213,7 +210,7 @@ class Slideshow {
         this.leftButton?.addEventListener("click", () => this.clickPrevious());
         this.rightButton?.addEventListener("click", () => this.clickNext());
 
-        if(this.slideshow) {
+        if (this.slideshow) {
             this.slideshow.style.width = `${this.slides.length * 100}%`;
         }
 
@@ -223,13 +220,13 @@ class Slideshow {
     }
 
     createDropdown() {
-        if(!this.container || !this.slides) {
+        if (!this.container || !this.slides) {
             return;
         }
 
         const dropdown = this.container.querySelector("#slide-names");
 
-        for(const [idx, slide] of this.slides.entries()) {
+        for (const [idx, slide] of this.slides.entries()) {
             const para = document.createElement("p");
             const name = document.createElement("a");
 
@@ -252,12 +249,12 @@ class Slideshow {
     }
 
     updateSlideIndices() {
-        if(!this.slides) {
+        if (!this.slides) {
             return;
         }
 
-        for(const [idx, slide] of this.slides.entries()) {
-            if(slide.classList.contains("current")) {
+        for (const [idx, slide] of this.slides.entries()) {
+            if (slide.classList.contains("current")) {
                 this.indices.curr = idx;
                 break;
             }
@@ -290,19 +287,18 @@ class Slideshow {
     }
 
     moveTo(slideIndex: number) {
-        if(!this.slides || !this.slideshow) {
+        if (!this.slides || !this.slideshow) {
             return;
         }
 
         const currSlide = this.slides[this.indices.curr];
         const newSlide = this.slides[slideIndex];
 
-        if(reducedMotion) {
+        if (reducedMotion) {
             this.slideshow.style.left = `-${slideIndex * 100}%`;
             currSlide.classList.remove("current");
             newSlide.classList.add("current");
-        }
-        else {
+        } else {
             const animation = new Animation(
                 new KeyframeEffect(
                     this.slideshow,
@@ -325,7 +321,7 @@ class Slideshow {
     }
 
     clickPrevious() {
-        if(!this.slides) {
+        if (!this.slides) {
             return;
         }
 
@@ -346,11 +342,11 @@ class Slideshow {
             false
         );
 
-        this.updateTitles();
+        this.updateTitle();
     }
 
     clickNext() {
-        if(!this.slides) {
+        if (!this.slides) {
             return;
         }
 
@@ -371,14 +367,14 @@ class Slideshow {
             true
         );
 
-        this.updateTitles();
+        this.updateTitle();
     }
 }
 // #endregion
 // =============================================================================
 // #region Window Events
 window.addEventListener("load", () => {
-    if(!reducedMotion) {
+    if (!reducedMotion) {
         document.querySelectorAll("details").forEach((e) => {
             new Accordion(e);
         });
@@ -388,30 +384,30 @@ window.addEventListener("load", () => {
         ".slideshow-container"
     ) as HTMLElement;
 
-    if(slideshow) {
+    if (slideshow) {
         new Slideshow(slideshow, 350);
     }
 
     const exp: HTMLSpanElement | null = document.querySelector("#experience");
 
-    if(exp) {
+    if (exp) {
         const currentYear = new Date().getFullYear();
         exp.innerText = (currentYear - 2007).toLocaleString();
     }
 
     const repos: HTMLSpanElement | null = document.querySelector("#repos");
 
-    if(repos) {
+    if (repos) {
         fetch(
             "https://api.github.com/users/abluescarab/repos?type=sources&per_page=1000"
         )
             .then((r) => {
-                if(r.ok) {
+                if (r.ok) {
                     return r.json();
                 }
             })
             .then((d) => {
-                if(d) {
+                if (d) {
                     repos.innerText = d.length;
                 }
             })
@@ -420,7 +416,7 @@ window.addEventListener("load", () => {
 
     const typing = document.querySelector(".typing") as HTMLElement;
 
-    if(typing && !reducedMotion) {
+    if (typing && !reducedMotion) {
         const text = typing.innerText;
         const animation = typing.dataset.animation
             ? parseInt(typing.dataset.animation)
@@ -440,14 +436,14 @@ window.addEventListener("scroll", () => {
 
     document.querySelector("nav")?.classList.remove("open");
 
-    for(const section of sections) {
+    for (const section of sections) {
         // includes the header height plus a little extra so current changes
         // partway through the previous section
         const top =
             section.offsetTop - 125 - (header ? header.scrollHeight : 0);
         const bottom = top + section.scrollHeight;
 
-        if(window.scrollY >= top && window.scrollY <= bottom) {
+        if (window.scrollY >= top && window.scrollY <= bottom) {
             document.querySelector("a.current")?.classList.remove("current");
             document
                 .querySelector(`a[href='#${section.id}'`)

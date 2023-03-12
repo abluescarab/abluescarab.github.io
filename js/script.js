@@ -1,12 +1,13 @@
 "use strict";
 var _a;
-const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+).matches;
 // #region Utilities
 function getIndex(index, length, nextIndex) {
     if (nextIndex) {
         return index === length - 1 ? 0 : index + 1;
-    }
-    else {
+    } else {
         return index === 0 ? length - 1 : index - 1;
     }
 }
@@ -14,8 +15,7 @@ function toggleClass(element, className) {
     if (element.classList.contains(className)) {
         element.classList.remove(className);
         return false;
-    }
-    else {
+    } else {
         element.classList.add(className);
         return true;
     }
@@ -36,14 +36,21 @@ function type(elem, text, length, blinkDelay) {
 // #endregion
 // =============================================================================
 // #region Menu Events
-(_a = document.querySelector("#menu-icon")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
-    const nav = document.querySelector("nav");
-    if (nav) {
-        toggleClass(nav, "open");
-    }
-});
+(_a = document.querySelector("#menu-icon")) === null || _a === void 0
+    ? void 0
+    : _a.addEventListener("click", () => {
+          const nav = document.querySelector("nav");
+          if (nav) {
+              toggleClass(nav, "open");
+          }
+      });
 document.querySelectorAll("nav a").forEach((a) => {
-    a.addEventListener("click", () => { var _a; return (_a = document.querySelector("nav")) === null || _a === void 0 ? void 0 : _a.classList.remove("open"); });
+    a.addEventListener("click", () => {
+        var _a;
+        return (_a = document.querySelector("nav")) === null || _a === void 0
+            ? void 0
+            : _a.classList.remove("open");
+    });
 });
 // #endregion
 // =============================================================================
@@ -87,20 +94,25 @@ class Accordion {
         // Store the current height of the element
         const startHeight = `${this.el.offsetHeight}px`;
         // Calculate the height of the summary
-        const endHeight = `${this.summary.offsetHeight + (expand ? this.content.offsetHeight : 0)}px`;
+        const endHeight = `${
+            this.summary.offsetHeight + (expand ? this.content.offsetHeight : 0)
+        }px`;
         // If there is already an animation running
         if (this.animation) {
             // Cancel the current animation
             this.animation.cancel();
         }
         // Start a WAAPI animation
-        this.animation = this.el.animate({
-            // Set the keyframes from the startHeight to endHeight
-            height: [startHeight, endHeight],
-        }, {
-            duration: this.animationLength,
-            easing: "ease-out",
-        });
+        this.animation = this.el.animate(
+            {
+                // Set the keyframes from the startHeight to endHeight
+                height: [startHeight, endHeight],
+            },
+            {
+                duration: this.animationLength,
+                easing: "ease-out",
+            }
+        );
         // When the animation is complete, call onAnimationFinish()
         this.animation.onfinish = () => this.onAnimationFinish(expand);
     }
@@ -132,8 +144,7 @@ class Accordion {
         // Set the open attribute based on the parameter
         if (open) {
             this.el.setAttribute("open", "");
-        }
-        else {
+        } else {
             this.el.removeAttribute("open");
         }
         // Clear the stored animation
@@ -163,8 +174,12 @@ class Slideshow {
         this.leftButton = container.querySelector("#left-button");
         this.currentTitle = container.querySelector("#current-title");
         this.rightButton = container.querySelector("#right-button");
-        (_a = this.leftButton) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => this.clickPrevious());
-        (_b = this.rightButton) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => this.clickNext());
+        (_a = this.leftButton) === null || _a === void 0
+            ? void 0
+            : _a.addEventListener("click", () => this.clickPrevious());
+        (_b = this.rightButton) === null || _b === void 0
+            ? void 0
+            : _b.addEventListener("click", () => this.clickNext());
         if (this.slideshow) {
             this.slideshow.style.width = `${this.slides.length * 100}%`;
         }
@@ -190,10 +205,17 @@ class Slideshow {
             name.addEventListener("click", () => {
                 var _a;
                 this.moveTo(idx);
-                (_a = dropdown === null || dropdown === void 0 ? void 0 : dropdown.parentElement) === null || _a === void 0 ? void 0 : _a.removeAttribute("open");
+                (_a =
+                    dropdown === null || dropdown === void 0
+                        ? void 0
+                        : dropdown.parentElement) === null || _a === void 0
+                    ? void 0
+                    : _a.removeAttribute("open");
             });
             para.appendChild(name);
-            dropdown === null || dropdown === void 0 ? void 0 : dropdown.appendChild(para);
+            dropdown === null || dropdown === void 0
+                ? void 0
+                : dropdown.appendChild(para);
         }
     }
     updateSlideIndices() {
@@ -206,16 +228,25 @@ class Slideshow {
                 break;
             }
         }
-        this.indices.prev = getIndex(this.indices.curr, this.slides.length, false);
-        this.indices.next = getIndex(this.indices.curr, this.slides.length, true);
+        this.indices.prev = getIndex(
+            this.indices.curr,
+            this.slides.length,
+            false
+        );
+        this.indices.next = getIndex(
+            this.indices.curr,
+            this.slides.length,
+            true
+        );
     }
     updateTitle() {
         if (!this.slides || !this.currentTitle) {
             return;
         }
-        const current = this.slides[this.indices.curr].dataset
-            .title;
-        this.currentTitle.innerHTML = `<span>${current ? current : "Untitled"}</span>`;
+        const current = this.slides[this.indices.curr].dataset.title;
+        this.currentTitle.innerHTML = `<span>${
+            current ? current : "Untitled"
+        }</span>`;
     }
     moveTo(slideIndex) {
         if (!this.slides || !this.slideshow) {
@@ -227,11 +258,18 @@ class Slideshow {
             this.slideshow.style.left = `-${slideIndex * 100}%`;
             currSlide.classList.remove("current");
             newSlide.classList.add("current");
-        }
-        else {
-            const animation = new Animation(new KeyframeEffect(this.slideshow, {
-                transform: `translateX(-${(slideIndex / this.slides.length) * 100}%)`,
-            }, { duration: this.transitionSpeed, fill: "forwards" }));
+        } else {
+            const animation = new Animation(
+                new KeyframeEffect(
+                    this.slideshow,
+                    {
+                        transform: `translateX(-${
+                            (slideIndex / this.slides.length) * 100
+                        }%)`,
+                    },
+                    { duration: this.transitionSpeed, fill: "forwards" }
+                )
+            );
             animation.addEventListener("finish", () => {
                 currSlide.classList.remove("current");
                 newSlide.classList.add("current");
@@ -243,22 +281,38 @@ class Slideshow {
         if (!this.slides) {
             return;
         }
-        this.indices.prev = getIndex(this.indices.curr, this.slides.length, false);
+        this.indices.prev = getIndex(
+            this.indices.curr,
+            this.slides.length,
+            false
+        );
         this.moveTo(this.indices.prev);
         this.indices.next = this.indices.curr;
         this.indices.curr = this.indices.prev;
-        this.indices.prev = getIndex(this.indices.prev, this.slides.length, false);
+        this.indices.prev = getIndex(
+            this.indices.prev,
+            this.slides.length,
+            false
+        );
         this.updateTitle();
     }
     clickNext() {
         if (!this.slides) {
             return;
         }
-        this.indices.next = getIndex(this.indices.curr, this.slides.length, true);
+        this.indices.next = getIndex(
+            this.indices.curr,
+            this.slides.length,
+            true
+        );
         this.moveTo(this.indices.next);
         this.indices.prev = this.indices.curr;
         this.indices.curr = this.indices.next;
-        this.indices.next = getIndex(this.indices.next, this.slides.length, true);
+        this.indices.next = getIndex(
+            this.indices.next,
+            this.slides.length,
+            true
+        );
         this.updateTitle();
     }
 }
@@ -282,17 +336,19 @@ window.addEventListener("load", () => {
     }
     const repos = document.querySelector("#repos");
     if (repos) {
-        fetch("https://api.github.com/users/abluescarab/repos?type=sources&per_page=1000")
+        fetch(
+            "https://api.github.com/users/abluescarab/repos?type=sources&per_page=1000"
+        )
             .then((r) => {
-            if (r.ok) {
-                return r.json();
-            }
-        })
+                if (r.ok) {
+                    return r.json();
+                }
+            })
             .then((d) => {
-            if (d) {
-                repos.innerText = d.length;
-            }
-        })
+                if (d) {
+                    repos.innerText = d.length;
+                }
+            })
             .catch((e) => console.log(e));
     }
     const typing = document.querySelector(".typing");
@@ -312,16 +368,23 @@ window.addEventListener("scroll", () => {
     var _a, _b, _c;
     const sections = document.querySelectorAll("section");
     const header = document.querySelector(".header-container");
-    (_a = document.querySelector("nav")) === null || _a === void 0 ? void 0 : _a.classList.remove("open");
+    (_a = document.querySelector("nav")) === null || _a === void 0
+        ? void 0
+        : _a.classList.remove("open");
     for (const section of sections) {
         // includes the header height plus a little extra so current changes
         // partway through the previous section
-        const top = section.offsetTop - 125 - (header ? header.scrollHeight : 0);
+        const top =
+            section.offsetTop - 125 - (header ? header.scrollHeight : 0);
         const bottom = top + section.scrollHeight;
         if (window.scrollY >= top && window.scrollY <= bottom) {
-            (_b = document.querySelector("a.current")) === null || _b === void 0 ? void 0 : _b.classList.remove("current");
-            (_c = document
-                .querySelector(`a[href='#${section.id}'`)) === null || _c === void 0 ? void 0 : _c.classList.add("current");
+            (_b = document.querySelector("a.current")) === null || _b === void 0
+                ? void 0
+                : _b.classList.remove("current");
+            (_c = document.querySelector(`a[href='#${section.id}'`)) === null ||
+            _c === void 0
+                ? void 0
+                : _c.classList.add("current");
             break;
         }
     }
