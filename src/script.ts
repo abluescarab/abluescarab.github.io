@@ -190,9 +190,9 @@ class Slideshow {
     container: HTMLElement | null;
     slideshow: HTMLElement | null;
     slides: NodeListOf<HTMLElement> | undefined;
-    leftTitle: HTMLElement | null;
+    leftButton: HTMLElement | null;
     currentTitle: HTMLElement | null;
-    rightTitle: HTMLElement | null;
+    rightButton: HTMLElement | null;
     transitionSpeed: number;
 
     indices = {
@@ -206,12 +206,12 @@ class Slideshow {
         this.transitionSpeed = transitionSpeed;
         this.slideshow = container.querySelector(".slideshow");
         this.slides = container.querySelectorAll(".slide");
-        this.leftTitle = container.querySelector("#left-title");
+        this.leftButton = container.querySelector("#left-button");
         this.currentTitle = container.querySelector("#current-title");
-        this.rightTitle = container.querySelector("#right-title");
+        this.rightButton = container.querySelector("#right-button");
 
-        this.leftTitle?.addEventListener("click", () => this.clickPrevious());
-        this.rightTitle?.addEventListener("click", () => this.clickNext());
+        this.leftButton?.addEventListener("click", () => this.clickPrevious());
+        this.rightButton?.addEventListener("click", () => this.clickNext());
 
         if(this.slideshow) {
             this.slideshow.style.width = `${this.slides.length * 100}%`;
@@ -219,7 +219,7 @@ class Slideshow {
 
         this.createDropdown();
         this.updateSlideIndices();
-        this.updateTitles();
+        this.updateTitle();
     }
 
     createDropdown() {
@@ -232,6 +232,8 @@ class Slideshow {
         for(const [idx, slide] of this.slides.entries()) {
             const para = document.createElement("p");
             const name = document.createElement("a");
+
+            para.classList.add("slide-name");
 
             name.innerText = slide.dataset.title
                 ? slide.dataset.title
@@ -274,23 +276,17 @@ class Slideshow {
         );
     }
 
-    updateTitles() {
-        if(
-            !this.slides ||
-            !this.leftTitle ||
-            !this.currentTitle ||
-            !this.rightTitle
-        ) {
+    updateTitle() {
+        if (!this.slides || !this.currentTitle) {
             return;
         }
 
-        const left = (this.slides[this.indices.prev] as HTMLElement).dataset.title;
-        const current = (this.slides[this.indices.curr] as HTMLElement).dataset.title;
-        const right = (this.slides[this.indices.next] as HTMLElement).dataset.title;
+        const current = (this.slides[this.indices.curr] as HTMLElement).dataset
+            .title;
 
-        this.leftTitle.innerHTML = `<span>${left ? left : "Untitled"}</span>`;
-        this.currentTitle.innerHTML = `<span>${current ? current : "Untitled"}</span>`;
-        this.rightTitle.innerHTML = `<span>${right ? right : "Untitled"}</span>`;
+        this.currentTitle.innerHTML = `<span>${
+            current ? current : "Untitled"
+        }</span>`;
     }
 
     moveTo(slideIndex: number) {

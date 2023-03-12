@@ -160,17 +160,17 @@ class Slideshow {
         this.transitionSpeed = transitionSpeed;
         this.slideshow = container.querySelector(".slideshow");
         this.slides = container.querySelectorAll(".slide");
-        this.leftTitle = container.querySelector("#left-title");
+        this.leftButton = container.querySelector("#left-button");
         this.currentTitle = container.querySelector("#current-title");
-        this.rightTitle = container.querySelector("#right-title");
-        (_a = this.leftTitle) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => this.clickPrevious());
-        (_b = this.rightTitle) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => this.clickNext());
+        this.rightButton = container.querySelector("#right-button");
+        (_a = this.leftButton) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => this.clickPrevious());
+        (_b = this.rightButton) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => this.clickNext());
         if (this.slideshow) {
             this.slideshow.style.width = `${this.slides.length * 100}%`;
         }
         this.createDropdown();
         this.updateSlideIndices();
-        this.updateTitles();
+        this.updateTitle();
     }
     createDropdown() {
         if (!this.container || !this.slides) {
@@ -180,6 +180,7 @@ class Slideshow {
         for (const [idx, slide] of this.slides.entries()) {
             const para = document.createElement("p");
             const name = document.createElement("a");
+            para.classList.add("slide-name");
             name.innerText = slide.dataset.title
                 ? slide.dataset.title
                 : "Untitled";
@@ -208,19 +209,13 @@ class Slideshow {
         this.indices.prev = getIndex(this.indices.curr, this.slides.length, false);
         this.indices.next = getIndex(this.indices.curr, this.slides.length, true);
     }
-    updateTitles() {
-        if (!this.slides ||
-            !this.leftTitle ||
-            !this.currentTitle ||
-            !this.rightTitle) {
+    updateTitle() {
+        if (!this.slides || !this.currentTitle) {
             return;
         }
-        const left = this.slides[this.indices.prev].dataset.title;
-        const current = this.slides[this.indices.curr].dataset.title;
-        const right = this.slides[this.indices.next].dataset.title;
-        this.leftTitle.innerHTML = `<span>${left ? left : "Untitled"}</span>`;
+        const current = this.slides[this.indices.curr].dataset
+            .title;
         this.currentTitle.innerHTML = `<span>${current ? current : "Untitled"}</span>`;
-        this.rightTitle.innerHTML = `<span>${right ? right : "Untitled"}</span>`;
     }
     moveTo(slideIndex) {
         if (!this.slides || !this.slideshow) {
@@ -253,7 +248,7 @@ class Slideshow {
         this.indices.next = this.indices.curr;
         this.indices.curr = this.indices.prev;
         this.indices.prev = getIndex(this.indices.prev, this.slides.length, false);
-        this.updateTitles();
+        this.updateTitle();
     }
     clickNext() {
         if (!this.slides) {
@@ -264,7 +259,7 @@ class Slideshow {
         this.indices.prev = this.indices.curr;
         this.indices.curr = this.indices.next;
         this.indices.next = getIndex(this.indices.next, this.slides.length, true);
-        this.updateTitles();
+        this.updateTitle();
     }
 }
 // #endregion

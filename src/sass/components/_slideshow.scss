@@ -14,7 +14,7 @@
 
     min-height: var(--controls-height);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: auto 1fr auto;
     align-items: flex-start;
     gap: var(--md-padding);
 
@@ -32,28 +32,22 @@
         padding: 0 var(--lg-padding);
     }
 
-    #left-title::before,
-    #right-title::after {
+    .slide-name {
+        padding: var(--sm-padding);
+    }
+
+    #left-button::before,
+    #right-button::after {
         font-family: "Material Symbols Outlined";
         font-size: var(--xl-text);
     }
 
-    #left-title {
-        display: grid;
-        grid-template-columns: auto 1fr;
-
-        &::before {
-            content: "chevron_left";
-        }
+    #left-button::before {
+        content: "chevron_left";
     }
 
-    #right-title {
-        display: grid;
-        grid-template-columns: 1fr auto;
-
-        &::after {
-            content: "chevron_right";
-        }
+    #right-button::after {
+        content: "chevron_right";
     }
 
     p,
@@ -86,21 +80,5 @@
         border-radius: var(--border-radius);
         max-width: 100%;
         max-height: calc(var(--slideshow-height) / 2);
-    }
-}
-
-@media screen and (max-width: $nav-collapse) {
-    .controls {
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-
-        #left-title,
-        #right-title {
-            display: block;
-
-            span {
-                display: none;
-            }
-        }
     }
 }
