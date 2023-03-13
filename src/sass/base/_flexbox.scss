@@ -1,43 +1,43 @@
 .flex {
-    display: flex;
-    min-width: 0;
-    min-height: 0;
+  display: flex;
+  min-width: 0;
+  min-height: 0;
 
-    @include has-children(1) {
-        flex: 1 0 100%;
-    }
+  @include has-children(1) {
+    flex: 1 0 100%;
+  }
 
-    @include has-children(2) {
-        flex: 1 0 50%;
-    }
+  @include has-children(2) {
+    flex: 1 0 50%;
+  }
 
-    @include has-children(3) {
-        flex: 1 0 33.33%;
-    }
+  @include has-children(3) {
+    flex: 1 0 33.33%;
+  }
 
-    @include has-children(4) {
-        flex: 1 0 25%;
-    }
+  @include has-children(4) {
+    flex: 1 0 25%;
+  }
 }
 
 .flex-row {
-    flex-direction: row;
+  flex-direction: row;
 }
 
 .flex-col {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .flex-wrap {
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .flex-nowrap {
-    flex-wrap: nowrap;
+  flex-wrap: nowrap;
 }
 
 @media screen and (max-width: $nav-collapse) {
-    .flex-row {
-        flex-direction: column;
-    }
+  .flex-row {
+    flex-direction: column;
+  }
 }

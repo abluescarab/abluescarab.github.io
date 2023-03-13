@@ -1,33 +1,33 @@
 .attn {
-    color: var(--link-color);
+  color: var(--link-color);
 }
 
 section {
-    padding: var(--section-padding);
-    scroll-margin-top: var(--scroll-margin);
-    min-height: var(--section-height);
+  padding: var(--section-padding);
+  scroll-margin-top: var(--scroll-margin);
+  min-height: var(--section-height);
 }
 
 .content {
-    justify-content: center;
-    max-width: var(--page-width);
-    margin: 0 auto;
-    gap: var(--section-padding);
+  justify-content: center;
+  max-width: var(--page-width);
+  margin: 0 auto;
+  gap: var(--section-padding);
 }
 
 #skills {
-    .skill {
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: flex-start;
-        align-items: center;
-        width: 100px;
-        gap: var(--md-padding);
-        text-align: center;
-    }
+  .skill {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100px;
+    gap: var(--md-padding);
+    text-align: center;
+  }
 
-    img {
-        max-height: 40px;
-        max-width: 40px;
-    }
+  img {
+    max-height: 40px;
+    max-width: 40px;
+  }
 }

@@ -1,19 +1,19 @@
 details {
-    summary {
-        position: relative;
-        z-index: 1;
+  summary {
+    position: relative;
+    z-index: 1;
 
-        &::after {
-            font-family: "Material Symbols Outlined";
-            font-size: var(--xl-text);
-            content: "expand_more";
-        }
+    &::after {
+      font-family: "Material Symbols Outlined";
+      font-size: var(--xl-text);
+      content: "expand_more";
     }
+  }
 
-    & > div {
-        border-radius: var(--border-radius);
-        margin-top: calc(var(--lg-padding) * -1);
-        padding: var(--xl-padding);
-        background-color: var(--dark-background-color);
-    }
+  & > div {
+    border-radius: var(--border-radius);
+    margin-top: calc(var(--lg-padding) * -1);
+    padding: var(--xl-padding);
+    background-color: var(--dark-background-color);
+  }
 }

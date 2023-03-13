@@ -1,21 +1,21 @@
 .flex-grid {
+  display: flex;
+  flex-direction: row;
+  gap: var(--md-padding);
+
+  & > * {
+    width: 100%;
+  }
+
+  .row {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: var(--md-padding);
-
-    & > * {
-        width: 100%;
-    }
-
-    .row {
-        display: flex;
-        flex-direction: column;
-        gap: var(--md-padding);
-    }
+  }
 }
 
 @media screen and (max-width: $nav-collapse) {
-    .flex-grid {
-        flex-wrap: wrap;
-    }
+  .flex-grid {
+    flex-wrap: wrap;
+  }
 }

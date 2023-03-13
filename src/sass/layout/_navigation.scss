@@ -1,43 +1,43 @@
 nav {
-    align-items: center;
-    display: flex;
-    flex-flow: row nowrap;
-    font-size: var(--xs-text);
-    gap: var(--section-padding);
-    grid-column: 3;
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  font-size: var(--xs-text);
+  gap: var(--section-padding);
+  grid-column: 3;
 
-    .current {
-        color: var(--light-yellow);
+  .current {
+    color: var(--light-yellow);
 
-        &:before {
-            content: "\2039\00A0";
-            font-size: var(--md-text);
-        }
-
-        &:after {
-            content: "\00A0\203A";
-            font-size: var(--md-text);
-        }
+    &:before {
+      content: "\2039\00A0";
+      font-size: var(--md-text);
     }
+
+    &:after {
+      content: "\00A0\203A";
+      font-size: var(--md-text);
+    }
+  }
 }
 
 @media screen and (max-width: $nav-collapse) {
-    nav {
-        align-items: start;
-        background-color: var(--dark-background-color);
-        flex-direction: column;
-        padding: var(--section-padding);
-        position: fixed;
-        bottom: 0;
-        top: var(--header-height);
-        left: 200vw;
-        right: 0;
-        visibility: hidden;
-        transition: left 250ms, visibility 300ms;
+  nav {
+    align-items: start;
+    background-color: var(--dark-background-color);
+    flex-direction: column;
+    padding: var(--section-padding);
+    position: fixed;
+    bottom: 0;
+    top: var(--header-height);
+    left: 200vw;
+    right: 0;
+    visibility: hidden;
+    transition: left 250ms, visibility 300ms;
 
-        &.open {
-            left: 0;
-            visibility: visible;
-        }
+    &.open {
+      left: 0;
+      visibility: visible;
     }
+  }
 }

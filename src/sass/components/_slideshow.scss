@@ -1,90 +1,90 @@
 .slideshow-container {
-    --slideshow-height: 600px;
+  --slideshow-height: 600px;
 
-    display: flex;
-    flex-flow: column nowrap;
-    background-color: var(--dark-background-color);
-    border-radius: var(--border-radius);
-    padding: var(--md-padding);
-    overflow: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: var(--dark-background-color);
+  border-radius: var(--border-radius);
+  padding: var(--md-padding);
+  overflow: hidden;
 }
 
 .controls {
-    --controls-height: 75px;
+  --controls-height: 75px;
 
+  min-height: var(--controls-height);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: flex-start;
+  gap: var(--md-padding);
+
+  a,
+  a:visited {
+    &:hover,
+    &:focus {
+      color: var(--link-color);
+    }
+  }
+
+  button,
+  summary {
     min-height: var(--controls-height);
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: flex-start;
-    gap: var(--md-padding);
+    padding: 0 var(--lg-padding);
+  }
 
-    a,
-    a:visited {
-        &:hover,
-        &:focus {
-            color: var(--link-color);
-        }
-    }
+  .slide-name {
+    padding: var(--sm-padding);
+  }
 
-    button,
-    summary {
-        min-height: var(--controls-height);
-        padding: 0 var(--lg-padding);
-    }
+  #left-button::before,
+  #right-button::after {
+    font-family: "Material Symbols Outlined";
+    font-size: var(--xl-text);
+  }
 
-    .slide-name {
-        padding: var(--sm-padding);
-    }
+  #left-button::before {
+    content: "chevron_left";
+  }
 
-    #left-button::before,
-    #right-button::after {
-        font-family: "Material Symbols Outlined";
-        font-size: var(--xl-text);
-    }
+  #right-button::after {
+    content: "chevron_right";
+  }
 
-    #left-button::before {
-        content: "chevron_left";
-    }
-
-    #right-button::after {
-        content: "chevron_right";
-    }
-
-    p,
-    h3 {
-        text-align: center;
-    }
+  p,
+  h3 {
+    text-align: center;
+  }
 }
 
 .slideshow {
-    display: flex;
-    flex-flow: row nowrap;
-    overflow: hidden;
-    position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: hidden;
+  position: relative;
 }
 
 .slide {
-    display: flex;
-    flex-flow: column nowrap;
-    padding: var(--lg-padding) var(--xl-padding) var(--xl-padding)
-        var(--xl-padding);
-    gap: var(--lg-padding);
-    width: 100%;
-    position: relative;
-    align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: var(--lg-padding) var(--xl-padding) var(--xl-padding)
+    var(--xl-padding);
+  gap: var(--lg-padding);
+  width: 100%;
+  position: relative;
+  align-items: center;
 
-    a,
-    a:visited,
-    a:hover {
-        color: var(--link-color);
-    }
+  a,
+  a:visited,
+  a:hover {
+    color: var(--link-color);
+  }
 
-    img {
-        object-fit: contain;
-        width: auto;
-        height: auto;
-        border-radius: var(--border-radius);
-        max-width: 100%;
-        max-height: calc(var(--slideshow-height) / 2);
-    }
+  img {
+    object-fit: contain;
+    width: auto;
+    height: auto;
+    border-radius: var(--border-radius);
+    max-width: 100%;
+    max-height: calc(var(--slideshow-height) / 2);
+  }
 }

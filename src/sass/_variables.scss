@@ -1,45 +1,45 @@
 $nav-collapse: 850px; // when to collapse navigation bar
 
 :root {
-    --xxs-text: calc(var(--md-text) - 6pt);
-    --xs-text: calc(var(--md-text) - 4pt);
-    --sm-text: calc(var(--md-text) - 2pt);
-    --md-text: 16pt;
-    --lg-text: calc(var(--md-text) + 2pt);
-    --xl-text: calc(var(--md-text) + 4pt);
-    --xxl-text: calc(var(--md-text) + 8pt);
+  --xxs-text: calc(var(--md-text) - 6pt);
+  --xs-text: calc(var(--md-text) - 4pt);
+  --sm-text: calc(var(--md-text) - 2pt);
+  --md-text: 16pt;
+  --lg-text: calc(var(--md-text) + 2pt);
+  --xl-text: calc(var(--md-text) + 4pt);
+  --xxl-text: calc(var(--md-text) + 8pt);
 
-    --xs-padding: calc(var(--md-padding) / 4);
-    --sm-padding: calc(var(--md-padding) / 2);
-    --md-padding: 10px;
-    --lg-padding: calc(var(--md-padding) * 2);
-    --xl-padding: calc(var(--md-padding) * 4);
-    --xxl-padding: calc(var(--md-padding) * 8);
+  --xs-padding: calc(var(--md-padding) / 4);
+  --sm-padding: calc(var(--md-padding) / 2);
+  --md-padding: 10px;
+  --lg-padding: calc(var(--md-padding) * 2);
+  --xl-padding: calc(var(--md-padding) * 4);
+  --xxl-padding: calc(var(--md-padding) * 8);
 
-    // page sizes
-    --page-width: 1200px;
-    --header-height: 125px;
-    --border-radius: 7px;
-    --scroll-margin: 120px;
+  // page sizes
+  --page-width: 1200px;
+  --header-height: 125px;
+  --border-radius: 7px;
+  --scroll-margin: 120px;
 
-    // section sizes
-    --section-padding: var(--xl-padding);
-    --section-height: calc(
-        100vh - var(--header-height) - (var(--section-padding) * 2)
-    );
+  // section sizes
+  --section-padding: var(--xl-padding);
+  --section-height: calc(
+    100vh - var(--header-height) - (var(--section-padding) * 2)
+  );
 
-    // colors
-    --dark-teal: #015077;
-    --aqua: #46798e;
-    --light-yellow: #ffd157;
-    --light-gray: #eee;
-    --medium-gray: #222;
-    --dark-gray: #111;
+  // colors
+  --dark-teal: #015077;
+  --aqua: #46798e;
+  --light-yellow: #ffd157;
+  --light-gray: #eee;
+  --medium-gray: #222;
+  --dark-gray: #111;
 
-    // theme colors
-    --text-color: var(--light-gray);
-    --link-color: var(--light-yellow);
-    --background-color: black;
-    --dark-background-color: var(--dark-gray);
-    --medium-background-color: var(--medium-gray);
+  // theme colors
+  --text-color: var(--light-gray);
+  --link-color: var(--light-yellow);
+  --background-color: black;
+  --dark-background-color: var(--dark-gray);
+  --medium-background-color: var(--medium-gray);
 }

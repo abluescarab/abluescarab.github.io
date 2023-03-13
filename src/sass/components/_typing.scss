@@ -1,21 +1,21 @@
 .typing {
-    &::after {
-        content: "█";
-    }
+  &::after {
+    content: "█";
+  }
 }
 
 .blink {
-    &::after {
-        animation: blink-caret 1000ms step-end infinite;
-    }
+  &::after {
+    animation: blink-caret 1000ms step-end infinite;
+  }
 }
 
 @keyframes blink-caret {
-    from,
-    to {
-        color: transparent;
-    }
-    50% {
-        color: var(--link-color);
-    }
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: var(--link-color);
+  }
 }

@@ -1,34 +1,34 @@
 #intro {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+
+  &:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: saturate(0);
+    opacity: 30%;
+    z-index: -100;
+  }
+
+  .intro-content {
     min-width: 0;
+    position: relative;
+    top: calc(var(--section-padding) * -1);
+    max-width: var(--page-width);
 
-    &:before {
-        content: " ";
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url("../../img/background.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        filter: saturate(0);
-        opacity: 30%;
-        z-index: -100;
+    p {
+      text-shadow: 0px 0px 5px black;
     }
-
-    .intro-content {
-        min-width: 0;
-        position: relative;
-        top: calc(var(--section-padding) * -1);
-        max-width: var(--page-width);
-
-        p {
-            text-shadow: 0px 0px 5px black;
-        }
-    }
+  }
 }
