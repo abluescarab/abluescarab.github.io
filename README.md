@@ -17,7 +17,7 @@ npm install
 ```
 
 ### Build and watch
-The `.vscode` folder in this repository contains build and watch tasks that will automatically compile Sass and Typescript when the workspace is opened. These tasks will run in PowerShell by default; to change this behavior, remove this section for any tasks that have it:
+The `.vscode` folder in this repository contains build and watch tasks that will automatically compile Sass and Typescript when the workspace is opened. If you are not using the Live Sass Compiler extension, remove the `Watch Sass` task. These tasks will run in PowerShell by default; to change this behavior, remove this section for any tasks that have it:
 ```json
 "options": {
   "shell": {
