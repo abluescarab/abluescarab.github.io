@@ -88,3 +88,25 @@
     max-height: calc(var(--slideshow-height) / 2);
   }
 }
+
+@media screen and (max-width: 450px) {
+  .controls {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    #left-button {
+      grid-row: 1;
+    }
+
+    #right-button {
+      grid-row: 1;
+    }
+
+    details {
+      grid-row: 2;
+      grid-column: span 2;
+    }
+  }
+}
