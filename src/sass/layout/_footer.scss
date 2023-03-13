@@ -6,4 +6,8 @@ footer {
   a:visited {
     color: var(--link-color);
   }
+
+  p:not(:last-child) {
+    margin-bottom: var(--md-padding);
+  }
 }

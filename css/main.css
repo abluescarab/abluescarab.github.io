@@ -711,6 +711,9 @@ footer a,
 footer a:visited {
   color: var(--link-color);
 }
+footer p:not(:last-child) {
+  margin-bottom: var(--md-padding);
+}
 
 form {
   --label-width: 150px;
