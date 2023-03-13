@@ -73,6 +73,12 @@
     position: relative;
     align-items: center;
 
+    a,
+    a:visited,
+    a:hover {
+        color: var(--link-color);
+    }
+
     img {
         object-fit: contain;
         width: auto;
