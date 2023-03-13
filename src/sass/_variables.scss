@@ -1,4 +1,5 @@
 $nav-collapse: 850px; // when to collapse navigation bar
+$mobile: 450px; // when to reduce padding and reflow slideshow
 
 :root {
   --xxs-text: calc(var(--md-text) - 6pt);
@@ -24,6 +25,7 @@ $nav-collapse: 850px; // when to collapse navigation bar
 
   // section sizes
   --section-padding: var(--xl-padding);
+  --section-padding-mobile: var(--lg-padding);
   --section-height: calc(
     100vh - var(--header-height) - (var(--section-padding) * 2)
   );

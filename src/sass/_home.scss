@@ -31,3 +31,13 @@ section {
     max-width: 40px;
   }
 }
+
+@media screen and (max-width: $mobile) {
+  section {
+    padding: var(--section-padding) var(--section-padding-mobile);
+  }
+
+  .content {
+    gap: var(--section-padding) var(--section-padding-mobile);
+  }
+}

@@ -19,6 +19,7 @@
   --border-radius: 7px;
   --scroll-margin: 120px;
   --section-padding: var(--xl-padding);
+  --section-padding-mobile: var(--lg-padding);
   --section-height: calc(
     100vh - var(--header-height) - (var(--section-padding) * 2)
   );
@@ -874,4 +875,13 @@ section {
 #skills img {
   max-height: 40px;
   max-width: 40px;
+}
+
+@media screen and (max-width: 450px) {
+  section {
+    padding: var(--section-padding) var(--section-padding-mobile);
+  }
+  .content {
+    gap: var(--section-padding) var(--section-padding-mobile);
+  }
 }

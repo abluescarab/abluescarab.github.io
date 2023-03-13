@@ -89,7 +89,7 @@
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: $mobile) {
   .controls {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
