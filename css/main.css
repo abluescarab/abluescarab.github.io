@@ -601,7 +601,7 @@ details > div {
   --controls-height: 75px;
   min-height: var(--controls-height);
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: flex-start;
   gap: var(--md-padding);
 }
