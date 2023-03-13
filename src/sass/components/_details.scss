@@ -2,6 +2,11 @@ details {
   summary {
     position: relative;
     z-index: 1;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
 
     &::after {
       font-family: "Material Symbols Outlined";
