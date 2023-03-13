@@ -622,14 +622,7 @@ details > div {
 }
 .controls #left-button::before,
 .controls #right-button::after {
-  font-family: "Material Symbols Outlined";
   font-size: var(--xl-text);
-}
-.controls #left-button::before {
-  content: "chevron_left";
-}
-.controls #right-button::after {
-  content: "chevron_right";
 }
 .controls p,
 .controls h3 {

@@ -38,16 +38,7 @@
 
   #left-button::before,
   #right-button::after {
-    font-family: "Material Symbols Outlined";
     font-size: var(--xl-text);
-  }
-
-  #left-button::before {
-    content: "chevron_left";
-  }
-
-  #right-button::after {
-    content: "chevron_right";
   }
 
   p,
