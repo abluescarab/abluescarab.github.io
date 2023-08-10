@@ -44,16 +44,13 @@
 .flex:first-child:nth-last-child(1) {
   flex: 1 0 100%;
 }
-.flex:first-child:nth-last-child(2),
-.flex:first-child:nth-last-child(2) ~ .flex {
+.flex:first-child:nth-last-child(2), .flex:first-child:nth-last-child(2) ~ .flex {
   flex: 1 0 50%;
 }
-.flex:first-child:nth-last-child(3),
-.flex:first-child:nth-last-child(3) ~ .flex {
+.flex:first-child:nth-last-child(3), .flex:first-child:nth-last-child(3) ~ .flex {
   flex: 1 0 33.33%;
 }
-.flex:first-child:nth-last-child(4),
-.flex:first-child:nth-last-child(4) ~ .flex {
+.flex:first-child:nth-last-child(4), .flex:first-child:nth-last-child(4) ~ .flex {
   flex: 1 0 25%;
 }
 
@@ -488,11 +485,10 @@ button,
   justify-content: center;
   outline: 0;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
-button:hover,
-button:focus,
+button:hover, button:focus,
 .button:hover,
 .button:focus {
   background-color: var(--medium-background-color);
@@ -501,8 +497,7 @@ button img,
 .button img {
   height: 50px;
 }
-button:hover,
-button:focus,
+button:hover, button:focus,
 .button:hover,
 .button:focus {
   color: var(--link-color);
@@ -606,8 +601,7 @@ details > div {
   align-items: flex-start;
   gap: var(--md-padding);
 }
-.controls a:hover,
-.controls a:focus,
+.controls a:hover, .controls a:focus,
 .controls a:visited:hover,
 .controls a:visited:focus {
   color: var(--link-color);
@@ -639,8 +633,7 @@ details > div {
 .slide {
   display: flex;
   flex-flow: column nowrap;
-  padding: var(--lg-padding) var(--xl-padding) var(--xl-padding)
-    var(--xl-padding);
+  padding: var(--lg-padding) var(--xl-padding) var(--xl-padding) var(--xl-padding);
   gap: var(--lg-padding);
   width: 100%;
   position: relative;
@@ -653,7 +646,7 @@ details > div {
 }
 .slide img {
   -o-object-fit: contain;
-  object-fit: contain;
+     object-fit: contain;
   width: auto;
   height: auto;
   border-radius: var(--border-radius);
@@ -688,8 +681,7 @@ details > div {
 }
 
 @keyframes blink-caret {
-  from,
-  to {
+  from, to {
     color: transparent;
   }
   50% {
@@ -733,8 +725,7 @@ form textarea {
   padding: var(--md-padding);
   border-radius: var(--border-radius);
 }
-form input:hover,
-form input:focus,
+form input:hover, form input:focus,
 form textarea:hover,
 form textarea:focus {
   background-color: var(--medium-background-color);
@@ -775,15 +766,14 @@ form .button-container {
 
 #menu-icon {
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   cursor: pointer;
   display: none;
   grid-column: 3;
   background-color: transparent;
 }
-#menu-icon:hover,
-#menu-icon:focus {
+#menu-icon:hover, #menu-icon:focus {
   background-color: transparent;
 }
 
