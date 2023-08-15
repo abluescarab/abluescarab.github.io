@@ -36,7 +36,7 @@ VS Code can be used to debug the TypeScript files once they are successfully com
 * [Marta Branco](https://www.pexels.com/@martabranco/), ["Closeup Photo of Black and Blue Keyboard"](https://www.pexels.com/photo/closeup-photo-of-black-and-blue-keyboard-1194713/)
 * [Boxicons](https://github.com/atisawd/boxicons?ref=svgrepo.com), C++
 * [Blivesta](https://github.com/blivesta/flexicon?ref=svgrepo.com), HTML5
-* [Coreui](https://github.com/coreui/coreui-icons/?ref=svgrepo.com), Visual Studio, VS Code, JetBrains, Ionic, LaTeX
+* [Coreui](https://github.com/coreui/coreui-icons/?ref=svgrepo.com), Visual Studio, VS Code, JetBrains, Ionic, LaTeX, TypeScript
 * [Diemen Design](https://github.com/DiemenDesign/LibreICONS?ref=svgrepo.com), Microsoft Word, Microsoft PowerPoint
 * [Etn Ccis](https://github.com/etn-ccis/blui-icons?ref=svgrepo.com), PowerPoint
 * [Grommet](https://github.com/grommet/grommet-icons?ref=svgrepo.com), Zoom
